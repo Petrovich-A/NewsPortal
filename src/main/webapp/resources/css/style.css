@@ -1,0 +1,40 @@
+@font-face{ 
+  font-family: 'Orange juice';
+  src: url('../orange juice 2.0.ttf');
+}
+
+body {
+	background: white;
+	background: radial-gradient(#ff8000, #ce6700);
+}
+
+h1 {	
+	text-align: center;
+	border: 6px solid red;
+	color: red;
+	font-family: 'Orange juice', sans-serif;
+	font-size: 80px;
+	background-color: Moccasin;
+}
+
+h2 {	
+	text-align: left;
+	border: 4px solid red;
+	color: #d50000; 
+	font-size: 20px;
+  	padding: 8px 16px;
+	background-color: Moccasin;
+}
+
+form li{
+    padding:12px;
+    border-bottom:1px solid #eee;
+    position:relative;
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}

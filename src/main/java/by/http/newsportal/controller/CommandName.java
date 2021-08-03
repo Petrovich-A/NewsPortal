@@ -1,0 +1,12 @@
+package by.http.newsportal.controller;
+
+public enum CommandName {
+	REGISTRATION,
+	LOGIN,
+	REGISTRATIONINFO,
+	LOGININFO,
+	REGISTRATION_NEW_USER,
+	UNKNOWN_COMMAND,
+	CHANGE_LOCAL,
+	GO_TO_MAIN_PAGE
+}
