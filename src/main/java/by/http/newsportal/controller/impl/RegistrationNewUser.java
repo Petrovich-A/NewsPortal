@@ -23,11 +23,8 @@ public class RegistrationNewUser implements ICommand {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException  {
 		RegistrationInfo registrationInfo = new RegistrationInfo(null, null, null, null, null, null);
 		try {
-			System.out.println("!!!!");
 			userService.registration(registrationInfo);
-			
 			request.setAttribute("message", "Please log in");
-			
 			response.sendRedirect("Controller?command=logIn&message=Please log in");
 			
 		} catch (ServiceException e) {
