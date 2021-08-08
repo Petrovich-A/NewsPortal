@@ -15,14 +15,17 @@ import jakarta.servlet.http.HttpServletResponse;
 public class RegistrationNewUser implements ICommand {
 	final static String PATH = "/WEB-INF/jsp/LogInPage.jsp";
 	
-	
 	private static final ServiceProvider provider = ServiceProvider.getInstance();
 	private static final IUserService userService = provider.getUserService();
 	
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException  {
+		if (request.getParameter(PATH) == null) {
+			
+		}
 		RegistrationInfo registrationInfo = new RegistrationInfo(null, null, null, null, null, null);
 		try {
+			
 			userService.registration(registrationInfo);
 			request.setAttribute("message", "Please log in");
 			response.sendRedirect("Controller?command=logIn&message=Please log in");
@@ -33,6 +36,15 @@ public class RegistrationNewUser implements ICommand {
 			e.printStackTrace();
 			
 			request.getSession(true).setAttribute("url", PATH);
+			
+			
+//			request.getParameter();
+			
+			//validation
+			//User user
+			//console writer
+			//go to jsp - go to error
+			
 		}
 		
 	}

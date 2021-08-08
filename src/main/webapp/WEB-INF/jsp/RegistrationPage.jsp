@@ -43,8 +43,9 @@
 <hr />
 <h2>${registrationPageH2_text}</h2>
 
+<form action="Controller" method="post">
+
 <fieldset class="logIn-info">
-	
 	<fieldset>
 		<label>
 			${user_name}
@@ -98,13 +99,13 @@
 		</label>
 		
 		<label>
-			<form action="Controller" method="post">
-				<input type="hidden" name="command" value="registration_new_user" />
-				<button button name="button"> <strong>${submit_button}</strong> </button>
-			</form>
+			
+	<input type="hidden" name="command" value="registration_new_user" />
+	<button button name="button"> <strong>${submit_button}</strong> </button>
+
 		</label>
 	</fieldset>
-		
+</fieldset>
 </form>
 
 </body>

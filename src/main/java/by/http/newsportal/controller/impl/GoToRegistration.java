@@ -3,6 +3,7 @@ package by.http.newsportal.controller.impl;
 import java.io.IOException;
 
 import by.http.newsportal.controller.ICommand;
+import by.http.newsportal.dao.imp.NewsRepos;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -14,6 +15,14 @@ public class GoToRegistration implements ICommand {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException  {
+		NewsRepos newsRepos = new NewsRepos();
+		try {
+			newsRepos.addNews();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher(PATH);
 		requestDispatcher.forward(request, response);
 		
@@ -21,6 +30,8 @@ public class GoToRegistration implements ICommand {
 		session.setAttribute("local", request.getParameter("local"));
 		
 		request.getSession(true).setAttribute("url", PATH);
+		
+		
 	}
 
 }

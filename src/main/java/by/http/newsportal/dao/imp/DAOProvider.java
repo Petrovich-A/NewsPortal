@@ -5,6 +5,10 @@ public class DAOProvider {
 
 	public NewsDaoImp getNewsDaoImp() {
 		return newsDaoImp;
+		
+		//объеденить интерфейс дао и сервис
+		//INews  = news dao impl
+		
 	}
 	
 }
