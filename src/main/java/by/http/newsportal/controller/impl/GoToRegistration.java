@@ -14,7 +14,7 @@ public class GoToRegistration implements ICommand {
 	final static String PATH = "/WEB-INF/jsp/RegistrationPage.jsp";
 
 	@Override
-	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException  {
+	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		NewsRepos newsRepos = new NewsRepos();
 		try {
 			newsRepos.addNews();
@@ -22,16 +22,15 @@ public class GoToRegistration implements ICommand {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher(PATH);
 		requestDispatcher.forward(request, response);
-		
+
 		HttpSession session = request.getSession(true);
 		session.setAttribute("local", request.getParameter("local"));
-		
+
 		request.getSession(true).setAttribute("url", PATH);
-		
-		
+
 	}
 
 }

@@ -49,12 +49,12 @@
 	<fieldset>
 		<label>
 			${user_name}
-			<input type="text" name="name" value="">
+			<input type="text" name="name" maxlength="20" value="">
 		</label>
 		
 		<label>
 			${user_password}
-			<input type="password" name="password" value="">
+			<input type="password" name="password" maxlength="25" value="">
 		</label>
 		
 		<label>
@@ -95,7 +95,7 @@
 		
 	<fieldset>
 		<label>
-			<textarea name="comment" value="hobby" > ${user_comment}</textarea>
+			<textarea name="hobby" value="" > ${user_comment}</textarea>
 		</label>
 		
 		<label>

@@ -3,8 +3,12 @@ package by.http.newsportal.dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.List;
 
-public class DAoConnection implements DAO{
+import by.http.newsportal.bean.News;
+import by.http.newsportal.service.ServiceException;
+
+public class NewsConnection implements INewsDAO{
 	
 	private Connection con;
 		
@@ -23,31 +27,16 @@ public class DAoConnection implements DAO{
 		return con;
 	}
 
+	@Override
+	public void add(News news) throws ServiceException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<News> read() throws ServiceException {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
-	
-
-	@Override
-	public void create() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void read() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void update() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void delite() {
-		// TODO Auto-generated method stub
-		
-	}
-
 }

@@ -1,39 +1,44 @@
 package by.http.newsportal.bean;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class User {
+	public String name;
+	public String surName;
+	public String email;
 	public String role;
-    public char[] logIn;
-    public char[] password;
-    public String eMail;
-    public String country;
-    public String[] language;
-    public String comment;
-	
-    public User(String role, char[] logIn, char[] password, String eMail, String country, String[] language,
-			String comment) {
+	public String password;
+	public String dateRegistration;
+
+	public User(String name, String email) {
 		super();
-		this.role = role;
-		this.logIn = logIn;
-		this.password = password;
-		this.eMail = eMail;
-		this.country = country;
-		this.language = language;
-		this.comment = comment;
+		this.name = name;
+		this.email = email;
 	}
 
-	public User(char[] logIn, char[] password) {
-		super();
-		this.logIn = logIn;
-		this.password = password;
+	public String getName() {
+		return name;
 	}
 
-	@Override
-	public String toString() {
-		return "User [role=" + role + ", logIn=" + Arrays.toString(logIn) + ", password=" + Arrays.toString(password)
-				+ ", eMail=" + eMail + ", country=" + country + ", language=" + Arrays.toString(language) + ", comment="
-				+ comment + "]";
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getSurName() {
+		return surName;
+	}
+
+	public void setSurName(String surName) {
+		this.surName = surName;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getRole() {
@@ -44,52 +49,45 @@ public class User {
 		this.role = role;
 	}
 
-	public char[] getLogIn() {
-		return logIn;
-	}
-
-	public void setLogIn(char[] logIn) {
-		this.logIn = logIn;
-	}
-
-	public char[] getPassword() {
+	public String getPassword() {
 		return password;
 	}
 
-	public void setPassword(char[] password) {
+	public void setPassword(String password) {
 		this.password = password;
 	}
 
-	public String geteMail() {
-		return eMail;
+	public String getDateRegistration() {
+		return dateRegistration;
 	}
 
-	public void seteMail(String eMail) {
-		this.eMail = eMail;
+	public void setDateRegistration(String dateRegistration) {
+		this.dateRegistration = dateRegistration;
 	}
 
-	public String getCountry() {
-		return country;
+	@Override
+	public int hashCode() {
+		return Objects.hash(dateRegistration, email, name, password, role, surName);
 	}
 
-	public void setCountry(String country) {
-		this.country = country;
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		User other = (User) obj;
+		return Objects.equals(dateRegistration, other.dateRegistration) && Objects.equals(email, other.email)
+				&& Objects.equals(name, other.name) && Objects.equals(password, other.password)
+				&& Objects.equals(role, other.role) && Objects.equals(surName, other.surName);
 	}
 
-	public String[] getLanguage() {
-		return language;
+	@Override
+	public String toString() {
+		return "User [name=" + name + ", surName=" + surName + ", email=" + email + ", role=" + role + ", password="
+				+ password + ", dateRegistration=" + dateRegistration + "]";
 	}
 
-	public void setLanguage(String[] language) {
-		this.language = language;
-	}
-
-	public String getComment() {
-		return comment;
-	}
-
-	public void setComment(String comment) {
-		this.comment = comment;
-	}
-    
 }
