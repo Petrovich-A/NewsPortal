@@ -6,17 +6,15 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.util.List;
 
-import by.http.newsportal.bean.News;
-import by.http.newsportal.dao.INewsDAO;
+import by.http.newsportal.bean.RegistrationInfo;
+import by.http.newsportal.dao.IUserDAO;
 import by.http.newsportal.service.ServiceException;
-import by.http.newsportal.service.ServiceProvider;
 
-public class UserDAO implements INewsDAO {
-
+public class UserDAO implements IUserDAO {
+	
 	@Override
-	public void add(News news) throws ServiceException {
+	public void add(RegistrationInfo registrationInfo) throws ServiceException {
 		try {
 			Class.forName("org.gjt.mm.mysql.Driver"); // д.б. один раз
 		} catch (ClassNotFoundException e) {
@@ -38,7 +36,8 @@ public class UserDAO implements INewsDAO {
 		try {
 			preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setDate(0, null);
-			// preparedStatement.setString(1, in);
+			preparedStatement.setString(1, registrationInfo.getName());
+			preparedStatement.setString(1, registrationInfo.getPassword());
 			preparedStatement.setDate(4, Date.valueOf(LocalDate.now()));
 			preparedStatement.executeUpdate();
 			preparedStatement.close();
@@ -48,12 +47,6 @@ public class UserDAO implements INewsDAO {
 			e.printStackTrace();
 		}
 
-	}
-
-	@Override
-	public List<News> read() throws ServiceException {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

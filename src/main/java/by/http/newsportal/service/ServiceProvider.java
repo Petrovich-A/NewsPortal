@@ -4,7 +4,7 @@ import by.http.newsportal.service.impl.NewsServiceImpl;
 import by.http.newsportal.service.impl.UserServiceImpl;
 
 public class ServiceProvider {
-	private static final ServiceProvider instance = new ServiceProvider();
+	private static final ServiceProvider INSTANCE = new ServiceProvider();
 
 	private final IUserService userService = new UserServiceImpl();
 	private final INewsService newsService = new NewsServiceImpl();
@@ -14,7 +14,7 @@ public class ServiceProvider {
 	}
 
 	public static ServiceProvider getInstance() {
-		return instance;
+		return INSTANCE;
 	}
 
 	public IUserService getUserService() {

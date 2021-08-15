@@ -9,7 +9,7 @@ public class RegistrationInfo {
 	public String name;
 	public String password;
 	public String eMail;
-	public String country;
+	public String[] country;
 	public String[] language;
 	public String hobby;
 
@@ -37,11 +37,11 @@ public class RegistrationInfo {
 		this.eMail = eMail;
 	}
 
-	public String getCountry() {
+	public String[] getCountry() {
 		return country;
 	}
 
-	public void setCountry(String country) {
+	public void setCountry(String[] country) {
 		this.country = country;
 	}
 
@@ -61,7 +61,7 @@ public class RegistrationInfo {
 		this.hobby = hobby;
 	}
 
-	public RegistrationInfo(String name, String password, String eMail, String country, String[] language,
+	public RegistrationInfo(String name, String password, String eMail, String[] country, String[] language,
 			String hobby) {
 		super();
 		this.name = name;
@@ -72,18 +72,28 @@ public class RegistrationInfo {
 		this.hobby = hobby;
 	}
 
+	public RegistrationInfo(String name, String password, String eMail, String[] country, String[] language) {
+		super();
+		this.name = name;
+		this.password = password;
+		this.eMail = eMail;
+		this.country = country;
+		this.language = language;
+	}
+
 	@Override
 	public String toString() {
-		return "RegistrationInfo [name=" + name + ", password=" + password + ", eMail=" + eMail + ", country=" + country
-				+ ", language=" + Arrays.toString(language) + ", hobby=" + hobby + "]";
+		return "RegistrationInfo [name=" + name + ", password=" + password + ", eMail=" + eMail + ", country="
+				+ Arrays.toString(country) + ", language=" + Arrays.toString(language) + ", hobby=" + hobby + "]";
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + Arrays.hashCode(country);
 		result = prime * result + Arrays.hashCode(language);
-		result = prime * result + Objects.hash(country, eMail, hobby, name, password);
+		result = prime * result + Objects.hash(eMail, hobby, name, password);
 		return result;
 	}
 
@@ -96,20 +106,9 @@ public class RegistrationInfo {
 		if (getClass() != obj.getClass())
 			return false;
 		RegistrationInfo other = (RegistrationInfo) obj;
-		return Objects.equals(country, other.country) && Objects.equals(eMail, other.eMail)
+		return Arrays.equals(country, other.country) && Objects.equals(eMail, other.eMail)
 				&& Objects.equals(hobby, other.hobby) && Arrays.equals(language, other.language)
 				&& Objects.equals(name, other.name) && Objects.equals(password, other.password);
-	}
-
-	public void getRequest(HttpServletRequest request) {
-		this.name = request.getParameter("name");
-		this.password = request.getParameter("password");
-		this.eMail = request.getParameter("eMail");
-		this.country = request.getParameter("country");
-		for (String languageStr : this.language) {
-			languageStr = request.getParameter("language");
-		}
-		this.hobby = request.getParameter("hobby");
 	}
 
 }

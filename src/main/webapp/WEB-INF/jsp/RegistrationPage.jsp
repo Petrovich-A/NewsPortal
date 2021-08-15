@@ -38,7 +38,6 @@
 </head>
 
 <body>
-
 <h1>${registrationPageH1_text}</h1>
 <hr />
 <h2>${registrationPageH2_text}</h2>
@@ -49,17 +48,17 @@
 	<fieldset>
 		<label>
 			${user_name}
-			<input type="text" name="name" maxlength="20" value="">
+			<input type="text" name="name" required="required" maxlength="20" value="">
 		</label>
 		
 		<label>
 			${user_password}
-			<input type="password" name="password" maxlength="25" value="">
+			<input type="password" name="password" required="required" maxlength="25" value="">
 		</label>
 		
 		<label>
 			${user_email}
-			<input type="email" name="email-address" value="">
+			<input type="email" name="email-address" required="required" value="">
 		</label>
 	</fieldset>
 	
@@ -82,9 +81,8 @@
 				<option value="Israel"> ${user_country_israel}</option>
 			</select>
 		</label>
-	</fieldset>
 		
-
+	</fieldset>
 		<label>
 			${user_language}
 			<input type="checkbox" name="language" value="Belarusian" checked /> ${user_language_belarus}
@@ -99,14 +97,13 @@
 		</label>
 		
 		<label>
-			
-	<input type="hidden" name="command" value="registration_new_user" />
-	<button button name="button"> <strong>${submit_button}</strong> </button>
-
-		</label>
+			<input type="hidden" name="command" value="registration_new_user" />
+			<button button name="button"> <strong>${submit_button}</strong> </button>
+		</label>	
 	</fieldset>
+	
 </fieldset>
 </form>
-
 </body>
+
 </html>

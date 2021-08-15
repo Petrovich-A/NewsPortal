@@ -1,4 +1,4 @@
-package by.http.newsportal.dao;
+package by.http.newsportal.dao.imp;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import by.http.newsportal.bean.News;
+import by.http.newsportal.dao.INewsDAO;
 import by.http.newsportal.service.ServiceException;
 
 public class NewsConnection implements INewsDAO{
