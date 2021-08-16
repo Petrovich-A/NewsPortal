@@ -2,16 +2,12 @@ package by.http.newsportal.controller.impl;
 
 import java.io.IOException;
 
-import by.http.newsportal.bean.User;
 import by.http.newsportal.controller.ICommand;
 import by.http.newsportal.service.IUserService;
-import by.http.newsportal.service.ServiceException;
 import by.http.newsportal.service.ServiceProvider;
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 
 public class SignIn implements ICommand {
 	final static String PATH = "/WEB-INF/jsp/LogInInfoPage.jsp";

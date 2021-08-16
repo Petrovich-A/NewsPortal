@@ -3,8 +3,6 @@ package by.http.newsportal.bean;
 import java.util.Arrays;
 import java.util.Objects;
 
-import jakarta.servlet.http.HttpServletRequest;
-
 public class RegistrationInfo {
 	public String name;
 	public String password;
