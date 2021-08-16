@@ -11,8 +11,8 @@ import jakarta.servlet.http.HttpServletResponse;
 
 public class SignIn implements ICommand {
 	final static String PATH = "/WEB-INF/jsp/LogInInfoPage.jsp";
-	private static final ServiceProvider provider = ServiceProvider.getInstance();
-	private static final IUserService userService = provider.getUserService();
+	private static final ServiceProvider PROVIDER = ServiceProvider.getInstance();
+	private static final IUserService USER_SERVICE = PROVIDER.getUserService();
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
