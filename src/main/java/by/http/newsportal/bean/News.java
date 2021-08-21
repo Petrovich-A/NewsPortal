@@ -7,12 +7,49 @@ public class News {
 	private String title;
 	private String brief;
 	private String content;
+	private String author;
 	private Date date;
 
-	public News(String title, String brief) {
+	public News(String title, String brief, String content, String author, Date date) {
 		super();
 		this.title = title;
 		this.brief = brief;
+		this.content = content;
+		this.author = author;
+		this.date = date;
+	}
+
+	public News(String title, String brief, String content, String author) {
+		super();
+		this.title = title;
+		this.brief = brief;
+		this.content = content;
+		this.author = author;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(author, brief, content, date, title);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		News other = (News) obj;
+		return Objects.equals(author, other.author) && Objects.equals(brief, other.brief)
+				&& Objects.equals(content, other.content) && Objects.equals(date, other.date)
+				&& Objects.equals(title, other.title);
+	}
+
+	@Override
+	public String toString() {
+		return "News [title=" + title + ", brief=" + brief + ", content=" + content + ", author=" + author + ", date="
+				+ date + "]";
 	}
 
 	public String getTitle() {
@@ -31,27 +68,28 @@ public class News {
 		this.brief = brief;
 	}
 
-	@Override
-	public String toString() {
-		return "News [title=" + title + ", brief=" + brief + ", content=" + content + ", date=" + date + "]";
+	public String getContent() {
+		return content;
 	}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(brief, content, date, title);
+	public void setContent(String content) {
+		this.content = content;
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		News other = (News) obj;
-		return Objects.equals(brief, other.brief) && Objects.equals(content, other.content)
-				&& Objects.equals(date, other.date) && Objects.equals(title, other.title);
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
 	}
 
 }

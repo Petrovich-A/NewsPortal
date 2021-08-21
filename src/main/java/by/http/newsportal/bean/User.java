@@ -3,41 +3,14 @@ package by.http.newsportal.bean;
 import java.util.Objects;
 
 public class User {
-	public String name;
-	public String surName;
-	public String email;
+	private static final long serialVersionID = 1L;
 	public String role;
-	public String password;
-	public String dateRegistration;
+	public String login;
 
-	public User(String name, String email) {
+	public User(String role, String login) {
 		super();
-		this.name = name;
-		this.email = email;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getSurName() {
-		return surName;
-	}
-
-	public void setSurName(String surName) {
-		this.surName = surName;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
+		this.role = role;
+		this.login = login;
 	}
 
 	public String getRole() {
@@ -48,25 +21,22 @@ public class User {
 		this.role = role;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getLogin() {
+		return login;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setLogin(String login) {
+		this.login = login;
 	}
 
-	public String getDateRegistration() {
-		return dateRegistration;
-	}
-
-	public void setDateRegistration(String dateRegistration) {
-		this.dateRegistration = dateRegistration;
+	@Override
+	public String toString() {
+		return "User [role=" + role + ", login=" + login + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(dateRegistration, email, name, password, role, surName);
+		return Objects.hash(login, role);
 	}
 
 	@Override
@@ -78,15 +48,7 @@ public class User {
 		if (getClass() != obj.getClass())
 			return false;
 		User other = (User) obj;
-		return Objects.equals(dateRegistration, other.dateRegistration) && Objects.equals(email, other.email)
-				&& Objects.equals(name, other.name) && Objects.equals(password, other.password)
-				&& Objects.equals(role, other.role) && Objects.equals(surName, other.surName);
-	}
-
-	@Override
-	public String toString() {
-		return "User [name=" + name + ", surName=" + surName + ", email=" + email + ", role=" + role + ", password="
-				+ password + ", dateRegistration=" + dateRegistration + "]";
+		return Objects.equals(login, other.login) && Objects.equals(role, other.role);
 	}
 
 }

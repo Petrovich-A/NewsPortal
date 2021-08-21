@@ -1,13 +1,40 @@
 package by.http.newsportal.dao;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import by.http.newsportal.bean.News;
 import by.http.newsportal.service.ServiceException;
 
 public interface INewsDAO {
-	public void add(News news) throws ServiceException;
+	/**
+	 * create
+	 * 
+	 * @param news
+	 * @throws ServiceException
+	 */
+	public void add(News news) throws DAOException;
 
-	public List<News> read() throws ServiceException;
+	/**
+	 * read
+	 * 
+	 * @return
+	 * @throws DAOException
+	 */
+	public ArrayList<News> getListNews() throws DAOException;
 
+	/**
+	 * update
+	 * 
+	 * @param news
+	 * @throws ServiceException
+	 */
+	public void update(News news) throws DAOException;
+
+	/**
+	 * delete
+	 * 
+	 * @param news
+	 * @throws ServiceException
+	 */
+	public void delete(News news) throws DAOException;
 }

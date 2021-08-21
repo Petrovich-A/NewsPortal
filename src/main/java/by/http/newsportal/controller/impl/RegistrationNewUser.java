@@ -14,7 +14,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 public class RegistrationNewUser implements ICommand {
 
-	private static final String PATH = "/WEB-INF/jsp/LogInPage.jsp";
+	private static final String PATH = "/WEB-INF/jsp/logInPage.jsp";
 	private static final String PATH_SESSION = "";
 	private static final ServiceProvider PROVIDER = ServiceProvider.getInstance();
 	private static final IUserService USER_SERVICE = PROVIDER.getUserService();
@@ -27,20 +27,13 @@ public class RegistrationNewUser implements ICommand {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if (request.getParameter(PATH) == null) {
-
 		}
-
+		
 		String name = request.getParameter("name");
 		String password = request.getParameter("password");
 		String emailAddress = request.getParameter("email-address");
-		String country[] = request.getParameterValues("country");
-		for (String languageStr : country) {
-			languageStr = request.getParameter("language");
-		}
-		String language[] = request.getParameterValues("language");
-		for (String languageStr : language) {
-			languageStr = request.getParameter("language");
-		}
+		String[] country = request.getParameterValues("country");
+		String[] language = request.getParameterValues("language");
 		String hobby = request.getParameter("hobby");
 
 		if (name == null) {
@@ -49,7 +42,7 @@ public class RegistrationNewUser implements ICommand {
 
 		RegistrationInfo registrationInfo = new RegistrationInfo(name, password, emailAddress, country, language,
 				hobby);
-		
+
 		if (registrationInfo == null) {
 			response.sendRedirect("Controller?command=RegistrationNewUser&message=Please !!");
 		}
@@ -67,7 +60,7 @@ public class RegistrationNewUser implements ICommand {
 			requestDispatcher.forward(request, response);
 			e.printStackTrace();
 
-			// console wri ter
+			// console writer
 			// go to jsp - go to error
 
 		}

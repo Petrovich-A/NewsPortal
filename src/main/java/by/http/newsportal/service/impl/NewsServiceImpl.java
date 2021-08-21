@@ -1,6 +1,7 @@
 package by.http.newsportal.service.impl;
 
 import by.http.newsportal.bean.News;
+import by.http.newsportal.dao.DAOException;
 import by.http.newsportal.dao.DAOProvider;
 import by.http.newsportal.dao.INewsDAO;
 import by.http.newsportal.service.INewsService;
@@ -12,8 +13,11 @@ public class NewsServiceImpl implements INewsService {
 
 	@Override
 	public void add(News news) throws ServiceException {
-		// TODO Auto-generated method stub
-		
+		try {
+			NEWS_DAO.add(news);
+		} catch (DAOException e) {
+			throw new ServiceException(e);
+		}
 	}
 
 }

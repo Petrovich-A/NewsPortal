@@ -11,17 +11,13 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-public class GoToMainPage implements ICommand{
+public class GoToMainPage implements ICommand {
 
 	final static String PATH = "/WEB-INF/jsp/main.jsp";
 
 	@Override
-	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException  {
-		List<News> news = new ArrayList<News>();
-		news.add(new News("t1", "b1 b1 b1 b1"));
-		news.add(new News("t2", "b2 b2 b2 b2"));
-		
-		request.setAttribute("news", news);
+	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//		request.setAttribute("news", news);
 		request.getSession(true).setAttribute("url", PATH);
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher(PATH);
 		requestDispatcher.forward(request, response);

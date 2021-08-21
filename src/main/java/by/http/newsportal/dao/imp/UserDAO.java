@@ -2,50 +2,60 @@ package by.http.newsportal.dao.imp;
 
 import java.sql.Connection;
 import java.sql.Date;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.time.LocalDate;
-
 import by.http.newsportal.bean.RegistrationInfo;
+import by.http.newsportal.dao.DAOException;
 import by.http.newsportal.dao.IUserDAO;
-import by.http.newsportal.service.ServiceException;
 
 public class UserDAO implements IUserDAO {
-	
+	private final String SQL = "INSERT INTO user(name, password, eMail, country, language, hobby) VALUES(?,?,?,?,?,?)";
+
 	@Override
-	public void add(RegistrationInfo registrationInfo) throws ServiceException {
-		try {
-			Class.forName("org.gjt.mm.mysql.Driver"); // д.б. один раз
+	public void add(RegistrationInfo registrationInfo) throws DAOException {
+		try (newsPortalConnection newsPortalConnection = new newsPortalConnection();
+				Connection connection = newsPortalConnection.getNewsConnection();
+				PreparedStatement preparedStatement = connection.prepareStatement(SQL);) {
+
+			preparedStatement.setDate(0, null);
+			preparedStatement.setString(1, registrationInfo.getName());
+			preparedStatement.setString(2, registrationInfo.getPassword());
+			preparedStatement.setString(3, registrationInfo.geteMail());
+			preparedStatement.setString(4, String.join(",", registrationInfo.getCountry()));
+			preparedStatement.setString(5, String.join(",", registrationInfo.getLanguage()));
+			preparedStatement.setString(6, registrationInfo.getHobby());
+			preparedStatement.setDate(7, Date.valueOf(LocalDate.now()));
+			preparedStatement.executeUpdate();
+
+			System.out.println("user is added");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		Connection connection = null;
-		try {
-			connection = DriverManager.getConnection(
-					"jdbc:mysql://127.0.0.1/newsPortalDB?allowPublicKeyRetrieval=true&useSSL=false", "root",
-					"sW!gv&H.6M^u");
-		} catch (SQLException e) {
+		} catch (Exception e1) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			e1.printStackTrace();
 		}
+	}
 
-		String sql = "INSERT INTO userstable(role, logIn, password, eMail, country, language, hobby) VALUES(?,?,?,?,?,?,?)";
-		PreparedStatement preparedStatement;
-		try {
-			preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setDate(0, null);
-			preparedStatement.setString(1, registrationInfo.getName());
-			preparedStatement.setString(1, registrationInfo.getPassword());
-			preparedStatement.setDate(4, Date.valueOf(LocalDate.now()));
-			preparedStatement.executeUpdate();
-			preparedStatement.close();
-			connection.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	@Override
+	public void update(RegistrationInfo registrationInfo) throws DAOException {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void remove(RegistrationInfo registrationInfo) throws DAOException {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void getByID(RegistrationInfo registrationInfo) throws DAOException {
+		// TODO Auto-generated method stub
 
 	}
 
