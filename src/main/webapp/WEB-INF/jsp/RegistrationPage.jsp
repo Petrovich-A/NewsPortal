@@ -9,6 +9,7 @@
 <meta charset="UTF-8">
 <link href="resources/css/style.css" rel="stylesheet">
 <title>Registration page</title>
+
 <fmt:setLocale value="${sessionScope.local}" />
 <fmt:setBundle basename="properties.local" var="loc" />
 <fmt:message bundle="${loc}" key="local.message" var="message" />
@@ -42,38 +43,58 @@
 
 	<form action="Controller" method="post">
 
-		<fieldset class="logIn-info">
-			<label> ${user_name} <input type="text" name="name" required="required" maxlength="20" value="">
-			</label> <label> ${user_password} <input type="password" name="password" required="required" maxlength="25" value="">
-			</label> <label> ${user_email} <input type="email" name="email-address" required="required" value="">
-			</label> <label> ${user_gender} <input type="radio" name="gender" value="male">${user_gender_male} <input type="radio" name="gender"
-					value="female">${user_gender_female} <input type="radio" name="gender" value="other">${user_gender_other}
-			</label>
+		<fieldset class="Regiatrstion">
+			<p>
+				<label> ${user_name} <input type="text" name="name" required="required" size="40" maxlength="20" ></label>
+			</p>
 
-			<label> ${user_country} <select name="country">
-					<option value="Belarus" selected>${user_country_belarus}</option>
-					<option value="Russia">${user_country_russia}</option>
-					<option value="Ukraine">${user_country_ukraine}</option>
-					<option value="Israel">${user_country_israel}</option>
+			<p>
+				<label> ${user_password} <input type="password" name="password" required="required" size="40" maxlength="25" ></label>
+			</p>
+
+			<p>
+				<label> ${user_email} <input type="email" name="eMail" required="required" size="40" maxlength="60"></label>
+			</p>
+
+			<p>
+				<label> ${user_gender}</label>
+				<input type="radio" name="gender" value="male">${user_gender_male}
+				<input type="radio" name="gender" value="female">${user_gender_female}
+				<input type="radio" name="gender" value="other">${user_gender_other}
+			</p>
+
+			<label> ${user_country} </label>
+			<select name="country">
+				<option value="Belarus" selected>${user_country_belarus}</option>
+				<option value="Russia">${user_country_russia}</option>
+				<option value="Ukraine">${user_country_ukraine}</option>
+				<option value="Israel">${user_country_israel}</option>
 			</select>
+
+			<br>
+			${user_language} <label> <input type="checkbox" name="language" value="Belarusian" /> ${user_language_belarus}
+			</label>
+			<input type="checkbox" name="language" value="Rusian" />${user_language_rusian}
+			<input type="checkbox" name="language" value="English" />${user_language_english}
+			<input type="checkbox" name="language" value="German" />${user_language_german}
+		</fieldset>
+
+		<fieldset>
+			<label> <textarea name="hobby" rows="15" cols="60" maxlength="1000"
+					onfocus="if(this.value==this.defaultValue)this.value='';" 
+					onblur="if(this.value=='')this.value=this.defaultValue;">${user_hobby} </textarea>
 			</label>
 
-		<label> ${user_language} <input type="checkbox" name="language" value="Belarusian" checked /> ${user_language_belarus} <input
-				type="checkbox" name="language" value="Rusian" checked /> ${user_language_rusian} <input type="checkbox" name="language" value="English" checked />
-			${user_language_english} <input type="checkbox" name="language" value="German" checked /> ${user_language_german}
+		</fieldset>
+
+		<br>
+		<label> <input type="hidden" name="command" value="registration" />
+			<button name="button">
+				<strong>${submit_button}</strong>
+			</button>
 		</label>
 
-		
-		</fieldset>
-			
-			<label> <textarea name="hobby"> ${user_comment}</textarea>
-			</label> <label> <input type="hidden" name="command" value="registration_new_user" />
-				<button name="button">
-					<strong>${submit_button}</strong>
-				</button>
-			</label>
-		
-		</form>
+	</form>
 </body>
 
 </html>

@@ -36,16 +36,19 @@
 					onfocus="if(this.value==this.defaultValue)this.value='';"
 					onblur="if(this.value=='')this.value=this.defaultValue;"> ${news_brief} </textarea> 
 			</label>
+		</fieldset>
 			
-			<br>
+			
+		<fieldset>
 			<label> <textarea name="content" required="required" rows="20" cols="60" maxlength="10_000"
 					onfocus="if(this.value==this.defaultValue)this.value='';"
 					onblur="if(this.value=='')this.value=this.defaultValue;"> ${news_content} </textarea>
 			</label>
+		</fieldset>
 			
-			<br>
-			<label> ${news_author} <input type="text" name="author" required="required" maxlength="60">
-			</label>
+			<p> ${news_author} <br>
+			<label> <input type="text" name="author" required="required" maxlength="60">
+			</label></p>
 
 		</fieldset>
 

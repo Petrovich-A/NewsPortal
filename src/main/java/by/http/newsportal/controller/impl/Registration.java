@@ -13,56 +13,52 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 public class Registration implements ICommand {
-
-	private static final String PATH = "/WEB-INF/jsp/logInPage.jsp";
+	private static final ServiceProvider SERVICE_PROVIDER = ServiceProvider.getInstance();
+	private static final IUserService I_USER_SERVICE = SERVICE_PROVIDER.getUserService();
+	private static String path;
 	private static final String PATH_SESSION = "";
-	private static final ServiceProvider PROVIDER = ServiceProvider.getInstance();
-	private static final IUserService USER_SERVICE = PROVIDER.getUserService();
-	private static final Registration INSTANCE = new Registration();
-
-	public static Registration getInstance() {
-		return INSTANCE;
-	}
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if (request.getParameter(PATH) == null) {
-		}
-		
 		String name = request.getParameter("name");
+		System.out.println("name is put " + name);
 		String password = request.getParameter("password");
-		String emailAddress = request.getParameter("email-address");
-		String[] country = request.getParameterValues("country");
+		System.out.println("password is put " + password);
+		String eMail = request.getParameter("eMail");
+		System.out.println("eMail is put " + eMail);
+		String gender = request.getParameter("gender");
+		System.out.println("gender is put " + gender);
+		String country = request.getParameter("country");
+		System.out.println("country is put " + country);
 		String[] language = request.getParameterValues("language");
+		System.out.println("language is put " + language);
 		String hobby = request.getParameter("hobby");
+		System.out.println("hobby is put " + hobby);
 
-		if (name == null) {
+		if (name == null || name.equals("") || password == null || password.equals("")) {
+			path = "/WEB-INF/jsp/logInPage.jsp";
+			response.sendRedirect("Controller?command=go_to_registration_page");
 			response.sendRedirect("Controller?command=Registration&message=Please regist");
+			return;
 		}
 
-		RegistrationInfo registrationInfo = new RegistrationInfo(name, password, emailAddress, country, language,
+		RegistrationInfo registrationInfo = new RegistrationInfo(name, password, eMail, gender, country, language,
 				hobby);
-
-		if (registrationInfo == null) {
-			response.sendRedirect("Controller?command=Registration&message=Please !!");
-		}
 
 		try {
 
-			USER_SERVICE.registration(registrationInfo);
-			request.getSession(true).setAttribute(PATH_SESSION, PATH);
+			I_USER_SERVICE.registration(registrationInfo);
+			path = "";
+			request.getSession(true).setAttribute(PATH_SESSION, path);
 			request.setAttribute("message", "Please log in");
 			response.sendRedirect("Controller?command=logIn&message=Please log in");
 
 		} catch (ServiceException e) {
-			RequestDispatcher requestDispatcher = request.getRequestDispatcher(PATH);
-			request.getSession(true).setAttribute("url", PATH);
+			RequestDispatcher requestDispatcher = request.getRequestDispatcher(path);
+			request.getSession(true).setAttribute("url", path);
 			requestDispatcher.forward(request, response);
 			e.printStackTrace();
-
-			// console writer
 			// go to jsp - go to error
-
 		}
 	}
 }

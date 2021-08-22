@@ -3,13 +3,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <!DOCTYPE html>
-<html>
 
+<html>
 <head>
 <meta charset="UTF-8">
-<link href="resources/css/logIn.css" rel="stylesheet">
 <link href="resources/css/style.css" rel="stylesheet">
 <title>Log in</title>
+
 <fmt:setLocale value="${sessionScope.local}" />
 <fmt:setBundle basename="properties.local" var="loc" />
 <fmt:message bundle="${loc}" key="local.message" var="message" />

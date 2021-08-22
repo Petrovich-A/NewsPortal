@@ -36,7 +36,7 @@
 <br />
 
 <form action="Controller" method="post">
-	<input type="hidden" name="command" value="go_to_add_news" />
+	<input type="hidden" name="command" value="go_to_add_news_page" />
 	<input type="hidden" name="local" value="Add news" />
 	<input type="submit" value="${addNews_button}" />
 	<br />

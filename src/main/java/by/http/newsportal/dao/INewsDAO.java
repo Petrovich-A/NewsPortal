@@ -1,6 +1,6 @@
 package by.http.newsportal.dao;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import by.http.newsportal.bean.News;
 import by.http.newsportal.service.ServiceException;
@@ -20,7 +20,7 @@ public interface INewsDAO {
 	 * @return
 	 * @throws DAOException
 	 */
-	public ArrayList<News> getListNews() throws DAOException;
+	public List<News> getListNews() throws DAOException;
 
 	/**
 	 * update

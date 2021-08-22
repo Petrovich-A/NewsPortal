@@ -21,7 +21,7 @@ public class CommandProvider {
 		commands.put(CommandName.GO_TO_MAIN_PAGE, new GoToMainPage());
 		commands.put(CommandName.GO_TO_LOG_IN_PAGE, new GoToLogInPage());
 		commands.put(CommandName.GO_TO_REGISTRATION_PAGE, new GoToRegistrationPage());
-		commands.put(CommandName.GO_TO_ADD_NEWS, new GoToAddNews());
+		commands.put(CommandName.GO_TO_ADD_NEWS_PAGE, new GoToAddNews());
 		commands.put(CommandName.GO_TO_LOG_IN_INFO_PAGE, new GoToLogInInfoPage());
 		commands.put(CommandName.CHANGE_LOCAL, new ChangeLocal());
 		commands.put(CommandName.REGISTRATION, new Registration());
