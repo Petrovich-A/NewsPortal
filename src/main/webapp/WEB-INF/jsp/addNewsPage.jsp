@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <link href="resources/css/style.css" rel="stylesheet">
-<title>Registration page</title>
+<title>Add news page</title>
 <fmt:setLocale value="${sessionScope.local}" />
 <fmt:setBundle basename="properties.local" var="loc" />
 <fmt:message bundle="${loc}" key="local.message" var="message" />
@@ -29,37 +29,32 @@
 	<form action="Controller" method="post">
 
 		<fieldset class="add news">
-			<fieldset>
-				<label> 
-					${news_title} <input type="text" name="title" required="required" maxlength="55">
-				</label>
-				<label>
-					${news_brief} <input type="text" name="brief" required="required" maxlength="60">
-				</label>
-			</fieldset>
-
-			<fieldset>
-				<label>
-					${news_content} <input type="text" name="content" required="required" maxlength="200">
-				</label>
-			</fieldset>
+			<label> ${news_title} <input type="text" name="title" required="required" maxlength="55">
+			</label>
 			
-			<fieldset>
-				<label>
-					${news_author} <input type="text" name="author" required="required" maxlength="60">
-				</label>
-			</fieldset>
-
-			<fieldset>
-				<label>
-					<input type="hidden" name="command" value="add_news" />
-					<button name="button">
-						<strong>${submit_button}</strong>
-					</button>
-				</label>
-			</fieldset>
+			<label><textarea name="brief" required="required" rows="10" cols="60" maxlength="800"
+					onfocus="if(this.value==this.defaultValue)this.value='';"
+					onblur="if(this.value=='')this.value=this.defaultValue;"> ${news_brief} </textarea> 
+			</label>
+			
+			<br>
+			<label> <textarea name="content" required="required" rows="20" cols="60" maxlength="10_000"
+					onfocus="if(this.value==this.defaultValue)this.value='';"
+					onblur="if(this.value=='')this.value=this.defaultValue;"> ${news_content} </textarea>
+			</label>
+			
+			<br>
+			<label> ${news_author} <input type="text" name="author" required="required" maxlength="60">
+			</label>
 
 		</fieldset>
+
+		<label> <input type="hidden" name="command" value="add_news" />
+			<button name="button">
+				<strong>${submit_button}</strong>
+			</button>
+		</label>
+
 	</form>
 </body>
 

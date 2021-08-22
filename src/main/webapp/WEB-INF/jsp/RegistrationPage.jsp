@@ -3,8 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <!DOCTYPE html>
-<html>
 
+<html>
 <head>
 <meta charset="UTF-8">
 <link href="resources/css/style.css" rel="stylesheet">
@@ -43,45 +43,37 @@
 	<form action="Controller" method="post">
 
 		<fieldset class="logIn-info">
-			<fieldset>
-				<label> ${user_name} <input type="text" name="name" required="required" maxlength="20" value="">
-				</label> <label> ${user_password} <input type="password" name="password" required="required" maxlength="25" value="">
-				</label> <label> ${user_email} <input type="email" name="email-address" required="required" value="">
-				</label>
-			</fieldset>
-
-			<fieldset>
-				<label> ${user_gender} <input type="radio" name="gender" value="male">${user_gender_male} <input type="radio" name="gender"
-						value="female">${user_gender_female} <input type="radio" name="gender" value="other">${user_gender_other}
-				</label>
-			</fieldset>
-
-			<fieldset>
-				<label> ${user_country} <select name="country">
-						<option value="Belarus" selected>${user_country_belarus}</option>
-						<option value="Russia">${user_country_russia}</option>
-						<option value="Ukraine">${user_country_ukraine}</option>
-						<option value="Israel">${user_country_israel}</option>
-				</select>
-				</label>
-
-			</fieldset>
-			<label> ${user_language} <input type="checkbox" name="language" value="Belarusian" checked /> ${user_language_belarus} <input
-					type="checkbox" name="language" value="Rusian" checked /> ${user_language_rusian} <input type="checkbox" name="language" value="English" checked />
-				${user_language_english} <input type="checkbox" name="language" value="German" checked /> ${user_language_german}
+			<label> ${user_name} <input type="text" name="name" required="required" maxlength="20" value="">
+			</label> <label> ${user_password} <input type="password" name="password" required="required" maxlength="25" value="">
+			</label> <label> ${user_email} <input type="email" name="email-address" required="required" value="">
+			</label> <label> ${user_gender} <input type="radio" name="gender" value="male">${user_gender_male} <input type="radio" name="gender"
+					value="female">${user_gender_female} <input type="radio" name="gender" value="other">${user_gender_other}
 			</label>
 
-			<fieldset>
-				<label> <textarea name="hobby"> ${user_comment}</textarea>
-				</label> <label> <input type="hidden" name="command" value="registration_new_user" />
-					<button name="button">
-						<strong>${submit_button}</strong>
-					</button>
-				</label>
-			</fieldset>
+			<label> ${user_country} <select name="country">
+					<option value="Belarus" selected>${user_country_belarus}</option>
+					<option value="Russia">${user_country_russia}</option>
+					<option value="Ukraine">${user_country_ukraine}</option>
+					<option value="Israel">${user_country_israel}</option>
+			</select>
+			</label>
 
+		<label> ${user_language} <input type="checkbox" name="language" value="Belarusian" checked /> ${user_language_belarus} <input
+				type="checkbox" name="language" value="Rusian" checked /> ${user_language_rusian} <input type="checkbox" name="language" value="English" checked />
+			${user_language_english} <input type="checkbox" name="language" value="German" checked /> ${user_language_german}
+		</label>
+
+		
 		</fieldset>
-	</form>
+			
+			<label> <textarea name="hobby"> ${user_comment}</textarea>
+			</label> <label> <input type="hidden" name="command" value="registration_new_user" />
+				<button name="button">
+					<strong>${submit_button}</strong>
+				</button>
+			</label>
+		
+		</form>
 </body>
 
 </html>

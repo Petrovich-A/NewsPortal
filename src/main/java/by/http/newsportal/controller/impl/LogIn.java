@@ -9,7 +9,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-public class SignIn implements ICommand {
+public class LogIn implements ICommand {
 	final static String PATH = "/WEB-INF/jsp/logInInfoPage.jsp";
 	private static final ServiceProvider PROVIDER = ServiceProvider.getInstance();
 	private static final IUserService USER_SERVICE = PROVIDER.getUserService();

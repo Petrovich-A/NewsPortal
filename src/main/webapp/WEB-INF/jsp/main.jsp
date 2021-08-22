@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
@@ -24,25 +23,21 @@
 
 <form action="Controller" method="post">
 	<input type="hidden" name="command" value="change_local" />
-	<br />
 	<input type="hidden" name="local" value="en" />
 	<input type="submit" value="${en_button}" />
-	<br />
 </form>
 
 <form action="Controller" method="post">
 	<input type="hidden" name="command" value="change_local" />
-	<br />
 	<input type="hidden" name="local" value="ru" />
 	<input type="submit" value="${ru_button}" />
-	<br />
 </form>
 
 <br />
 
 <form action="Controller" method="post">
 	<input type="hidden" name="command" value="go_to_add_news" />
-	<input type="hidden" name="local" value="ru" />
+	<input type="hidden" name="local" value="Add news" />
 	<input type="submit" value="${addNews_button}" />
 	<br />
 </form>
@@ -52,19 +47,19 @@
 </p>
 
 <body>
-	<form action="Controller" method="post">
-		<input type="hidden" name="command" value="registration" />
-		<input type="hidden" name="local" value="Registration" />
-		<input type="submit" value="${registration_button}" />
-		<br />
-	</form>
+<form action="Controller" method="post">
+	<input type="hidden" name="command" value="go_to_registration_page" />
+	<input type="hidden" name="local" value="Registration" />
+	<input type="submit" value="${registration_button}" />
+	<br />
+</form>
 
-	<form action="Controller" method="post">
-		<input type="hidden" name="command" value="login" />
-		<input type="hidden" name="local" value="Log in" />
-		<input type="submit" value="${login_button}" />
-		<br />
-	</form>
+<form action="Controller" method="post">
+	<input type="hidden" name="command" value="go_to_log_in_page" />
+	<input type="hidden" name="local" value="Log in" />
+	<input type="submit" value="${login_button}" />
+	<br />
+</form>
 
 </body>
 </html>

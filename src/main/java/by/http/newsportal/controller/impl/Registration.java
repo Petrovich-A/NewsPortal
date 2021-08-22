@@ -12,15 +12,15 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-public class RegistrationNewUser implements ICommand {
+public class Registration implements ICommand {
 
 	private static final String PATH = "/WEB-INF/jsp/logInPage.jsp";
 	private static final String PATH_SESSION = "";
 	private static final ServiceProvider PROVIDER = ServiceProvider.getInstance();
 	private static final IUserService USER_SERVICE = PROVIDER.getUserService();
-	private static final RegistrationNewUser INSTANCE = new RegistrationNewUser();
+	private static final Registration INSTANCE = new Registration();
 
-	public static RegistrationNewUser getInstance() {
+	public static Registration getInstance() {
 		return INSTANCE;
 	}
 
@@ -37,14 +37,14 @@ public class RegistrationNewUser implements ICommand {
 		String hobby = request.getParameter("hobby");
 
 		if (name == null) {
-			response.sendRedirect("Controller?command=RegistrationNewUser&message=Please regist");
+			response.sendRedirect("Controller?command=Registration&message=Please regist");
 		}
 
 		RegistrationInfo registrationInfo = new RegistrationInfo(name, password, emailAddress, country, language,
 				hobby);
 
 		if (registrationInfo == null) {
-			response.sendRedirect("Controller?command=RegistrationNewUser&message=Please !!");
+			response.sendRedirect("Controller?command=Registration&message=Please !!");
 		}
 
 		try {
