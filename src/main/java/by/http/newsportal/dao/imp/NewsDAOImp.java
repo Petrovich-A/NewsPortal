@@ -8,17 +8,19 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.mysql.jdbc.Statement;
+
 import by.http.newsportal.bean.News;
 import by.http.newsportal.dao.DAOException;
 import by.http.newsportal.dao.INewsDAO;
 
-public class NewsDAO implements INewsDAO {
+public class NewsDAOImp implements INewsDAO {
 	private final String SQL_ADD_NEWS = "INSERT INTO news(title, brief, content, author, date) VALUES(?,?,?,?,?)";
 	private final String SQL_GET_LIST = "SELECT * FROM news";
 
 	@Override
 	public void add(News news) throws DAOException {
-		try (newsPortalConnection newsPortalConnection = new newsPortalConnection();
+		try (MyConnectionToDB newsPortalConnection = new MyConnectionToDB();
 				Connection connection = newsPortalConnection.getNewsConnection();
 				PreparedStatement preparedStatement = connection.prepareStatement(SQL_ADD_NEWS);) {
 			preparedStatement.setString(1, news.getTitle());
@@ -44,9 +46,12 @@ public class NewsDAO implements INewsDAO {
 	@Override
 	public List<News> getListNews() throws DAOException {
 		List<News> newsList = new ArrayList<News>();
-		try (newsPortalConnection newsPortalConnection = new newsPortalConnection();
-				Connection connection = newsPortalConnection.getNewsConnection();
-				PreparedStatement preparedStatement = connection.prepareStatement(SQL_GET_LIST);) {
+		try (MyConnectionToDB myConnectionToDB = new MyConnectionToDB();
+				Connection connection = myConnectionToDB.getNewsConnection();
+//				Statement statement = connection.createStatement());
+				)
+
+		{
 //			String title = preparedStatement.getTitle(title));
 //			preparedStatement.executeUpdate();
 //			newsList.add(new News(title, brief, content, author, date));

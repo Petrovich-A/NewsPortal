@@ -1,6 +1,6 @@
-@font-face{ 
+@font-face {
 	font-family: 'Orange juice';
-	src: url(resources/orange juice 2.0.ttf);
+	src: url(../resources/orange juice 2.0.ttf);
 }
 
 body {
@@ -8,7 +8,7 @@ body {
 	background: radial-gradient(#ff8000, #ce6700);
 }
 
-h1 {	
+h1 {
 	text-align: center;
 	border: 6px solid red;
 	color: red;
@@ -17,19 +17,37 @@ h1 {
 	background-color: Moccasin;
 }
 
-h2 {	
+h2 {
 	text-align: left;
 	border: 4px solid red;
-	color: #d50000; 
+	color: #d50000;
 	font-size: 20px;
 	padding: 8px 16px;
 	background-color: Moccasin;
 }
 
-form li{
-	padding:12px;
-	border-bottom:1px solid #eee;
-	position:relative;
+h3 {
+	text-align: left;
+	border: 4px solid red;
+	color: #d50000;
+	font-size: 14px;
+	padding: 8px 16px;
+	background-color: Moccasin;
+}
+
+h4 {
+	text-align: left;
+	border: 4px solid red;
+	color: #d50000;
+	font-size: 10px;
+	padding: 8px 16px;
+	background-color: Moccasin;
+}
+
+form li {
+	padding: 12px;
+	border-bottom: 1px solid #eee;
+	position: relative;
 }
 
 input[type=text] {
@@ -39,38 +57,6 @@ input[type=text] {
 	box-sizing: border-box;
 }
 
-
-
-.border {
-	list-style: none;
-	padding: 0;
-}
-.border li {
-	font-family: "Trebuchet MS", "Lucida Sans";
-	padding: 7px 20px;
-	margin-bottom: 10px;
-	border-radius: 5px;
-	border-left: 10px solid #f05d22; 
-	box-shadow: 2px -2px 5px 0 rgba(0,0,0,.1),
-	-2px -2px 5px 0 rgba(0,0,0,.1),
-	2px 2px 5px 0 rgba(0,0,0,.1),
-	-2px 2px 5px 0 rgba(0,0,0,.1);
-	font-size: 20px;
-	letter-spacing: 2px;
-	transition: 0.3s all linear;
-}
-.border li:nth-child(2){border-color: #8bc63e;}
-.border li:nth-child(3){border-color: #fcba30;}
-.border li:nth-child(4){border-color: #1ccfc9;}
-.border li:nth-child(5){border-color: #493224;}
-.border li:hover {border-left: 10px solid transparent;}
-.border li:nth-child(1):hover {border-right: 10px solid #f05d22;}
-.border li:nth-child(2):hover {border-right: 10px solid #8bc63e;}
-.border li:nth-child(3):hover {border-right: 10px solid #fcba30;}
-.border li:nth-child(4):hover {border-right: 10px solid #1ccfc9;}
-.border li:nth-child(5):hover {border-right: 10px solid #493224;} 
-
-
 form {
 	border: 1px solid #c6c7cc;
 	border-radius: 5px;
@@ -78,25 +64,30 @@ form {
 	overflow: hidden;
 	width: 240px;
 }
+
 fieldset {
 	border: 0;
 	margin: 0;
 	padding: 0;
 }
+
 input {
 	border-radius: 5px;
 	font: 14px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
 	margin: 0;
 }
+
 .logIn-info {
 	padding: 20px 20px 0 20px;
 }
+
 .logIn-info label {
 	color: white;
 	display: block;
 	font-weight: bold;
 	margin-bottom: 20px;
 }
+
 .logIn-info input {
 	background: #f5feb8;
 	border: 1px solid #c6c7cc;
@@ -106,11 +97,72 @@ input {
 	margin-top: 6px;
 	width: 100%;
 }
+
+.border {
+	list-style: none;
+	padding: 0;
+}
+
+.border li {
+	font-family: "Trebuchet MS", "Lucida Sans";
+	padding: 7px 20px;
+	margin-bottom: 10px;
+	border-radius: 5px;
+	border-left: 10px solid #f05d22;
+	box-shadow: 2px -2px 5px 0 rgba(0, 0, 0, .1), -2px -2px 5px 0
+		rgba(0, 0, 0, .1), 2px 2px 5px 0 rgba(0, 0, 0, .1), -2px 2px 5px 0
+		rgba(0, 0, 0, .1);
+	font-size: 20px;
+	letter-spacing: 2px;
+	transition: 0.3s all linear;
+}
+
+.border li:nth-child(2) {
+	border-color: #8bc63e;
+}
+
+.border li:nth-child(3) {
+	border-color: #fcba30;
+}
+
+.border li:nth-child(4) {
+	border-color: #1ccfc9;
+}
+
+.border li:nth-child(5) {
+	border-color: #493224;
+}
+
+.border li:hover {
+	border-left: 10px solid transparent;
+}
+
+.border li:nth-child(1):hover {
+	border-right: 10px solid #f05d22;
+}
+
+.border li:nth-child(2):hover {
+	border-right: 10px solid #8bc63e;
+}
+
+.border li:nth-child(3):hover {
+	border-right: 10px solid #fcba30;
+}
+
+.border li:nth-child(4):hover {
+	border-right: 10px solid #1ccfc9;
+}
+
+.border li:nth-child(5):hover {
+	border-right: 10px solid #493224;
+}
+
 .logIn-action {
 	background: #ec4f4f;
 	border-top: 1px solid #c6c7cc;
 	padding: 20px;
 }
+
 .logIn-action .btn {
 	background: linear-gradient(#ff3535, #d50000);
 	border: 0;
@@ -120,6 +172,7 @@ input {
 	float: left;
 	padding: 8px 16px;
 }
+
 .logIn-action label {
 	color: white;
 	font-size: 12px;

@@ -1,4 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="by.http.newsportal.bean.News"%>
+<%@ page import="by.http.newsportal.bean.User"%>
+<%@ page import="java.util.ArrayList"%>
+<%@ page import="java.util.List"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
@@ -47,19 +51,33 @@
 </p>
 
 <body>
-<form action="Controller" method="post">
-	<input type="hidden" name="command" value="go_to_registration_page" />
-	<input type="hidden" name="local" value="Registration" />
-	<input type="submit" value="${registration_button}" />
-	<br />
-</form>
+	<form action="Controller" method="post">
+		<input type="hidden" name="command" value="go_to_registration_page" />
+		<input type="hidden" name="local" value="Registration" />
+		<input type="submit" value="${registration_button}" />
+		<br />
+	</form>
 
-<form action="Controller" method="post">
-	<input type="hidden" name="command" value="go_to_log_in_page" />
-	<input type="hidden" name="local" value="Log in" />
-	<input type="submit" value="${login_button}" />
-	<br />
-</form>
+	<form action="Controller" method="post">
+		<input type="hidden" name="command" value="go_to_log_in_page" />
+		<input type="hidden" name="local" value="Log in" />
+		<input type="submit" value="${login_button}" />
+		<br />
+	</form>
+
+	<div style="">
+		<c:forEach var="news" items="${newses}">
+			<a href="Controller?commandToController=GO_CONCRETE_NEWS&choosenNewsId=${news.getId()}" style="text-decoration: none;">
+				<h3>
+					<c:out value="${news.getTitle()}" />
+				</h3>
+				<h4>
+					<c:out value="${news.getBrief()}" />
+				</h4>
+				<hr/>
+			</a>
+		</c:forEach>
+	</div>
 
 </body>
 </html>

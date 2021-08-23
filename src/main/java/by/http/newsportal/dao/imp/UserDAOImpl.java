@@ -9,12 +9,12 @@ import by.http.newsportal.bean.RegistrationInfo;
 import by.http.newsportal.dao.DAOException;
 import by.http.newsportal.dao.IUserDAO;
 
-public class UserDAO implements IUserDAO {
+public class UserDAOImpl implements IUserDAO {
 	private final String SQL = "INSERT INTO user(name, password, eMail, country, language, hobby) VALUES(?,?,?,?,?,?)";
 
 	@Override
 	public void add(RegistrationInfo registrationInfo) throws DAOException {
-		try (newsPortalConnection newsPortalConnection = new newsPortalConnection();
+		try (MyConnectionToDB newsPortalConnection = new MyConnectionToDB();
 				Connection connection = newsPortalConnection.getNewsConnection();
 				PreparedStatement preparedStatement = connection.prepareStatement(SQL);) {
 

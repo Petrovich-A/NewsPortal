@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class newsPortalConnection implements AutoCloseable {
+public class MyConnectionToDB implements AutoCloseable {
 	private static final String BD_URL_NEWS = "jdbc:mysql://127.0.0.1/newsPortal?allowPublicKeyRetrieval=true&useSSL=false";
 	private static final String BD_USER_NAME = "root";
 	private static final String BD_PASSWORD = "sW!gv&H.6M^u";
