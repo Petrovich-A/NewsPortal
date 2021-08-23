@@ -10,6 +10,10 @@ public class News {
 	private String author;
 	private Date date;
 
+	public News() {
+		super();
+	}
+
 	public News(String title, String brief, String content, String author, Date date) {
 		super();
 		this.title = title;
@@ -25,6 +29,14 @@ public class News {
 		this.brief = brief;
 		this.content = content;
 		this.author = author;
+	}
+
+	public News(String title, String brief, String author, Date date) {
+		super();
+		this.title = title;
+		this.brief = brief;
+		this.author = author;
+		this.date = date;
 	}
 
 	@Override

@@ -1,4 +1,4 @@
-package by.http.newsportal.dao.imp;
+package by.http.newsportal.dao.impl;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

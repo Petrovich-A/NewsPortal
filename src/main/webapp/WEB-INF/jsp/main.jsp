@@ -66,15 +66,17 @@
 	</form>
 
 	<div style="">
-		<c:forEach var="news" items="${newses}">
-			<a href="Controller?commandToController=GO_CONCRETE_NEWS&choosenNewsId=${news.getId()}" style="text-decoration: none;">
-				<h3>
-					<c:out value="${news.getTitle()}" />
-				</h3>
-				<h4>
-					<c:out value="${news.getBrief()}" />
-				</h4>
-				<hr/>
+		<c:forEach var="news" items="${news}">
+			<h3>
+				<c:out value="${news.getTitle()}" />
+			</h3>
+			<br>
+			<h4>
+				<c:out value="${news.getBrief()}" />
+				<c:out value="${news.getBrief()}" />
+				<c:out value="${news.getAuthor()}" />
+			</h4>
+			<hr />
 			</a>
 		</c:forEach>
 	</div>

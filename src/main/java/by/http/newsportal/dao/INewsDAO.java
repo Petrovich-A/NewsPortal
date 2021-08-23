@@ -36,5 +36,5 @@ public interface INewsDAO {
 	 * @param news
 	 * @throws ServiceException
 	 */
-	public void delete(News news) throws DAOException;
+	public void delete(int id) throws DAOException;
 }
