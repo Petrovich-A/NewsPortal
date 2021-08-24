@@ -2,7 +2,6 @@ package by.http.newsportal.controller.impl;
 
 import java.io.IOException;
 
-import by.http.newsportal.bean.RegistrationInfo;
 import by.http.newsportal.bean.User;
 import by.http.newsportal.controller.ICommand;
 import by.http.newsportal.service.IUserService;
@@ -25,8 +24,7 @@ public class LogIn implements ICommand {
 		
 	if (name == null || name.equals("") || password == null || password.equals("")) {
 	}
-	
-	RegistrationInfo registrationInfo = new RegistrationInfo(name, password, password, name, password, null);
+	User user = new User(name, password);
 
 //	try {
 //			User user = I_USER_SERVICE.registration(registrationInfo); 

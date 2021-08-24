@@ -20,14 +20,14 @@ public class AddNews implements ICommand {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String title = request.getParameter("title");
-		System.out.println("title is put " + title);
 		String brief = request.getParameter("brief");
-		System.out.println("brief is put " + brief);
 		String content = request.getParameter("content");
-		System.out.println("content is put " + content);
 		String author = request.getParameter("author");
-		System.out.println("author is put " + author);
 		Date date = Date.valueOf(LocalDate.now());
+		System.out.println("title is put " + title);
+		System.out.println("brief is put " + brief);
+		System.out.println("content is put " + content);
+		System.out.println("author is put " + author);
 		System.out.println("news is added");
 
 		News news = new News(title, brief, content, author, date);

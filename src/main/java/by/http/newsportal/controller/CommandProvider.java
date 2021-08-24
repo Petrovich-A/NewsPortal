@@ -2,13 +2,13 @@ package by.http.newsportal.controller;
 
 import java.util.HashMap;
 import java.util.Map;
+
 import by.http.newsportal.controller.impl.AddNews;
 import by.http.newsportal.controller.impl.ChangeLocal;
 import by.http.newsportal.controller.impl.GoToAddNews;
-import by.http.newsportal.controller.impl.GoToLogInPage;
 import by.http.newsportal.controller.impl.GoToLogInInfoPage;
+import by.http.newsportal.controller.impl.GoToLogInPage;
 import by.http.newsportal.controller.impl.GoToMainPage;
-import by.http.newsportal.controller.impl.GoToRegistrationInfoPage;
 import by.http.newsportal.controller.impl.GoToRegistrationPage;
 import by.http.newsportal.controller.impl.LogIn;
 import by.http.newsportal.controller.impl.Registration;

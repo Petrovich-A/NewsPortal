@@ -7,7 +7,7 @@
 
 <head>
 <meta charset="UTF-8">
-<link href="resources/css/style.css" rel="stylesheet">
+<link href="resources/css/templatemo-diagoona-addNews-page.css" rel="stylesheet">
 <title>Add news page</title>
 <fmt:setLocale value="${sessionScope.local}" />
 <fmt:setBundle basename="properties.local" var="loc" />
@@ -22,43 +22,83 @@
 </head>
 
 <body>
-	<h1>${registrationPageH1_text}</h1>
-	<hr />
-	<h2>${registrationPageH2_text}</h2>
+	<div class="tm-container">
+		<div>
+			<div class="tm-row pt-4">
+				<div class="tm-col-left">
+					<div class="tm-site-header media">
+						<i class="fas fa-umbrella-beach fa-3x mt-1 tm-logo"></i>
+						<div class="media-body">
+							<h1 class="tm-sitename text-uppercase">news portal</h1>
+							<p class="tm-slogon">java web app</p>
+						</div>
+					</div>
+				</div>
+				<div class="tm-col-right">
+					<nav class="navbar navbar-expand-lg" id="tm-main-nav">
+						<button class="navbar-toggler toggler-example mr-0 ml-auto" type="button" data-toggle="collapse" data-target="#navbar-nav"
+							aria-controls="navbar-nav" aria-expanded="false" aria-label="Toggle navigation">
+							<span><i class="fas fa-bars"></i></span>
+						</button>
+						<div class="collapse navbar-collapse tm-nav" id="navbar-nav">
+							<ul class="navbar-nav text-uppercase">
+								<li class="nav-item active"><a class="nav-link tm-nav-link" href="WEB-INF/jsp/main.jsp">Home</a></li>
+							</ul>
+						</div>
+					</nav>
+				</div>
+			</div>
 
-	<form action="Controller" method="post">
+			<div class="tm-row">
+				<div class="tm-col-left"></div>
+				<main class="tm-col-right tm-contact-main">
+					<!-- Content -->
+					<section class="tm-content tm-contact">
+						<h2 class="mb-4 tm-content-title">${registrationPageH1_text}</h2>
+						<p class="mb-85">${registrationPageH2_text}</p>
+						<form id="contact-form" action="Controller" method="POST">
+							<div class="form-group mb-4">
+								<input type="text" name="title" class="form-control" placeholder="${news_title}" required="" />
+							</div>
+							<div class="form-group mb-5">
+								<textarea rows="4" name="brief" class="form-control" placeholder="${news_brief}..." required=""></textarea>
+							</div>
+							<div class="form-group mb-5">
+								<textarea rows="4" name="content" class="form-control" placeholder="${news_content}..." required=""></textarea>
+							</div>
 
-		<fieldset class="add news">
-			<label> ${news_title} <input type="text" name="title" required="required" maxlength="55">
-			</label>
-			
-			<label><textarea name="brief" required="required" rows="10" cols="60" maxlength="800"
-					onfocus="if(this.value==this.defaultValue)this.value='';"
-					onblur="if(this.value=='')this.value=this.defaultValue;"> ${news_brief} </textarea> 
-			</label>
-		</fieldset>
-			
-			
-		<fieldset>
-			<label> <textarea name="content" required="required" rows="20" cols="60" maxlength="10_000"
-					onfocus="if(this.value==this.defaultValue)this.value='';"
-					onblur="if(this.value=='')this.value=this.defaultValue;"> ${news_content} </textarea>
-			</label>
-		</fieldset>
-			
-			<p> ${news_author} <br>
-			<label> <input type="text" name="author" required="required" maxlength="60">
-			</label></p>
+							<div class="form-group mb-4">
+								<input type="text" name="author" class="form-control" placeholder="${news_author}" required="" />
+							</div>
+							<div class="text-right">
+								<input type="hidden" name="command" value="add_news" />
+								<button type="submit" class="btn btn-big btn-primary">${submit_button}</button>
+							</div>
 
-		</fieldset>
+						</form>
+					</section>
+				</main>
+			</div>
+		</div>
 
-		<label> <input type="hidden" name="command" value="add_news" />
-			<button name="button">
-				<strong>${submit_button}</strong>
-			</button>
-		</label>
-
-	</form>
+		<div class="tm-row">
+			<div class="tm-col-left text-center">
+				<ul class="tm-bg-controls-wrapper">
+					<li class="tm-bg-control active" data-id="0"></li>
+					<li class="tm-bg-control" data-id="1"></li>
+					<li class="tm-bg-control" data-id="2"></li>
+				</ul>
+			</div>
+			<div class="tm-col-right tm-col-footer">
+				<footer class="tm-site-footer text-right">
+					<p class="mb-0">
+						Copyright 2020 Diagoona Co. | Md-JD2 2021
+						<a rel="nofollow" target="_parent" href="https://it-academy.by" class="tm-text-link">IT-Academy</a>
+					</p>
+				</footer>
+			</div>
+		</div>
+	</div>
 </body>
 
 </html>
