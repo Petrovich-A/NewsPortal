@@ -4,17 +4,29 @@ import java.sql.Date;
 import java.util.Objects;
 
 public class News {
+	private Integer id;
 	private String title;
 	private String brief;
 	private String content;
 	private String author;
 	private Date date;
+	private String dateDB;
 
 	public News() {
 		super();
 	}
 
-	public News(String title, String brief, String content, String author, Date date) {
+	public News(Integer id, String title, String brief, String content, String author, Date date) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.brief = brief;
+		this.content = content;
+		this.author = author;
+		this.date = date;
+	}
+
+	public News(String title, String brief, String content, String author, Date dateDB) {
 		super();
 		this.title = title;
 		this.brief = brief;
@@ -23,20 +35,12 @@ public class News {
 		this.date = date;
 	}
 
-	public News(String title, String brief, String content, String author) {
-		super();
-		this.title = title;
-		this.brief = brief;
-		this.content = content;
-		this.author = author;
-	}
-
-	public News(String title, String brief, String author, Date date) {
+	public News(String title, String brief, String author, String dateDB) {
 		super();
 		this.title = title;
 		this.brief = brief;
 		this.author = author;
-		this.date = date;
+		this.dateDB = dateDB;
 	}
 
 	@Override
@@ -62,6 +66,10 @@ public class News {
 	public String toString() {
 		return "News [title=" + title + ", brief=" + brief + ", content=" + content + ", author=" + author + ", date="
 				+ date + "]";
+	}
+
+	public Integer getId() {
+		return id;
 	}
 
 	public String getTitle() {
@@ -102,6 +110,14 @@ public class News {
 
 	public void setDate(Date date) {
 		this.date = date;
+	}
+
+	public String getDateDB() {
+		return dateDB;
+	}
+
+	public void setDateDB(String dateDB) {
+		this.dateDB = dateDB;
 	}
 
 }

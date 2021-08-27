@@ -24,11 +24,11 @@ public class AddNews implements ICommand {
 		String content = request.getParameter("content");
 		String author = request.getParameter("author");
 		Date date = Date.valueOf(LocalDate.now());
-		System.out.println("title is put " + title);
-		System.out.println("brief is put " + brief);
-		System.out.println("content is put " + content);
-		System.out.println("author is put " + author);
-		System.out.println("news is added");
+		System.out.println("title is put \n" + title);
+		System.out.println("brief is put \n" + brief);
+		System.out.println("content is put \n" + content);
+		System.out.println("author is put \n" + author);
+		System.out.println("news is added \n");
 
 		News news = new News(title, brief, content, author, date);
 		

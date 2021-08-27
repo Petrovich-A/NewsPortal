@@ -13,6 +13,8 @@ body {
     overflow-x: hidden;
     color: white;
     background-color: #2C353C;
+    background-image: url(diagoona-bg-3.jpg);
+	background-size: 100%;
 }
 
 a { 
@@ -165,13 +167,13 @@ hr { border-top: 1px solid white; }
 }
 
 .btn-primary {
-    background-color: white;
+    background-color: #9CC;
     color: black;
-    border: 0;
+    border: 1;
 }
 
 .btn-primary:hover {
-    background-color: #9CC;
+    background-color: #c2e0e0;
     color: black;
 }
 

@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-public class GoToLogInPage implements ICommand {
+public class GoToAuthorizationPage implements ICommand {
 	final static String PATH = "/WEB-INF/jsp/logInPage.jsp";
 
 	@Override

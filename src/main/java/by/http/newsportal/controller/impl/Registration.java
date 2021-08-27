@@ -41,6 +41,8 @@ public class Registration implements ICommand {
 			response.sendRedirect("Controller?command=go_to_registration_page");
 			response.sendRedirect("Controller?command=Registration&message=Please regist");
 			return;
+		}else {
+			response.sendRedirect("Controller?command=go_to_registration_info_page");
 		}
 
 		RegistrationInfo registrationInfo = new RegistrationInfo(name, password, eMail, gender, country, language,

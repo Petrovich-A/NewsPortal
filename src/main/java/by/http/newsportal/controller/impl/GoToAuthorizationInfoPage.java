@@ -8,7 +8,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-public class GoToLogInInfoPage implements ICommand{
+public class GoToAuthorizationInfoPage implements ICommand{
 	final static String PATH = "/WEB-INF/jsp/logInInfoPage.jsp";
 
 	@Override

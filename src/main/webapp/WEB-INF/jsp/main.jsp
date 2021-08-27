@@ -75,8 +75,8 @@
 									<li class="nav-item active"><input type="hidden" name="command" value="go_to_registration_page" /> <input type="hidden" name="local"
 											value="Registration" /> <input type="submit" value="${registration_button}" class="btn btn-primary" /></li>
 
-									<li class="nav-item"><input type="hidden" name="command" value="go_to_log_in_page" /> <input type="hidden" name="local" value="Log in" />
-										<input type="submit" value="${login_button}" class="btn btn-primary" /></li>
+									<li class="nav-item"><input type="hidden" name="command" value="go_to_authorization_page" /> <input type="hidden" name="local"
+											value="Log in" /> <input type="submit" value="${login_button}" class="btn btn-primary" /></li>
 								</ul>
 							</form>
 						</div>
@@ -91,17 +91,36 @@
 			<section class="tm-content">
 				<h2 class="mb-5 tm-content-title">List of news</h2>
 				<p class="mb-5">
-					<c:forEach var="listNews" items="${news}">
-						<c:out value="${listNews}" />
-						<br>
-						<c:out value="${news.getBrief()}" />
-						<c:out value="${news.getAuthor()}" />
-					</c:forEach>
+					<c:choose>
+						<c:when test="${newsList.size() == 0 || newsList.size() == null}">
+							<div>
+								<p class="mb-5">
+									<c:out value="No data from DB" />
+								</p>
+								<hr class="mb-5">
+							</div>
+						</c:when>
+						<c:otherwise>
+							<c:forEach var="news" items="${newsList}">
+								<div>
+									<p class="mb-5">
+										<c:out value="${news.getTitle()}" />
+									</p>
+									<hr class="mb-5">
+									<p class="mb-5">
+										<c:out value="${news.getAuthor()}" />
+										<c:out value="|" />
+										<c:out value="${news.getDateDB()}" />
+									</p>
+									<p class="mb-5">
+										<c:out value="${news.getBrief()}" />
+									</p>
+									<hr class="mb-5">
+								</div>
+							</c:forEach>
+						</c:otherwise>
+					</c:choose>
 				</p>
-				<p class="mb-5">Diagoona is provided by TemplateMo website. You are allowed to use this template for your websites.</p>
-				<hr class="mb-5">
-				<p class="mb-5">Diagoona is Bootstrap v4.4.1 layout. This BG is 50% transparent. You can set the background images auto play settings.</p>
-				<hr class="mb-5">
 				<a href="about.html" class="btn btn-primary">Continue...</a>
 			</section>
 		</main>
@@ -110,7 +129,9 @@
 	<div class="tm-col-right tm-col-footer">
 		<footer class="tm-site-footer text-right">
 			<p class="mb-0">
-				Copyright 2020 Diagoona Co. | Md-JD2 2021
+				Copyright 2020 Diagoona | Md-JD2 |
+				<%=new java.util.Date()%>
+				|
 				<a rel="nofollow" target="_parent" href="https://it-academy.by" class="tm-text-link">IT-Academy</a>
 			</p>
 		</footer>

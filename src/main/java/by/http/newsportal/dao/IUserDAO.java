@@ -1,15 +1,16 @@
 package by.http.newsportal.dao;
 
 import by.http.newsportal.bean.RegistrationInfo;
+import by.http.newsportal.bean.User;
 
 public interface IUserDAO {
 	/**
-	 * create method
+	 * registration method
 	 * 
 	 * @param registrationInfo
 	 * @throws DAOException
 	 */
-	public void add(RegistrationInfo registrationInfo) throws DAOException;
+	public void registration(RegistrationInfo registrationInfo) throws DAOException;
 
 	/**
 	 * read method
@@ -17,7 +18,7 @@ public interface IUserDAO {
 	 * @param registrationInfo
 	 * @throws DAOException
 	 */
-	public void getByID(RegistrationInfo registrationInfo) throws DAOException;
+	public User authorization(RegistrationInfo registrationInfo) throws DAOException;
 
 	/**
 	 * update method
@@ -33,6 +34,6 @@ public interface IUserDAO {
 	 * @param registrationInfo
 	 * @throws DAOException
 	 */
-	public void remove(RegistrationInfo registrationInfo) throws DAOException;
+	public void delete(RegistrationInfo registrationInfo) throws DAOException;
 
 }

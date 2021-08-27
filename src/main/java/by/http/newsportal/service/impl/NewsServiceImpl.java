@@ -1,5 +1,6 @@
 package by.http.newsportal.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import by.http.newsportal.bean.News;
@@ -24,13 +25,29 @@ public class NewsServiceImpl implements INewsService {
 
 	@Override
 	public List<News> getListNews() throws ServiceException {
-		List<News> newsList = null;
+		List<News> newsList = new ArrayList<>();
 		try {
 			newsList = NEWS_DAO.getListNews();
 		} catch (DAOException e) {
 			e.printStackTrace();
 		}
 		return newsList;
+	}
+
+	@Override
+	public void update(News news) throws ServiceException {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void delete(News news) throws ServiceException {
+		try {
+			NEWS_DAO.delete(news);;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 	}
 
 }

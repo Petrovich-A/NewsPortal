@@ -24,7 +24,7 @@ public class GoToMainPage implements ICommand {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<News> listNews = new ArrayList<News>();
 		try {
-			I_NEWS_SERVICE.getListNews();
+			listNews = I_NEWS_SERVICE.getListNews();
 		} catch (ServiceException e) {
 		}
 		HttpSession session = request.getSession(true);
