@@ -17,10 +17,8 @@ public class MyConnectionToDB implements AutoCloseable {
 			Class.forName("org.gjt.mm.mysql.Driver");
 			newsConnection = DriverManager.getConnection(BD_URL_NEWS, BD_USER_NAME, BD_PASSWORD);
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		System.out.println("Connection OK");
@@ -32,10 +30,8 @@ public class MyConnectionToDB implements AutoCloseable {
 			Class.forName("org.gjt.mm.mysql.Driver");
 			usersConnection = DriverManager.getConnection(BD_URL_USERS, BD_USER_NAME, BD_PASSWORD);
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		System.out.println("Connection OK");

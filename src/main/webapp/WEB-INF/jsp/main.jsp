@@ -67,18 +67,20 @@
 						</button>
 
 						<div class="collapse navbar-collapse tm-nav" id="navbar-nav">
-							<form action="Controller" method="post">
-								<ul class="navbar-nav text-uppercase">
+							<ul class="navbar-nav text-uppercase">
+								<form action="Controller" method="post">
 									<li class="nav-item active"><input type="hidden" name="command" value="go_to_add_news_page" /> <input type="hidden" name="local"
 											value="Add news" /> <input type="submit" value="${addNews_button}" class="btn btn-primary" /></li>
-
+								</form>
+								<form action="Controller" method="post">
 									<li class="nav-item active"><input type="hidden" name="command" value="go_to_registration_page" /> <input type="hidden" name="local"
 											value="Registration" /> <input type="submit" value="${registration_button}" class="btn btn-primary" /></li>
-
+								</form>
+								<form action="Controller" method="post">
 									<li class="nav-item"><input type="hidden" name="command" value="go_to_authorization_page" /> <input type="hidden" name="local"
 											value="Log in" /> <input type="submit" value="${login_button}" class="btn btn-primary" /></li>
-								</ul>
-							</form>
+								</form>
+							</ul>
 						</div>
 					</nav>
 				</div>

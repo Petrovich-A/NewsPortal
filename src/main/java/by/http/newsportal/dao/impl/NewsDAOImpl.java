@@ -42,28 +42,26 @@ public class NewsDAOImpl implements INewsDAO {
 
 	@Override
 	public List<News> getListNews() throws DAOException {
-		News news = new News();
-//		news.setTitle("title exmpl");
 		List<News> listNews = new ArrayList<News>();
-//		listNews.add(news);
-//		try (MyConnectionToDB myConnectionToDB = new MyConnectionToDB();
-//				Connection connection = myConnectionToDB.getNewsConnection();
-//				Statement statement = connection.createStatement();
-//				ResultSet resultSet = statement.executeQuery(SQL_GET_LIST);) {
-//
-//			while (resultSet.next()) {
-//				listNews.add(new News(resultSet.getString(2), resultSet.getString(3), resultSet.getString(5),
-//						resultSet.getString(6))); //  context (4 row)
-//			}
-//
-//		} catch (ClassNotFoundException e) {
-//			e.printStackTrace();
-//		} catch (SQLException e1) {
-//			e1.printStackTrace();
-//		} catch (Exception e2) {
-//			e2.printStackTrace();
-//		}
-		if (listNews.size() == 0) {
+		try (MyConnectionToDB myConnectionToDB = new MyConnectionToDB();
+				Connection connection = myConnectionToDB.getNewsConnection();
+				Statement statement = connection.createStatement();
+				ResultSet resultSet = statement.executeQuery(SQL_GET_LIST);) {
+
+			while (resultSet.next()) {
+				listNews.add(new News(resultSet.getString(2), resultSet.getString(3), resultSet.getString(5),
+						resultSet.getString(6))); // context (4 row)
+			}
+
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		} catch (Exception e2) {
+			e2.printStackTrace();
+		}
+		
+		if (listNews.size() == 0 | listNews == null) {
 			System.out.println("listNews is null /n");
 			return null;
 		} else {

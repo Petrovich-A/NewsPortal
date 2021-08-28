@@ -42,7 +42,7 @@
 						</button>
 						<div class="collapse navbar-collapse tm-nav" id="navbar-nav">
 							<ul class="navbar-nav text-uppercase">
-								<li class="nav-item active"><a class="nav-link tm-nav-link" href="WEB-INF/jsp/main.jsp">Home</a></li>
+								<li class="nav-item"><a class="nav-link tm-nav-link" href="Controller?command=go_to_main_page">Home </a></li>
 							</ul>
 						</div>
 					</nav>

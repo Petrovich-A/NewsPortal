@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 public class GoToAuthorizationPage implements ICommand {
-	final static String PATH = "/WEB-INF/jsp/logInPage.jsp";
+	final static String PATH = "/WEB-INF/jsp/authorizationPage.jsp";
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
