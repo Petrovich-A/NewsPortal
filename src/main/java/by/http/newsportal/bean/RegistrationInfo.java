@@ -1,9 +1,10 @@
 package by.http.newsportal.bean;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class RegistrationInfo {
+public class RegistrationInfo implements Serializable {
 	public String name;
 	public String password;
 	public String eMail;

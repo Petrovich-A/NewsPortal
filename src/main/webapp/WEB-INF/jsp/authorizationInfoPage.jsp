@@ -3,13 +3,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <!DOCTYPE html>
+
 <html>
 <head>
 <meta charset="UTF-8">
-
 <link href="resources/css/templatemo-diagoona-authoriz.css" rel="stylesheet">
-
-<title>User Info</title>
+<title>Registration Info page</title>
 </head>
 
 <body>
@@ -23,15 +22,12 @@
 						<p class="tm-slogon">Welcome to News Portal</p>
 						<br>
 						<hr />
-						<p class="tm-slogon">Please log in</p>
+						<a class="tm-slogon" href="Controller?command=go_to_authorization_page"> Please log in </a>
 					</div>
 					<div class="media-body">
-						<h2><%=request.getParameter("username")%></h2>
 						<br />
-						<p>
-							<%
-							out.print(request.getParameter("username"));
-							%>
+						<p class="mb-5">
+							<%--  <c:out value="${user.getName()}" />--%>
 						</p>
 					</div>
 				</div>

@@ -13,25 +13,26 @@ public class UserServiceImpl implements IUserService {
 	private final UserDAOImpl USER_DAO_IMPL  = DAO_PROVIDER.getRegistrationInfoDaoImpl();
 
 	@Override
-	public void registration(RegistrationInfo registrationInfo) throws ServiceException {
+	public User registration(RegistrationInfo registrationInfo) throws ServiceException {
 		User user = null;
 		try {
 			USER_DAO_IMPL.registration(registrationInfo);
 		} catch (DAOException e) {
 			throw new ServiceException(e.getMessage(), e);
 		}
+		return user;
 	}
 
 	@Override
 	public User authorization(RegistrationInfo registrationInfo) throws ServiceException {
 		User user = null;
 		try {
-			USER_DAO_IMPL.registration(registrationInfo);
+			user = USER_DAO_IMPL.authorization(registrationInfo);
 		} catch (DAOException e) {
 			throw new ServiceException(e.getMessage(), e);
 		}
 		if (user == null) {
-			throw new ServiceException("User isn'y found");
+			throw new ServiceException("User isn't found");
 		}
 		return user;
 	}

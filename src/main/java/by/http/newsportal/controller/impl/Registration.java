@@ -3,6 +3,7 @@ package by.http.newsportal.controller.impl;
 import java.io.IOException;
 
 import by.http.newsportal.bean.RegistrationInfo;
+import by.http.newsportal.bean.User;
 import by.http.newsportal.controller.ICommand;
 import by.http.newsportal.service.IUserService;
 import by.http.newsportal.service.ServiceException;
@@ -37,30 +38,29 @@ public class Registration implements ICommand {
 		System.out.println("hobby is put " + hobby);
 
 		if (name == null || name.equals("") || password == null || password.equals("")) {
-			path = "/WEB-INF/jsp/logInPage.jsp";
-			response.sendRedirect("Controller?command=go_to_registration_page");
-			response.sendRedirect("Controller?command=Registration&message=Please regist");
+			path = "/WEB-INF/jsp/authorizationPage.jsp";
+			response.sendRedirect("Controller?command=go_to_registration_page&message=Please regist");
 			return;
-		}else {
-			response.sendRedirect("Controller?command=go_to_registration_info_page");
 		}
 
 		RegistrationInfo registrationInfo = new RegistrationInfo(name, password, eMail, gender, country, language,
 				hobby);
 
 		try {
-			I_USER_SERVICE.registration(registrationInfo);
+			User user = I_USER_SERVICE.registration(registrationInfo);
+			HttpSession session = request.getSession(true);
+			session.setAttribute("user", user);
 			request.getSession(true).setAttribute(PATH_SESSION, path);
 			request.setAttribute("message", "Please log in");
-			response.sendRedirect("Controller?command=logIn&message=Please log in");
+			response.sendRedirect("Controller?command=go_to_registration_info_page");
 
 		} catch (ServiceException e) {
-			RequestDispatcher requestDispatcher = request.getRequestDispatcher(path);
-			requestDispatcher.forward(request, response);
-			HttpSession session = request.getSession(true);
 			path = "/WEB-INF/jsp/registrationInfoPagejsp";
+			RequestDispatcher requestDispatcher = request.getRequestDispatcher(path);
+			HttpSession session = request.getSession(true);
 			request.getSession(true).setAttribute("url", path);
-			e.printStackTrace();			
+			e.printStackTrace();
+			response.sendRedirect("Controller?command=go_to_registration_page&message=Please regist");
 			// go to jsp - go to error
 		}
 	}

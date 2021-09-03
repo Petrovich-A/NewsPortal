@@ -1,8 +1,9 @@
 package by.http.newsportal.bean;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class User {
+public class User implements Serializable{
 	private static final long serialVersionID = 1L;
 	public RoleName role;
 	public String login;

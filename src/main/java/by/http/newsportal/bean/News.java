@@ -1,9 +1,10 @@
 package by.http.newsportal.bean;
 
+import java.io.Serializable;
 import java.sql.Date;
 import java.util.Objects;
 
-public class News {
+public class News implements Serializable{
 	private Integer id;
 	private String title;
 	private String brief;
