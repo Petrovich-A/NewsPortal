@@ -138,8 +138,9 @@
 		<div class="tm-col-right tm-col-footer">
 			<footer class="tm-site-footer text-right">
 				<p class="mb-0">
-					Copyright 2020 Diagoona Co. | Md-JD2 2021
+					Copyright 2020 Diagoona |
 					<a rel="nofollow" target="_parent" href="https://it-academy.by" class="tm-text-link">IT-Academy</a>
+					| Md-JD2
 				</p>
 			</footer>
 		</div>

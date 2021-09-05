@@ -33,7 +33,8 @@ public class Registration implements ICommand {
 				+ ", gender=" + gender + ", country=" + country + ", language=" + language + ", hobby=" + hobby
 				+ ", date=" + date + "]");
 
-		if (name == null || name.equals("") || password == null || password.equals("")) {
+		if (name == null || name.equals("") || password == null || password.equals("")
+				|| eMail == null || eMail.equals("") || gender == null || gender.equals("")) {
 			response.sendRedirect("Controller?command=go_to_registration_page&message=Please regist");
 			return;
 		}
@@ -46,14 +47,15 @@ public class Registration implements ICommand {
 			path = "/WEB-INF/jsp/registrationInfoPage.jsp";
 			request.setAttribute("message", "Please log in");
 			request.getSession(true).setAttribute("url", path);
-			response.sendRedirect("Controller?command=go_to_registration_info_page");
+			System.out.println("in try before sendRedirect");
+			response.sendRedirect("Controller?command=go_to_authorization_info_page");
 
 		} catch (ServiceException e) {
 			e.printStackTrace();
 			path = "/WEB-INF/jsp/registrationInfoPage.jsp";
 			request.getSession(true).setAttribute("url", path);
+			System.out.println("in catch before sendRedirect");
 			response.sendRedirect("Controller?command=go_to_registration_page");
-			// go to jsp - go to error
 		}
 	}
 }

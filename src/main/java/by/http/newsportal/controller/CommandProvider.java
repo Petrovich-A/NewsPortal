@@ -5,10 +5,11 @@ import java.util.Map;
 
 import by.http.newsportal.controller.impl.AddNews;
 import by.http.newsportal.controller.impl.ChangeLocal;
+import by.http.newsportal.controller.impl.GoToMainPage;
 import by.http.newsportal.controller.impl.GoToAddNews;
 import by.http.newsportal.controller.impl.GoToAuthorizationInfoPage;
 import by.http.newsportal.controller.impl.GoToAuthorizationPage;
-import by.http.newsportal.controller.impl.GoToMainPage;
+import by.http.newsportal.controller.impl.GoToRegistrationInfoPage;
 import by.http.newsportal.controller.impl.GoToRegistrationPage;
 import by.http.newsportal.controller.impl.Authorization;
 import by.http.newsportal.controller.impl.Registration;
@@ -20,9 +21,10 @@ public class CommandProvider {
 	public CommandProvider() {
 		commands.put(CommandName.GO_TO_MAIN_PAGE, new GoToMainPage());
 		commands.put(CommandName.GO_TO_AUTHORIZATION_PAGE, new GoToAuthorizationPage());
-		commands.put(CommandName.GO_TO_REGISTRATION_PAGE, new GoToRegistrationPage());
-		commands.put(CommandName.GO_TO_ADD_NEWS_PAGE, new GoToAddNews());
 		commands.put(CommandName.GO_TO_AUTHORIZATION_INFO_PAGE, new GoToAuthorizationInfoPage());
+		commands.put(CommandName.GO_TO_REGISTRATION_PAGE, new GoToRegistrationPage());
+		commands.put(CommandName.GO_TO_REGISTRATION_INFO_PAGE, new GoToRegistrationInfoPage());
+		commands.put(CommandName.GO_TO_ADD_NEWS_PAGE, new GoToAddNews());
 		commands.put(CommandName.CHANGE_LOCAL, new ChangeLocal());
 		commands.put(CommandName.REGISTRATION, new Registration());
 		commands.put(CommandName.AUTHORIZATION, new Authorization());

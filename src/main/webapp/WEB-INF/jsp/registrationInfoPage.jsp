@@ -96,10 +96,9 @@
 		<div class="tm-col-right tm-col-footer">
 			<footer class="tm-site-footer text-right">
 				<p class="mb-0">
-					Copyright 2020 Diagoona | Md-JD2 |
-					<%=new java.util.Date()%>
-					|
+					Copyright 2020 Diagoona |
 					<a rel="nofollow" target="_parent" href="https://it-academy.by" class="tm-text-link">IT-Academy</a>
+					| Md-JD2
 				</p>
 			</footer>
 		</div>
