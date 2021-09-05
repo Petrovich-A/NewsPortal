@@ -68,18 +68,14 @@
 
 						<div class="collapse navbar-collapse tm-nav" id="navbar-nav">
 							<ul class="navbar-nav text-uppercase">
-								<form action="Controller" method="post">
-									<li class="nav-item active"><input type="hidden" name="command" value="go_to_add_news_page" /> <input type="hidden" name="local"
-											value="Add news" /> <input type="submit" value="${addNews_button}" class="btn btn-primary" /></li>
-								</form>
-								<form action="Controller" method="post">
-									<li class="nav-item active"><input type="hidden" name="command" value="go_to_registration_page" /> <input type="hidden" name="local"
-											value="Registration" /> <input type="submit" value="${registration_button}" class="btn btn-primary" /></li>
-								</form>
-								<form action="Controller" method="post">
-									<li class="nav-item"><input type="hidden" name="command" value="go_to_authorization_page" /> <input type="hidden" name="local"
-											value="Log in" /> <input type="submit" value="${login_button}" class="btn btn-primary" /></li>
-								</form>
+								<li class="nav-item active"><input type="hidden" name="local" value="Add news" /> <a class="nav-link tm-nav-link"
+										href="Controller?command=go_to_add_news_page">${addNews_button} </a></li>
+
+								<li class="nav-item active"><input type="hidden" name="local" value="Registration" /> <a class="nav-link tm-nav-link"
+										href="Controller?command=go_to_registration_page">${registration_button} </a></li>
+
+								<li class="nav-item active"><input type="hidden" name="local" value="Log in" /> <a class="nav-link tm-nav-link"
+										href="Controller?command=go_to_authorization_page">${login_button} </a></li>
 							</ul>
 						</div>
 					</nav>
@@ -95,30 +91,26 @@
 				<p class="mb-5">
 					<c:choose>
 						<c:when test="${newsList.size() == 0 || newsList.size() == null}">
-							<div>
-								<p class="mb-5">
-									<c:out value="No data from DB" />
-								</p>
-								<hr class="mb-5">
-							</div>
+							<p class="mb-5">
+								<c:out value="No data from DB" />
+							</p>
+							<hr class="mb-5">
 						</c:when>
 						<c:otherwise>
 							<c:forEach var="news" items="${newsList}">
-								<div>
-									<p class="mb-5">
-										<c:out value="${news.getTitle()}" />
-									</p>
-									<hr class="mb-5">
-									<p class="mb-5">
-										<c:out value="${news.getAuthor()}" />
-										<c:out value="|" />
-										<c:out value="${news.getDateDB()}" />
-									</p>
-									<p class="mb-5">
-										<c:out value="${news.getBrief()}" />
-									</p>
-									<hr class="mb-5">
-								</div>
+								<p class="mb-5">
+									<c:out value="${news.getTitle()}" />
+								</p>
+								<hr class="mb-5">
+								<p class="mb-5">
+									<c:out value="${news.getAuthor()}" />
+									<c:out value="|" />
+									<c:out value="${news.getDateDB()}" />
+								</p>
+								<p class="mb-5">
+									<c:out value="${news.getBrief()}" />
+								</p>
+								<hr class="mb-5">
 							</c:forEach>
 						</c:otherwise>
 					</c:choose>
