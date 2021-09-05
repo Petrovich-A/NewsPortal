@@ -13,14 +13,12 @@ public class UserServiceImpl implements IUserService {
 	private final UserDAOImpl USER_DAO_IMPL  = DAO_PROVIDER.getRegistrationInfoDaoImpl();
 
 	@Override
-	public User registration(RegistrationInfo registrationInfo) throws ServiceException {
-		User user = null;
+	public void registration(RegistrationInfo registrationInfo) throws ServiceException {
 		try {
 			USER_DAO_IMPL.registration(registrationInfo);
 		} catch (DAOException e) {
 			throw new ServiceException(e.getMessage(), e);
 		}
-		return user;
 	}
 
 	@Override

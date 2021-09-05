@@ -77,13 +77,13 @@
 							<input type="password" name="password" class="form-control" placeholder="${user_password}" required="required" />
 						</div>
 						<div class="form-group mb-4">
-							<input type="email" name="email" class="form-control" placeholder="${user_email}" required="required" />
+							<input type="email" name="eMail" class="form-control" placeholder="${user_email}" required="required" />
 						</div>
 
 						<div class="form-group mb-4">
 							${user_gender}
 							<br>
-							<input type="radio" name="gender" value="male">
+							<input type="radio" name="gender" value="male" required="required">
 							${user_gender_male}
 							<input type="radio" name="gender" value="female">${user_gender_female}
 							<input type="radio" name="gender" value="other">${user_gender_other}
@@ -112,7 +112,6 @@
 								<li>${user_language_german}<input type="checkbox" name="language" value="German" /></li>
 							</ul>
 						</div>
-
 
 						<div class="form-group mb-5">
 							<br>

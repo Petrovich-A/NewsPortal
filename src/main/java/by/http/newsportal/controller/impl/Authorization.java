@@ -1,6 +1,8 @@
 package by.http.newsportal.controller.impl;
 
 import java.io.IOException;
+import java.sql.Date;
+import java.time.LocalDate;
 
 import by.http.newsportal.bean.RegistrationInfo;
 import by.http.newsportal.bean.User;
@@ -23,14 +25,22 @@ public class Authorization implements ICommand {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String name = request.getParameter("name");
 		String password = request.getParameter("password");
+		String eMail = request.getParameter("eMail");
+		String gender = request.getParameter("gender");
+		String country = request.getParameter("country");
+		String language = request.getParameter("language");
+		String hobby = request.getParameter("hobby");
+		Date date = Date.valueOf(LocalDate.now());
+
 		System.out.println("Command: Authorization, name: " + name);
 		System.out.println("Command: Authorization, password: " + password);
 
 		if (name == null || name.equals("") || password == null || password.equals("")) {
 			return;
 		}
-		RegistrationInfo registrationInfo = new RegistrationInfo(name, password, password, name, password, null);
-	try {
+		RegistrationInfo registrationInfo = new RegistrationInfo(name, password, eMail, gender, country, language,
+				hobby, date);
+		try {
 			User user = I_USER_SERVICE.authorization(registrationInfo);
 			HttpSession session = request.getSession(true);
 			session.setAttribute("user", user);
@@ -41,7 +51,6 @@ public class Authorization implements ICommand {
 			requestDispatcher.forward(request, response);
 			e.printStackTrace();
 			request.getSession(true).setAttribute("url", PATH);
-//			request.getSession(true).setAttribute("user", user);
 		}
 	}
 

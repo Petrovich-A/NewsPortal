@@ -17,7 +17,6 @@ public class GoToAuthorizationPage implements ICommand {
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher(PATH);
 		requestDispatcher.forward(request, response);
 		HttpSession session = request.getSession(true);
-		session.setAttribute("local", request.getParameter("local"));
 		request.getSession(true).setAttribute("url", PATH);
 	}
 

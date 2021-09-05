@@ -39,12 +39,12 @@ public class AddNews implements ICommand {
 			I_NEWS_SERVICE.add(news);
 
 		} catch (ServiceException e) {
+			e.printStackTrace();
 			// TODO: handle exception новость не создана, на этой же странице, стэк трэйс
 		}
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher(PATH);
-		requestDispatcher.forward(request, response);
 		HttpSession session = request.getSession(true);
-		session.setAttribute("local", request.getParameter("local"));
 		request.getSession(true).setAttribute("url", PATH);
+		requestDispatcher.forward(request, response);
 	}
 }

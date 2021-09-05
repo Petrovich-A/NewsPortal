@@ -3,16 +3,14 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <!DOCTYPE html>
+
 <html>
 <head>
 <meta charset="UTF-8">
-
 <link href="resources/css/templatemo-diagoona-registr-page.css" rel="stylesheet">
-
 <title>Registration Page Info</title>
 </head>
 <body>
-
 	<div class="tm-container">
 		<div>
 			<div class="tm-row pt-4">
@@ -38,9 +36,6 @@
 						</div>
 					</nav>
 				</div>
-
-
-				</nav>
 			</div>
 		</div>
 
@@ -53,47 +48,27 @@
 					<p>Your registration Info:</p>
 					<hr class="mb-4">
 					<div class="media my-3">
-						<i class="fas fa-shapes fa-3x p-3 mr-4"></i>
-						<div class="media-body">
-							<p>
-								Name:<%=request.getParameter("name")%></p>
-						</div>
-					</div>
-					<div class="media my-3">
 						<i class="fas fa-draw-polygon fa-3x p-3 mr-4"></i>
 						<div class="media-body">
+							<%--<p>
+								Name:<%=request.getParameter("name")%></p>
 							<p>
 								Password:
 								<%=request.getParameter("password")%></p>
-						</div>
-					</div>
-					<div class="media my-3">
-						<i class="fab fa-creative-commons-share fa-3x p-3 mr-4"></i>
-						<div class="media-body">
 							<p>
 								email:
 								<%=request.getParameter("email")%></p>
-						</div>
-					</div>
-					<div class="media my-3">
-						<i class="fas fa-bookmark fa-3x p-3 mr-4"></i>
-						<div class="media-body">
 							<p>
 								Gender:
 								<%=request.getParameter("gender")%></p>
-						</div>
-					</div>
-					<div class="media my-3">
-						<i class="fas fa-bookmark fa-3x p-3 mr-4"></i>
-						<div class="media-body">
 							<p>
 								Country:
 								<%=request.getParameter("country")%></p>
-						</div>
-					</div>
-					<div class="media my-3">
-						<i class="fas fa-bookmark fa-3x p-3 mr-4"></i>
-						<div class="media-body">
+							<p>
+								Hobby:
+								<%=request.getParameter("hobby")%></p>
+
+							<%--
 							<p>
 								<%
 								String[] languages = request.getParameterValues("language");
@@ -101,18 +76,10 @@
 									out.print("<li>" + language + "</li>");
 								}
 								%>
-							</p>
-						</div>
-					</div>
-					<div class="media my-3">
-						<i class="fas fa-bookmark fa-3x p-3 mr-4"></i>
-						<div class="media-body">
 							<p>
-								Hobby:
-								<%=request.getParameter("hobby")%></p>
+							--%>
 						</div>
 					</div>
-
 				</section>
 			</main>
 		</div>
@@ -129,7 +96,9 @@
 		<div class="tm-col-right tm-col-footer">
 			<footer class="tm-site-footer text-right">
 				<p class="mb-0">
-					Copyright 2020 Diagoona Co. | IT-Academy/Md-JD2 2021
+					Copyright 2020 Diagoona | Md-JD2 |
+					<%=new java.util.Date()%>
+					|
 					<a rel="nofollow" target="_parent" href="https://it-academy.by" class="tm-text-link">IT-Academy</a>
 				</p>
 			</footer>
@@ -141,9 +110,5 @@
 		<div class="tm-bg-left"></div>
 		<div class="tm-bg-right"></div>
 	</div>
-	</div>
-
-
-
 </body>
 </html>

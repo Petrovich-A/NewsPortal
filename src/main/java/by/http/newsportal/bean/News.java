@@ -4,7 +4,11 @@ import java.io.Serializable;
 import java.sql.Date;
 import java.util.Objects;
 
-public class News implements Serializable{
+public class News implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Integer id;
 	private String title;
 	private String brief;
@@ -27,13 +31,22 @@ public class News implements Serializable{
 		this.date = date;
 	}
 
-	public News(String title, String brief, String content, String author, Date dateDB) {
+	public News(String title, String brief, String content, String author, Date date) {
 		super();
 		this.title = title;
 		this.brief = brief;
 		this.content = content;
 		this.author = author;
 		this.date = date;
+	}
+
+	public News(String title, String brief, String content, String author, String dateDB) {
+		super();
+		this.title = title;
+		this.brief = brief;
+		this.content = content;
+		this.author = author;
+		this.dateDB = dateDB;
 	}
 
 	public News(String title, String brief, String author, String dateDB) {

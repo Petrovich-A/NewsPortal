@@ -1,20 +1,25 @@
 package by.http.newsportal.bean;
 
 import java.io.Serializable;
-import java.util.Arrays;
+import java.sql.Date;
 import java.util.Objects;
 
 public class RegistrationInfo implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public String name;
 	public String password;
 	public String eMail;
 	public String gender;
 	public String country;
-	public String[] language;
+	public String language;
 	public String hobby;
+	public Date date;
 
-	public RegistrationInfo(String name, String password, String eMail, String gender, String country,
-			String[] language, String hobby) {
+	public RegistrationInfo(String name, String password, String eMail, String gender, String country, String language,
+			String hobby, Date date) {
 		super();
 		this.name = name;
 		this.password = password;
@@ -23,17 +28,7 @@ public class RegistrationInfo implements Serializable {
 		this.country = country;
 		this.language = language;
 		this.hobby = hobby;
-	}
-
-	public RegistrationInfo(String name, String password, String eMail, String gender, String country,
-			String[] language) {
-		super();
-		this.name = name;
-		this.password = password;
-		this.eMail = eMail;
-		this.gender = gender;
-		this.country = country;
-		this.language = language;
+		this.date = date;
 	}
 
 	public String getName() {
@@ -76,11 +71,11 @@ public class RegistrationInfo implements Serializable {
 		this.country = country;
 	}
 
-	public String[] getLanguage() {
+	public String getLanguage() {
 		return language;
 	}
 
-	public void setLanguage(String[] language) {
+	public void setLanguage(String language) {
 		this.language = language;
 	}
 
@@ -92,13 +87,17 @@ public class RegistrationInfo implements Serializable {
 		this.hobby = hobby;
 	}
 
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + Arrays.hashCode(language);
-		result = prime * result + Objects.hash(country, eMail, gender, hobby, name, password);
-		return result;
+		return Objects.hash(country, date, eMail, gender, hobby, language, name, password);
 	}
 
 	@Override
@@ -110,16 +109,16 @@ public class RegistrationInfo implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		RegistrationInfo other = (RegistrationInfo) obj;
-		return Objects.equals(country, other.country) && Objects.equals(eMail, other.eMail)
-				&& Objects.equals(gender, other.gender) && Objects.equals(hobby, other.hobby)
-				&& Arrays.equals(language, other.language) && Objects.equals(name, other.name)
-				&& Objects.equals(password, other.password);
+		return Objects.equals(country, other.country) && Objects.equals(date, other.date)
+				&& Objects.equals(eMail, other.eMail) && Objects.equals(gender, other.gender)
+				&& Objects.equals(hobby, other.hobby) && Objects.equals(language, other.language)
+				&& Objects.equals(name, other.name) && Objects.equals(password, other.password);
 	}
 
 	@Override
 	public String toString() {
 		return "RegistrationInfo [name=" + name + ", password=" + password + ", eMail=" + eMail + ", gender=" + gender
-				+ ", country=" + country + ", language=" + Arrays.toString(language) + ", hobby=" + hobby + "]";
+				+ ", country=" + country + ", language=" + language + ", hobby=" + hobby + ", date=" + date + "]";
 	}
 
 }

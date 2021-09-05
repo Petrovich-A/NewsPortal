@@ -5,7 +5,7 @@ import by.http.newsportal.bean.User;
 
 public interface IUserService {
 
-	User registration(RegistrationInfo registrationInfo) throws ServiceException;
+	void registration(RegistrationInfo registrationInfo) throws ServiceException;
 
 	User authorization(RegistrationInfo registrationInfo) throws ServiceException;
 	
