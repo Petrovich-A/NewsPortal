@@ -42,14 +42,14 @@ public class NewsDAOImpl implements INewsDAO {
 
 	@Override
 	public List<News> getListNews() throws DAOException {
-		List<News> listNews = new ArrayList<News>();
+		List<News> listNewsToUI = new ArrayList<News>();
 		try (MyConnectionToDB myConnectionToDB = new MyConnectionToDB();
 				Connection connection = myConnectionToDB.getNewsConnection();
 				Statement statement = connection.createStatement();
 				ResultSet resultSet = statement.executeQuery(SQL_GET_LIST);) {
 
 			while (resultSet.next()) {
-				listNews.add(new News(resultSet.getString(2), resultSet.getString(3), resultSet.getString(5),
+				listNewsToUI.add(new News(resultSet.getString(2), resultSet.getString(3), resultSet.getString(5),
 						resultSet.getString(6))); // context (4 row)
 			}
 
@@ -60,54 +60,37 @@ public class NewsDAOImpl implements INewsDAO {
 		} catch (Exception e2) {
 			e2.printStackTrace();
 		}
-		
-		if (listNews.size() == 0 | listNews == null) {
-			System.out.println("listNews is null /n");
+
+		if (listNewsToUI.size() == 0 | listNewsToUI == null) {
+			System.out.println("listNewsToUI is null /n");
 			return null;
 		} else {
-			System.out.println("List of news is avaliable \n");
-			return listNews;
+			System.out.println("listNewsToUI is avaliable \n");
+			return listNewsToUI;
+		}
+	}
+
+	@Override
+	public void delete(int id) throws DAOException {
+		try (MyConnectionToDB myConnectionToDB = new MyConnectionToDB();
+				Connection connection = myConnectionToDB.getNewsConnection();
+				PreparedStatement preparedStatement = connection.prepareStatement(SQL_DELETE);) {
+			preparedStatement.setInt(1, id);
+			System.out.println("news is deleted \n");
+
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		} catch (Exception e2) {
+			e2.printStackTrace();
 		}
 	}
 
 	@Override
 	public void update(News news) throws DAOException {
-		try (MyConnectionToDB myConnectionToDB = new MyConnectionToDB();
-				Connection connection = myConnectionToDB.getNewsConnection();
-				PreparedStatement preparedStatement = connection.prepareStatement(SQL_UPDATE);) {
-
-			preparedStatement.setString(1, news.getTitle());
-			preparedStatement.setString(2, news.getBrief());
-			preparedStatement.setString(3, news.getContent());
-			preparedStatement.setString(4, news.getAuthor());
-			preparedStatement.setDate(5, news.getDate());
-			preparedStatement.executeUpdate();
-
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (SQLException e1) {
-			e1.printStackTrace();
-		} catch (Exception e2) {
-			e2.printStackTrace();
-		}
-		System.out.println("news is updated \n");
+		// TODO Auto-generated method stub
 
 	}
 
-	@Override
-	public void delete(News news) throws DAOException {
-		try (MyConnectionToDB myConnectionToDB = new MyConnectionToDB();
-				Connection connection = myConnectionToDB.getNewsConnection();
-				PreparedStatement preparedStatement = connection.prepareStatement(SQL_DELETE);) {
-			preparedStatement.setInt(1, news.getId());
-			preparedStatement.executeUpdate();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (SQLException e1) {
-			e1.printStackTrace();
-		} catch (Exception e2) {
-			e2.printStackTrace();
-		}
-		System.out.println("news is deleted \n");
-	}
 }

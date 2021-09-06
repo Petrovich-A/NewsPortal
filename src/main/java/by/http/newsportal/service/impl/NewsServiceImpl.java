@@ -25,13 +25,22 @@ public class NewsServiceImpl implements INewsService {
 
 	@Override
 	public List<News> getListNews() throws ServiceException {
-		List<News> newsList = new ArrayList<>();
+		List<News> listNewsToUI = new ArrayList<>();
 		try {
-			newsList = NEWS_DAO.getListNews();
+			listNewsToUI = NEWS_DAO.getListNews();
 		} catch (DAOException e) {
 			e.printStackTrace();
 		}
-		return newsList;
+		return listNewsToUI;
+	}
+
+	@Override
+	public void delete(int id) throws ServiceException {
+		try {
+			NEWS_DAO.delete(id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
@@ -39,15 +48,4 @@ public class NewsServiceImpl implements INewsService {
 		// TODO Auto-generated method stub
 
 	}
-
-	@Override
-	public void delete(News news) throws ServiceException {
-		try {
-			NEWS_DAO.delete(news);;
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-	}
-
 }

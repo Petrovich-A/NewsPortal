@@ -9,7 +9,7 @@ public class News implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private Integer id;
+	private int id;
 	private String title;
 	private String brief;
 	private String content;
@@ -21,7 +21,7 @@ public class News implements Serializable {
 		super();
 	}
 
-	public News(Integer id, String title, String brief, String content, String author, Date date) {
+	public News(int id, String title, String brief, String content, String author, Date date) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -82,7 +82,7 @@ public class News implements Serializable {
 				+ date + "]";
 	}
 
-	public Integer getId() {
+	public int getId() {
 		return id;
 	}
 

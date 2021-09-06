@@ -71,6 +71,8 @@
 								<c:if test="${role == 'ADMINISTRATOR'}">
 									<li class="nav-item active"><input type="hidden" name="local" value="Add news" /> <a class="nav-link tm-nav-link"
 											href="Controller?command=go_to_add_news_page">${addNews_button} </a></li>
+									<li class="nav-item active"><input type="hidden" name="local" value="Manage news" /> <a class="nav-link tm-nav-link"
+											href="Controller?command=go_to_manage_news">${addNews_button} </a></li>
 								</c:if>
 
 								<li class="nav-item active"><input type="hidden" name="local" value="Registration" /> <a class="nav-link tm-nav-link"
