@@ -11,6 +11,6 @@ public interface INewsService {
 
 	public void update(News news) throws ServiceException;
 
-	public void delete(int id) throws ServiceException;
+	public List<News> delete(int id) throws ServiceException;
 
 }

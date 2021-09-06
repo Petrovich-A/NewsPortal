@@ -71,7 +71,7 @@ public class NewsDAOImpl implements INewsDAO {
 	}
 
 	@Override
-	public void delete(int id) throws DAOException {
+	public List<News> delete(int id) throws DAOException {
 		try (MyConnectionToDB myConnectionToDB = new MyConnectionToDB();
 				Connection connection = myConnectionToDB.getNewsConnection();
 				PreparedStatement preparedStatement = connection.prepareStatement(SQL_DELETE);) {
@@ -85,6 +85,17 @@ public class NewsDAOImpl implements INewsDAO {
 		} catch (Exception e2) {
 			e2.printStackTrace();
 		}
+		NewsDAOImpl newsDAOImpl = new NewsDAOImpl();
+		List<News> listNewsFromBD = new ArrayList<News>();
+		listNewsFromBD = newsDAOImpl.getListNews();
+		if (listNewsFromBD.size() == 0 | listNewsFromBD == null) {
+			System.out.println("listNewsToUI is null /n");
+			return null;
+		} else {
+			System.out.println("listNewsToUI is avaliable \n");
+			return listNewsFromBD;
+		}
+
 	}
 
 	@Override

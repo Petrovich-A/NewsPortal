@@ -29,7 +29,7 @@
 				<div class="tm-site-header media">
 					<i class="fas fa-umbrella-beach fa-3x mt-1 tm-logo"></i>
 					<div class="media-body">
-						<h1 class="tm-sitename text-uppercase">news portal</h1>
+						<h1 class="tm-sitename text-uppercase">NEWS PORTAL</h1>
 						<p class="tm-slogon">java web app</p>
 					</div>
 				</div>

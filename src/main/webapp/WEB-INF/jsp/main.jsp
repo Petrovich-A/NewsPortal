@@ -30,54 +30,45 @@
 </head>
 <body>
 	<div class="local-button">
-		<ul class="navbar-nav text-uppercase">
-			<li class="nav-item active">
-				<form action="Controller" method="post">
-					<input type="hidden" name="command" value="change_local" />
-					<input type="hidden" name="local" value="en" />
-					<input type="submit" value="${en_button}" class="btn btn-primary" />
-				</form>
-			</li>
-			<li class="nav-item active">
-				<form action="Controller" method="post">
-					<input type="hidden" name="command" value="change_local" />
-					<input type="hidden" name="local" value="ru" />
-					<input type="submit" value="${ru_button}" class="btn btn-primary" />
-				</form>
-			</li>
-		</ul>
+		<form class="nav-item active" action="Controller" method="post">
+			<input type="hidden" name="command" value="change_local" />
+			<input type="hidden" name="local" value="en" />
+			<input type="submit" value="${en_button}" class="btn btn-primary" />
+		</form>
 	</div>
+	<div class="local-button">
+		<form>
+			<input type="hidden" name="command" value="change_local">
+			<input type="hidden" name="local" value="ru">
+			<input type="submit" value="${ru_button}" class="btn btn-primary">
+		</form>
+	</div>
+
 	<div class="tm-container">
-		<div>
+		<div style="height: 1033px;">
 			<div class="tm-row pt-4">
 				<div class="tm-col-left">
 					<div class="tm-site-header media">
 						<i class="fas fa-umbrella-beach fa-3x mt-1 tm-logo"></i>
 						<div class="media-body">
-							<h1 class="tm-sitename text-uppercase">news portal</h1>
+							<h1 class="tm-sitename text-uppercase">NEWS PORTAL</h1>
 							<p class="tm-slogon">java web app</p>
 						</div>
 					</div>
 				</div>
 				<div class="tm-col-right">
 					<nav class="navbar navbar-expand-lg" id="tm-main-nav">
-						<button class="navbar-toggler toggler-example mr-0 ml-auto" type="button" data-toggle="collapse" data-target="#navbar-nav"
-							aria-controls="navbar-nav" aria-expanded="false" aria-label="Toggle navigation">
-							<span><i class="fas fa-bars"></i></span>
-						</button>
-
 						<div class="collapse navbar-collapse tm-nav" id="navbar-nav">
 							<ul class="navbar-nav text-uppercase">
-								<c:if test="${role == 'ADMINISTRATOR'}">
+								<c:if test="${not empty sessionScope.RoleName}">
 									<li class="nav-item active"><input type="hidden" name="local" value="Add news" /> <a class="nav-link tm-nav-link"
 											href="Controller?command=go_to_add_news_page">${addNews_button} </a></li>
 									<li class="nav-item active"><input type="hidden" name="local" value="Manage news" /> <a class="nav-link tm-nav-link"
-											href="Controller?command=go_to_manage_news">${addNews_button} </a></li>
+											href="Controller?command=go_to_manage_news">Manage news</a></li>
 								</c:if>
 
 								<li class="nav-item active"><input type="hidden" name="local" value="Registration" /> <a class="nav-link tm-nav-link"
 										href="Controller?command=go_to_registration_page">${registration_button} </a></li>
-
 								<li class="nav-item active"><input type="hidden" name="local" value="Log in" /> <a class="nav-link tm-nav-link"
 										href="Controller?command=go_to_authorization_page">${login_button} </a></li>
 							</ul>
@@ -85,53 +76,58 @@
 					</nav>
 				</div>
 			</div>
-		</div>
-	</div>
-	<div class="tm-row">
-		<div class="tm-col-left"></div>
-		<main class="tm-col-right">
-			<section class="tm-content">
-				<h2 class="mb-5 tm-content-title">List of news</h2>
-				<p class="mb-5">
-					<c:choose>
-						<c:when test="${newsList.size() == 0 || newsList.size() == null}">
-							<p class="mb-5">
-								<c:out value="No news are avaliable" />
-							</p>
-							<hr class="mb-5">
-						</c:when>
-						<c:otherwise>
-							<c:forEach var="news" items="${newsList}">
-								<p class="mb-5">
-									<c:out value="${news.getTitle()}" />
-								</p>
-								<hr class="mb-5">
-								<p class="mb-5">
-									<c:out value="${news.getAuthor()}" />
-									<c:out value="|" />
-									<c:out value="${news.getDateDB()}" />
-								</p>
-								<p class="mb-5">
-									<c:out value="${news.getBrief()}" />
-								</p>
-								<hr class="mb-5">
-							</c:forEach>
-						</c:otherwise>
-					</c:choose>
-				</p>
-				<a href="about.html" class="btn btn-primary">Continue...</a>
-			</section>
-		</main>
-	</div>
 
-	<div class="tm-col-right tm-col-footer">
-		<footer class="tm-site-footer text-right">
-			<p class="mb-0">
-				Copyright 2020 Diagoona |
-				<a rel="nofollow" target="_parent" href="https://it-academy.by" class="tm-text-link">IT-Academy</a>
-				| Md-JD2
-			</p>
-		</footer>
+			<div>
+				<div class="tm-row">
+					<div class="tm-col-left"></div>
+					<main class="tm-col-right">
+						<section class="tm-content">
+							<h2 class="mb-5 tm-content-title">List of news</h2>
+							<p class="mb-5">
+								<c:choose>
+									<c:when test="${newsList.size() == 0 || newsList.size() == null}">
+										<p class="mb-5">
+											<c:out value="No news are avaliable" />
+										</p>
+										<hr class="mb-5">
+									</c:when>
+									<c:otherwise>
+										<c:forEach var="news" items="${newsList}" begin="0" end="2">
+											<p class="mb-5">
+												<c:out value="${news.getTitle()}" />
+											</p>
+											<hr class="mb-5">
+											<p class="mb-5">
+												<c:out value="${news.getAuthor()}" />
+												<c:out value="|" />
+												<c:out value="${news.getDateDB()}" />
+											</p>
+											<p class="mb-5">
+												<c:out value="${news.getBrief()}" />
+											</p>
+											<hr class="mb-5">
+										</c:forEach>
+									</c:otherwise>
+								</c:choose>
+							</p>
+							<a href="about.html" class="btn btn-primary">Continue...</a>
+						</section>
+					</main>
+				</div>
+			</div>
+
+			<div class="tm-row">
+				<div class="tm-col-right tm-col-footer">
+					<footer class="tm-site-footer text-right">
+						<p class="mb-0">
+							Copyright 2020 Diagoona |
+							<a rel="nofollow" target="_parent" href="https://it-academy.by" class="tm-text-link">IT-Academy</a>
+							| Md-JD2
+						</p>
+					</footer>
+				</div>
+			</div>
+		</div>
 	</div>
 </body>
 </html>

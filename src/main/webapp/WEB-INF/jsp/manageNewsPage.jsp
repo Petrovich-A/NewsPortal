@@ -29,14 +29,14 @@
 					<div class="tm-site-header media">
 						<i class="fas fa-umbrella-beach fa-3x mt-1 tm-logo"></i>
 						<div class="media-body">
-							<h1 class="tm-sitename text-uppercase">news portal</h1>
+							<h1 class="tm-sitename text-uppercase">NEWS PORTAL</h1>
 							<p class="tm-slogon">java web app</p>
 						</div>
 					</div>
 				</div>
 				<div class="tm-col-right">
 					<nav class="navbar navbar-expand-lg" id="tm-main-nav">
-						
+
 						<div class="collapse navbar-collapse tm-nav" id="navbar-nav">
 							<ul class="navbar-nav text-uppercase">
 								<li class="nav-item" style="width: 818px;"><a class="nav-link tm-nav-link" href="Controller?command=go_to_main_page">Home </a></li>
@@ -45,7 +45,7 @@
 					</nav>
 				</div>
 			</div>
-
+			
 			<div class="tm-row">
 				<div class="tm-col-left"></div>
 				<main class="tm-col-right tm-contact-main">
@@ -60,56 +60,54 @@
 									<th></th>
 									<th>News ID</th>
 									<th>Title</th>
-									<th>Title</th>
-									<th>content</th>
-									<th>author</th>
-									<th>date</th>
+									<th>Brief</th>
+									<th>Content</th>
+									<th>Author</th>
+									<th>Date</th>
 								</tr>
 							</thead>
 							<tbody>
 								<c:forEach items="${requestScope.lastNews}" var="news">
 									<tr>
 										<td><input class="tm-content tm-contact" type="radio" name="news_id" value="${news.id}"></td>
-										<td>${news.id}</td>
-										<td>${news.title}</td>
-										<td>${news.brief}</td>
-										<td>${news.content}</td>
-										<td>${news.author}</td>
-										<td>${news.date}</td>
+										<td>${news.getId}</td>
+										<td>${news.getTitle}</td>
+										<td>${news.getBrief}</td>
+										<td>${news.getContent}</td>
+										<td>${news.getAuthor}</td>
+										<td>${news.getDate}</td>
 									</tr>
 								</c:forEach>
 							</tbody>
 						</table>
+						
+			<form id="contact-form" action="Controller" method="POST">
+				<div class="form-group mb-4">
+					<input type="text" name="title" class="form-control" placeholder="${news_title}" required="" />
+				</div>
 
+				<div class="text-right">
+					<input type="hidden" name="command" value="add_news" />
+					<button type="submit" class="btn btn-big btn-primary">${submit_button}</button>
+				</div>
 
-						<form id="contact-form" action="Controller" method="POST">
-							<div class="form-group mb-4">
-								<input type="text" name="title" class="form-control" placeholder="${news_title}" required="" />
-							</div>
-							
-							<div class="text-right">
-								<input type="hidden" name="command" value="add_news" />
-								<button type="submit" class="btn btn-big btn-primary">${submit_button}</button>
-							</div>
-
-						</form>
-					</section>
-				</main>
-			</div>
+			</form>
+			</section>
+			</main>
 		</div>
-
-		<div class="tm-row">
-			
-			<div class="tm-col-right tm-col-footer">
-				<footer class="tm-site-footer text-right">
-					<p class="mb-0">
-						Copyright 2020 Diagoona |
-						<a rel="nofollow" target="_parent" href="https://it-academy.by" class="tm-text-link">IT-Academy</a>
-						| Md-JD2
-					</p>
-				</footer>
-			</div>
+	</div>
+<%--   --%>
+	<div class="tm-row">
+		<div class="tm-col-right tm-col-footer">
+			<footer class="tm-site-footer text-right">
+				<p class="mb-0">
+					Copyright 2020 Diagoona |
+					<a rel="nofollow" target="_parent" href="https://it-academy.by" class="tm-text-link">IT-Academy</a>
+					| Md-JD2
+				</p>
+			</footer>
 		</div>
+	</div>
 	</div>
 </body>
 

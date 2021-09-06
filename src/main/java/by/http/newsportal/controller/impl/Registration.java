@@ -20,7 +20,7 @@ public class Registration implements ICommand {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String path;
-		String role = request.getParameter("name");
+		String role = "ADMINISTRATOR";
 		String name = request.getParameter("name");
 		String password = request.getParameter("password");
 		String eMail = request.getParameter("eMail");
