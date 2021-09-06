@@ -23,6 +23,7 @@ public class Authorization implements ICommand {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String role = request.getParameter("name");
 		String name = request.getParameter("name");
 		String password = request.getParameter("password");
 		String eMail = request.getParameter("eMail");
@@ -32,18 +33,20 @@ public class Authorization implements ICommand {
 		String hobby = request.getParameter("hobby");
 		Date date = Date.valueOf(LocalDate.now());
 
-		System.out.println("Command: Authorization, name: " + name);
-		System.out.println("Command: Authorization, password: " + password);
+		System.out.println("RegistrationInfo from UI [role=" + role + ", name=" + name + ", password=" + password
+				+ ", eMail=" + eMail + ", gender=" + gender + ", country=" + country + ", language=" + language
+				+ ", hobby=" + hobby + ", date=" + date + "]");
 
 		if (name == null || name.equals("") || password == null || password.equals("")) {
 			return;
 		}
-		RegistrationInfo registrationInfo = new RegistrationInfo(name, password, eMail, gender, country, language,
+		RegistrationInfo registrationInfo = new RegistrationInfo(role, name, password, eMail, gender, country, language,
 				hobby, date);
 		try {
 			User user = I_USER_SERVICE.authorization(registrationInfo);
 			HttpSession session = request.getSession(true);
 			session.setAttribute("user", user);
+			session.setAttribute("role", user.getRole().toString());
 			response.sendRedirect("Controller?command=go_to_LogIn_Info_Page.jsp");
 
 		} catch (ServiceException e) {

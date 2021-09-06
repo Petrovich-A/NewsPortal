@@ -20,6 +20,7 @@ public class Registration implements ICommand {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String path;
+		String role = request.getParameter("name");
 		String name = request.getParameter("name");
 		String password = request.getParameter("password");
 		String eMail = request.getParameter("eMail");
@@ -29,7 +30,7 @@ public class Registration implements ICommand {
 		String hobby = request.getParameter("hobby");
 		Date date = Date.valueOf(LocalDate.now());
 
-		System.out.println("RegistrationInfo to BD:\n [name=" + name + ", password=" + password + ", eMail=" + eMail
+		System.out.println("RegistrationInfo to BD:\n [role=" + role + ", name=" + name + ", password=" + password + ", eMail=" + eMail
 				+ ", gender=" + gender + ", country=" + country + ", language=" + language + ", hobby=" + hobby
 				+ ", date=" + date + "]");
 
@@ -39,7 +40,7 @@ public class Registration implements ICommand {
 			return;
 		}
 
-		RegistrationInfo registrationInfo = new RegistrationInfo(name, password, eMail, gender, country, language,
+		RegistrationInfo registrationInfo = new RegistrationInfo(role, name, password, eMail, gender, country, language,
 				hobby, date);
 
 		try {

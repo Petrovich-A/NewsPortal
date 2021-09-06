@@ -9,6 +9,7 @@ public class RegistrationInfo implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	public String role;
 	public String name;
 	public String password;
 	public String eMail;
@@ -18,9 +19,10 @@ public class RegistrationInfo implements Serializable {
 	public String hobby;
 	public Date date;
 
-	public RegistrationInfo(String name, String password, String eMail, String gender, String country, String language,
-			String hobby, Date date) {
+	public RegistrationInfo(String role, String name, String password, String eMail, String gender, String country,
+			String language, String hobby, Date date) {
 		super();
+		this.role = role;
 		this.name = name;
 		this.password = password;
 		this.eMail = eMail;
@@ -29,6 +31,14 @@ public class RegistrationInfo implements Serializable {
 		this.language = language;
 		this.hobby = hobby;
 		this.date = date;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
 	}
 
 	public String getName() {
@@ -97,7 +107,7 @@ public class RegistrationInfo implements Serializable {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(country, date, eMail, gender, hobby, language, name, password);
+		return Objects.hash(country, date, eMail, gender, hobby, language, name, password, role);
 	}
 
 	@Override
@@ -112,13 +122,15 @@ public class RegistrationInfo implements Serializable {
 		return Objects.equals(country, other.country) && Objects.equals(date, other.date)
 				&& Objects.equals(eMail, other.eMail) && Objects.equals(gender, other.gender)
 				&& Objects.equals(hobby, other.hobby) && Objects.equals(language, other.language)
-				&& Objects.equals(name, other.name) && Objects.equals(password, other.password);
+				&& Objects.equals(name, other.name) && Objects.equals(password, other.password)
+				&& Objects.equals(role, other.role);
 	}
 
 	@Override
 	public String toString() {
-		return "RegistrationInfo [name=" + name + ", password=" + password + ", eMail=" + eMail + ", gender=" + gender
-				+ ", country=" + country + ", language=" + language + ", hobby=" + hobby + ", date=" + date + "]";
+		return "RegistrationInfo [role=" + role + ", name=" + name + ", password=" + password + ", eMail=" + eMail
+				+ ", gender=" + gender + ", country=" + country + ", language=" + language + ", hobby=" + hobby
+				+ ", date=" + date + "]";
 	}
 
 }

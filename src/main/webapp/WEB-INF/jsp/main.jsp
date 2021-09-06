@@ -68,8 +68,10 @@
 
 						<div class="collapse navbar-collapse tm-nav" id="navbar-nav">
 							<ul class="navbar-nav text-uppercase">
-								<li class="nav-item active"><input type="hidden" name="local" value="Add news" /> <a class="nav-link tm-nav-link"
-										href="Controller?command=go_to_add_news_page">${addNews_button} </a></li>
+								<c:if test="${role == 'ADMINISTRATOR'}">
+									<li class="nav-item active"><input type="hidden" name="local" value="Add news" /> <a class="nav-link tm-nav-link"
+											href="Controller?command=go_to_add_news_page">${addNews_button} </a></li>
+								</c:if>
 
 								<li class="nav-item active"><input type="hidden" name="local" value="Registration" /> <a class="nav-link tm-nav-link"
 										href="Controller?command=go_to_registration_page">${registration_button} </a></li>
@@ -92,7 +94,7 @@
 					<c:choose>
 						<c:when test="${newsList.size() == 0 || newsList.size() == null}">
 							<p class="mb-5">
-								<c:out value="No data from DB" />
+								<c:out value="No news are avaliable" />
 							</p>
 							<hr class="mb-5">
 						</c:when>
