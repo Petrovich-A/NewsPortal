@@ -35,15 +35,12 @@ public class NewsServiceImpl implements INewsService {
 	}
 
 	@Override
-	public List<News> delete(int id) throws ServiceException {
-		List<News> listNewsToUI = new ArrayList<>();
+	public void delete(int id) throws ServiceException {
 		try {
-			listNewsToUI = NEWS_DAO.getListNews();
 			NEWS_DAO.delete(id);
 		} catch (DAOException e) {
 			e.printStackTrace();
 		}
-		return listNewsToUI;
 	}
 
 	@Override

@@ -337,3 +337,9 @@ textarea {
     .tm-service-img { margin-right: 0; }
     .tm-service-img-r { margin-left: 0; }
 }
+
+
+table {
+    table-layout: auto; /* Браузер загружает всю таблицу, анализирует ее для определения размеров ячеек и только после этого отображает */
+    width: 100%; /* Ширина таблицы */
+   }

@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import by.http.newsportal.bean.News;
-import by.http.newsportal.bean.RegistrationInfo;
-import by.http.newsportal.bean.User;
 import by.http.newsportal.controller.ICommand;
 import by.http.newsportal.service.INewsService;
 import by.http.newsportal.service.ServiceException;

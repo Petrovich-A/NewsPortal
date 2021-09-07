@@ -16,7 +16,7 @@ public class NewsDAOImpl implements INewsDAO {
 	private final String SQL_ADD = "INSERT INTO news(title, brief, content, author, date) VALUES(?,?,?,?,?)";
 	private final String SQL_GET_LIST = "SELECT * FROM news";
 	private final String SQL_UPDATE = "UPDATE news SET title = ?, brief = ?, content = ?, author = ?, date = ? WHERE id = ?";
-	private final String SQL_DELETE = "DELETE FROM news WHERE idnews = ?";
+	private final String SQL_DELETE = "DELETE FROM news WHERE id = ?";
 
 	@Override
 	public void add(News news) throws DAOException {
@@ -42,16 +42,19 @@ public class NewsDAOImpl implements INewsDAO {
 
 	@Override
 	public List<News> getListNews() throws DAOException {
-		List<News> listNewsToUI = new ArrayList<News>();
+		List<News> listNews = new ArrayList<News>();
+		News news = new News();
 		try (MyConnectionToDB myConnectionToDB = new MyConnectionToDB();
 				Connection connection = myConnectionToDB.getNewsConnection();
 				Statement statement = connection.createStatement();
 				ResultSet resultSet = statement.executeQuery(SQL_GET_LIST);) {
 
 			while (resultSet.next()) {
-				listNewsToUI.add(new News(resultSet.getString(2), resultSet.getString(3), resultSet.getString(5),
-						resultSet.getString(6))); // context (4 row)
+				listNews.add(new News(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), resultSet.getString(4), resultSet.getString(5), resultSet.getString(6))); // context (4 row)
+				System.out.println("resultSet.getString(1): " + resultSet.getString(1) + "resultSet.getString(2): "
+						+ resultSet.getString(2));
 			}
+			System.out.println("from getListNews() \n" + listNews);
 
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
@@ -61,22 +64,21 @@ public class NewsDAOImpl implements INewsDAO {
 			e2.printStackTrace();
 		}
 
-		if (listNewsToUI.size() == 0 | listNewsToUI == null) {
-			System.out.println("listNewsToUI is null /n");
+		if (listNews.size() == 0 | listNews == null) {
+			System.out.println("listNews is null \n");
 			return null;
 		} else {
-			System.out.println("listNewsToUI is avaliable \n");
-			return listNewsToUI;
+			System.out.println("listNews is avaliable \n");
+			return listNews;
 		}
 	}
 
 	@Override
-	public List<News> delete(int id) throws DAOException {
+	public void delete(int id) throws DAOException {
 		try (MyConnectionToDB myConnectionToDB = new MyConnectionToDB();
 				Connection connection = myConnectionToDB.getNewsConnection();
 				PreparedStatement preparedStatement = connection.prepareStatement(SQL_DELETE);) {
 			preparedStatement.setInt(1, id);
-			System.out.println("news is deleted \n");
 
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
@@ -85,17 +87,8 @@ public class NewsDAOImpl implements INewsDAO {
 		} catch (Exception e2) {
 			e2.printStackTrace();
 		}
-		NewsDAOImpl newsDAOImpl = new NewsDAOImpl();
-		List<News> listNewsFromBD = new ArrayList<News>();
-		listNewsFromBD = newsDAOImpl.getListNews();
-		if (listNewsFromBD.size() == 0 | listNewsFromBD == null) {
-			System.out.println("listNewsToUI is null /n");
-			return null;
-		} else {
-			System.out.println("listNewsToUI is avaliable \n");
-			return listNewsFromBD;
-		}
 
+		System.out.println("Id is avaliable \n");
 	}
 
 	@Override

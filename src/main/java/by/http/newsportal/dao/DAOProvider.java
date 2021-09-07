@@ -1,6 +1,5 @@
 package by.http.newsportal.dao;
 
-import by.http.newsportal.bean.RegistrationInfo;
 import by.http.newsportal.dao.impl.NewsDAOImpl;
 import by.http.newsportal.dao.impl.UserDAOImpl;
 

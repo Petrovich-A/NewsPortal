@@ -31,6 +31,16 @@ public class News implements Serializable {
 		this.date = date;
 	}
 
+	public News(int id, String title, String brief, String content, String author, String dateDB) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.brief = brief;
+		this.content = content;
+		this.author = author;
+		this.dateDB = dateDB;
+	}
+
 	public News(String title, String brief, String content, String author, Date date) {
 		super();
 		this.title = title;
@@ -40,50 +50,12 @@ public class News implements Serializable {
 		this.date = date;
 	}
 
-	public News(String title, String brief, String content, String author, String dateDB) {
-		super();
-		this.title = title;
-		this.brief = brief;
-		this.content = content;
-		this.author = author;
-		this.dateDB = dateDB;
-	}
-
-	public News(String title, String brief, String author, String dateDB) {
-		super();
-		this.title = title;
-		this.brief = brief;
-		this.author = author;
-		this.dateDB = dateDB;
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(author, brief, content, date, title);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		News other = (News) obj;
-		return Objects.equals(author, other.author) && Objects.equals(brief, other.brief)
-				&& Objects.equals(content, other.content) && Objects.equals(date, other.date)
-				&& Objects.equals(title, other.title);
-	}
-
-	@Override
-	public String toString() {
-		return "News [title=" + title + ", brief=" + brief + ", content=" + content + ", author=" + author + ", date="
-				+ date + "]";
-	}
-
 	public int getId() {
 		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getTitle() {
@@ -132,6 +104,35 @@ public class News implements Serializable {
 
 	public void setDateDB(String dateDB) {
 		this.dateDB = dateDB;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(author, brief, content, date, dateDB, id, title);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		News other = (News) obj;
+		return Objects.equals(author, other.author) && Objects.equals(brief, other.brief)
+				&& Objects.equals(content, other.content) && Objects.equals(date, other.date)
+				&& Objects.equals(dateDB, other.dateDB) && id == other.id && Objects.equals(title, other.title);
+	}
+
+	@Override
+	public String toString() {
+		return "News [id=" + id + ", title=" + title + ", brief=" + brief + ", content=" + content + ", author="
+				+ author + ", date=" + date + ", dateDB=" + dateDB + "]";
 	}
 
 }

@@ -36,10 +36,7 @@
 				</div>
 				<div class="tm-col-right">
 					<nav class="navbar navbar-expand-lg" id="tm-main-nav">
-						<button class="navbar-toggler toggler-example mr-0 ml-auto" type="button" data-toggle="collapse" data-target="#navbar-nav"
-							aria-controls="navbar-nav" aria-expanded="false" aria-label="Toggle navigation">
-							<span><i class="fas fa-bars"></i></span>
-						</button>
+						
 						<div class="collapse navbar-collapse tm-nav" id="navbar-nav">
 							<ul class="navbar-nav text-uppercase">
 								<li class="nav-item"><a class="nav-link tm-nav-link" href="Controller?command=go_to_main_page">Home </a></li>
@@ -58,20 +55,20 @@
 						<p class="mb-85">${registrationPageH2_text}</p>
 						<form id="contact-form" action="Controller" method="POST">
 							<div class="form-group mb-4">
-								<input type="text" name="title" class="form-control" placeholder="${news_title}" required="" />
+								<input type="text" name="title" class="form-control" placeholder="${news_title}" required="required" />
 							</div>
 							<div class="form-group mb-5">
-								<textarea rows="4" name="brief" class="form-control" placeholder="${news_brief}..." required=""></textarea>
+								<textarea rows="4" name="brief" class="form-control" placeholder="${news_brief}..." required="required" style="width: 632px; "></textarea>
 							</div>
 							<div class="form-group mb-5">
-								<textarea rows="4" name="content" class="form-control" placeholder="${news_content}..." required=""></textarea>
+								<textarea rows="4" name="content" class="form-control" placeholder="${news_content}..." required="required" style="width: 636px; height: 123px"></textarea>
 							</div>
 
 							<div class="form-group mb-4">
-								<input type="text" name="author" class="form-control" placeholder="${news_author}" required="" />
+								<input type="text" name="author" class="form-control" placeholder="${news_author}" required="required" />
 							</div>
 							<div class="text-right">
-								<input type="hidden" name="command" value="add_news" />
+								<input type="hidden" name="command" value="delete_news" />
 								<button type="submit" class="btn btn-big btn-primary">${submit_button}</button>
 							</div>
 

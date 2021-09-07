@@ -37,5 +37,5 @@ public interface INewsDAO {
 	 * @return 
 	 * @throws ServiceException
 	 */
-	public List<News> delete(int id) throws DAOException;
+	public void delete(int id) throws DAOException;
 }
