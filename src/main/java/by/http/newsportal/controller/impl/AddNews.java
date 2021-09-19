@@ -2,7 +2,9 @@ package by.http.newsportal.controller.impl;
 
 import java.io.IOException;
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import by.http.newsportal.bean.News;
 import by.http.newsportal.controller.ICommand;
@@ -26,11 +28,12 @@ public class AddNews implements ICommand {
 		String brief = request.getParameter("brief");
 		String content = request.getParameter("content");
 		String author = request.getParameter("author");
-		Date date = Date.valueOf(LocalDate.now());
-
+//		Date date = Date.valueOf(LocalDate.now());
+		Timestamp date = Timestamp.valueOf(LocalDateTime.now());
+		
 		News news = new News(title, brief, content, author, date);
-		System.out.println("News from UI: \n [title=" + title + ", brief=" + brief + ", content=" + content + ", author="
-				+ author + ", date=" + date + "]");
+		System.out.println("News from UI: \n [title=" + title + ", brief=" + brief + ", content=" + content
+				+ ", author=" + author + ", date=" + date + "]");
 		try {
 			I_NEWS_SERVICE.add(news);
 
@@ -41,6 +44,6 @@ public class AddNews implements ICommand {
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher(PATH);
 		HttpSession session = request.getSession(true);
 		request.getSession(true).setAttribute("url", PATH);
-		requestDispatcher.forward(request, response);
+		response.sendRedirect("Controller?command=go_to_main_page");
 	}
 }

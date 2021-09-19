@@ -75,6 +75,7 @@
 												<td>${news.getAuthor()}</td>
 												<td>${news.getDate()}</td>
 											</tr>
+											<hr class="mb-5">
 										</c:forEach>
 									</c:otherwise>
 								</c:choose>

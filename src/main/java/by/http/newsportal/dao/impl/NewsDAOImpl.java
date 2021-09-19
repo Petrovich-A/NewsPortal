@@ -15,7 +15,7 @@ import by.http.newsportal.dao.INewsDAO;
 public class NewsDAOImpl implements INewsDAO {
 	private final String SQL_ADD = "INSERT INTO news(title, brief, content, author, date) VALUES(?,?,?,?,?)";
 	private final String SQL_GET_LIST = "SELECT * FROM news";
-	private final String SQL_UPDATE = "UPDATE news SET title = ?, brief = ?, content = ?, author = ?, date = ? WHERE id = ?";
+	private final String SQL_UPDATE = "UPDATE news SET title = ?, brief = ?, content = ?, author = ?, date = ? WHERE idnews = ?";
 	private final String SQL_DELETE = "DELETE FROM news WHERE idnews = ?";
 
 	@Override
@@ -27,7 +27,7 @@ public class NewsDAOImpl implements INewsDAO {
 			preparedStatement.setString(2, news.getBrief());
 			preparedStatement.setString(3, news.getContent());
 			preparedStatement.setString(4, news.getAuthor());
-			preparedStatement.setDate(5, news.getDate());
+			preparedStatement.setTimestamp(5, news.getDate());
 			preparedStatement.executeUpdate();
 			System.out.println("NewsDAOImpl news is added \n");
 
@@ -50,11 +50,14 @@ public class NewsDAOImpl implements INewsDAO {
 				ResultSet resultSet = statement.executeQuery(SQL_GET_LIST);) {
 
 			while (resultSet.next()) {
-				listNews.add(new News(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), resultSet.getString(4), resultSet.getString(5), resultSet.getString(6))); // context (4 row)
-				System.out.println("resultSet.getString(1): " + resultSet.getString(1) + "resultSet.getString(2): "
-						+ resultSet.getString(2));
+				listNews.add(new News(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3),
+						resultSet.getString(4), resultSet.getString(5), resultSet.getString(6))); // context (4 row)
+				System.out.println("NewsDAOImpl from getListNews() \n resultSet.getString(1): " + resultSet.getString(1)
+						+ "resultSet.getString(2): " + resultSet.getString(2) + "resultSet.getString(3): "
+						+ resultSet.getString(3) + "resultSet.getString(4): " + resultSet.getString(4)
+						+ "resultSet.getString(5): " + resultSet.getString(5) + "resultSet.getString(6): "
+						+ resultSet.getString(6));
 			}
-			System.out.println("NewsDAOImpl from getListNews() \n" + listNews);
 
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();

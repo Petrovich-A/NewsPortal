@@ -1,7 +1,7 @@
 package by.http.newsportal.bean;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.Objects;
 
 public class News implements Serializable {
@@ -14,14 +14,14 @@ public class News implements Serializable {
 	private String brief;
 	private String content;
 	private String author;
-	private Date date;
+	private Timestamp date;
 	private String dateDB;
 
 	public News() {
 		super();
 	}
 
-	public News(int id, String title, String brief, String content, String author, Date date) {
+	public News(int id, String title, String brief, String content, String author, Timestamp date) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -41,7 +41,7 @@ public class News implements Serializable {
 		this.dateDB = dateDB;
 	}
 
-	public News(String title, String brief, String content, String author, Date date) {
+	public News(String title, String brief, String content, String author, Timestamp date) {
 		super();
 		this.title = title;
 		this.brief = brief;
@@ -90,11 +90,11 @@ public class News implements Serializable {
 		this.author = author;
 	}
 
-	public Date getDate() {
+	public Timestamp getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(Timestamp date) {
 		this.date = date;
 	}
 

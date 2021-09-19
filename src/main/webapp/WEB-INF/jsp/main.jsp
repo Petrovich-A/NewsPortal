@@ -98,12 +98,13 @@
 											</p>
 											<hr class="mb-5">
 											<p class="mb-5">
+												<c:out value="${news.getBrief()}" />
+											</p>
+											<hr class="mb-5">
+											<p class="mb-5">
 												<c:out value="${news.getAuthor()}" />
 												<c:out value="|" />
 												<c:out value="${news.getDateDB()}" />
-											</p>
-											<p class="mb-5">
-												<c:out value="${news.getBrief()}" />
 											</p>
 											<hr class="mb-5">
 										</c:forEach>
