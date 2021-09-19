@@ -67,7 +67,7 @@
 									<c:otherwise>
 										<c:forEach var="news" items="${newsList}">
 											<tr>
-												<td><input class="tm-content tm-contact" type="radio" name="id" value="${news.id}"></td>
+												<td><input class="tm-content tm-contact" type="radio" name="id" value="${news.getId()}"></td>
 												<td>${news.getId()}</td>
 												<td>${news.getTitle()}</td>
 												<td>${news.getBrief()}</td>
@@ -82,7 +82,8 @@
 						</table>
 						<div class="text-right">
 							<input type="hidden" name="command" value="delete_news" />
-							<input type="hidden" name="id" value="${news.setId()}" />
+						<%--	<input type="radio" name="id" value="${news.getId()}" />  --%>
+							<c:out value="${news.getId()}" />
 							<button type="submit" class="btn btn-big btn-primary">Delete</button>
 						</div>
 					</form>

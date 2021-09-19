@@ -16,7 +16,7 @@ public class NewsDAOImpl implements INewsDAO {
 	private final String SQL_ADD = "INSERT INTO news(title, brief, content, author, date) VALUES(?,?,?,?,?)";
 	private final String SQL_GET_LIST = "SELECT * FROM news";
 	private final String SQL_UPDATE = "UPDATE news SET title = ?, brief = ?, content = ?, author = ?, date = ? WHERE id = ?";
-	private final String SQL_DELETE = "DELETE FROM news WHERE id = ?";
+	private final String SQL_DELETE = "DELETE FROM news WHERE idnews = ?";
 
 	@Override
 	public void add(News news) throws DAOException {
@@ -29,7 +29,7 @@ public class NewsDAOImpl implements INewsDAO {
 			preparedStatement.setString(4, news.getAuthor());
 			preparedStatement.setDate(5, news.getDate());
 			preparedStatement.executeUpdate();
-			System.out.println("news is added \n");
+			System.out.println("NewsDAOImpl news is added \n");
 
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
@@ -54,7 +54,7 @@ public class NewsDAOImpl implements INewsDAO {
 				System.out.println("resultSet.getString(1): " + resultSet.getString(1) + "resultSet.getString(2): "
 						+ resultSet.getString(2));
 			}
-			System.out.println("from getListNews() \n" + listNews);
+			System.out.println("NewsDAOImpl from getListNews() \n" + listNews);
 
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
@@ -65,10 +65,10 @@ public class NewsDAOImpl implements INewsDAO {
 		}
 
 		if (listNews.size() == 0 | listNews == null) {
-			System.out.println("listNews is null \n");
+			System.out.println("NewsDAOImpl listNews is null \n");
 			return null;
 		} else {
-			System.out.println("listNews is avaliable \n");
+			System.out.println("NewsDAOImpl listNews is avaliable \n");
 			return listNews;
 		}
 	}
@@ -79,6 +79,7 @@ public class NewsDAOImpl implements INewsDAO {
 				Connection connection = myConnectionToDB.getNewsConnection();
 				PreparedStatement preparedStatement = connection.prepareStatement(SQL_DELETE);) {
 			preparedStatement.setInt(1, id);
+			preparedStatement.executeUpdate();
 
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
@@ -88,7 +89,7 @@ public class NewsDAOImpl implements INewsDAO {
 			e2.printStackTrace();
 		}
 
-		System.out.println("Id is avaliable \n");
+		System.out.println("NewsDAOImpl Id is avaliable \n id: " + id);
 	}
 
 	@Override

@@ -83,8 +83,7 @@
 						<div class="form-group mb-4">
 							${user_gender}
 							<br>
-							<input type="radio" name="gender" value="male" required="required">
-							${user_gender_male}
+							<input type="radio" name="gender" value="male" required="required">${user_gender_male}
 							<input type="radio" name="gender" value="female">${user_gender_female}
 							<input type="radio" name="gender" value="other">${user_gender_other}
 						</div>

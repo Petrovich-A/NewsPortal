@@ -68,7 +68,7 @@
 								<input type="text" name="author" class="form-control" placeholder="${news_author}" required="required" />
 							</div>
 							<div class="text-right">
-								<input type="hidden" name="command" value="delete_news" />
+								<input type="hidden" name="command" value="add_news" />
 								<button type="submit" class="btn btn-big btn-primary">${submit_button}</button>
 							</div>
 

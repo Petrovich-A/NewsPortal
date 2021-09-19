@@ -48,14 +48,14 @@ public class Registration implements ICommand {
 			path = "/WEB-INF/jsp/registrationInfoPage.jsp";
 			request.setAttribute("message", "Please log in");
 			request.getSession(true).setAttribute("url", path);
-			System.out.println("in try before sendRedirect");
+			System.out.println("Registration in try before sendRedirect");
 			response.sendRedirect("Controller?command=go_to_authorization_info_page");
 
 		} catch (ServiceException e) {
 			e.printStackTrace();
 			path = "/WEB-INF/jsp/registrationInfoPage.jsp";
 			request.getSession(true).setAttribute("url", path);
-			System.out.println("in catch before sendRedirect");
+			System.out.println("Registration in catch before sendRedirect");
 			response.sendRedirect("Controller?command=go_to_registration_page");
 		}
 	}
