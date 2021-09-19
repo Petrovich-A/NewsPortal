@@ -44,6 +44,7 @@
 				<section class="tm-content tm-contact">
 					<h2 class="mb-4 tm-content-title">Manage news page</h2>
 					<form action="Controller" method="POST">
+						<hr class="mb-5">
 						<table class="table">
 							<thead>
 								<tr>
@@ -62,7 +63,6 @@
 										<p class="mb-5">
 											<c:out value="No news in BD" />
 										</p>
-										<hr class="mb-5">
 									</c:when>
 									<c:otherwise>
 										<c:forEach var="news" items="${newsList}">
@@ -75,7 +75,6 @@
 												<td>${news.getAuthor()}</td>
 												<td>${news.getDate()}</td>
 											</tr>
-											<hr class="mb-5">
 										</c:forEach>
 									</c:otherwise>
 								</c:choose>
@@ -83,7 +82,6 @@
 						</table>
 						<div class="text-right">
 							<input type="hidden" name="command" value="delete_news" />
-						<%--	<input type="radio" name="id" value="${news.getId()}" />  --%>
 							<c:out value="${news.getId()}" />
 							<button type="submit" class="btn btn-big btn-primary">Delete</button>
 						</div>

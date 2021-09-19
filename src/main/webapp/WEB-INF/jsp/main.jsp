@@ -94,7 +94,9 @@
 									<c:otherwise>
 										<c:forEach var="news" items="${newsList}" begin="0" end="2">
 											<p class="mb-5">
-												<c:out value="${news.getTitle()}" />
+												<a class="mb-5" href="Controller?command=go_to_view_news_page&id=${news.getId()}">
+													<c:out value="${news.getTitle()}" />
+												</a>
 											</p>
 											<hr class="mb-5">
 											<p class="mb-5">

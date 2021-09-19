@@ -13,7 +13,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>Unknown Command Page</title>
+<title>View News Page</title>
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet" />
 <link href="resources/css/bootstrap.min.css" rel="stylesheet" />
 <link href="resources/fontawesome/css/all.min.css" rel="stylesheet" />
@@ -24,9 +24,6 @@
 <fmt:message bundle="${loc}" key="local.message" var="message" />
 <fmt:message bundle="${loc}" key="local.loc.button.name.ru" var="ru_button" />
 <fmt:message bundle="${loc}" key="local.loc.button.name.en" var="en_button" />
-<fmt:message bundle="${loc}" key="local.main.button.registration" var="registration_button" />
-<fmt:message bundle="${loc}" key="local.main.button.login" var="login_button" />
-<fmt:message bundle="${loc}" key="local.main.button.addNews" var="addNews_button" />
 </head>
 <body>
 	<div class="tm-container">
@@ -41,12 +38,30 @@
 						</div>
 					</div>
 				</div>
+				<div class="tm-col-right">
+					<nav class="navbar navbar-expand-lg" id="tm-main-nav">
+						<div class="collapse navbar-collapse tm-nav" id="navbar-nav">
+							<ul class="navbar-nav text-uppercase">
+								<li class="nav-item"><a class="nav-link tm-nav-link" href="Controller?command=go_to_main_page">Home </a></li>
+							</ul>
+						</div>
+					</nav>
+				</div>
 				<div class="tm-row">
 					<div class="tm-col-left"></div>
 					<main class="tm-col-right">
-						<section class="tm-content">
-							<h2 class="mb-5 tm-content-title">Unknown command name</h2>
-						</section>
+						<c:forEach var="news" items="${newsList}">
+							<c:if test="${news.getId() == id}">
+								<section class="tm-content">
+									<h1 class="mb-5 tm-content-title">${news.getTitle()}</h1>
+									<hr>
+									<h2 class="mb-5 tm-content-title">${news.getBrief()}</h2>
+									<h3 class="mb-5 tm-content-title">${news.getContent()}</h3>
+									<h4 class="mb-5 tm-content-title">${news.getDateDB()}</h4>
+									<h4 class="mb-5 tm-content-title">${news.getAuthor()}</h4>
+								</section>
+							</c:if>
+						</c:forEach>
 					</main>
 				</div>
 			</div>
@@ -55,8 +70,9 @@
 	<div class="tm-col-right tm-col-footer">
 		<footer class="tm-site-footer text-right">
 			<p class="mb-0">
-				Copyright 2020 Diagoona | 
-				<a rel="nofollow" target="_parent" href="https://it-academy.by" class="tm-text-link">IT-Academy</a> | Md-JD2
+				Copyright 2020 Diagoona |
+				<a rel="nofollow" target="_parent" href="https://it-academy.by" class="tm-text-link">IT-Academy</a>
+				| Md-JD2
 			</p>
 		</footer>
 	</div>

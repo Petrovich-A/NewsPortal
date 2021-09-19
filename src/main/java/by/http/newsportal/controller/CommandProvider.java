@@ -13,6 +13,7 @@ import by.http.newsportal.controller.impl.GoToAuthorizationInfoPage;
 import by.http.newsportal.controller.impl.GoToAuthorizationPage;
 import by.http.newsportal.controller.impl.GoToRegistrationInfoPage;
 import by.http.newsportal.controller.impl.GoToRegistrationPage;
+import by.http.newsportal.controller.impl.GoToViewNewsPage;
 import by.http.newsportal.controller.impl.Authorization;
 import by.http.newsportal.controller.impl.Registration;
 import by.http.newsportal.controller.impl.UnknownCommand;
@@ -28,6 +29,7 @@ public class CommandProvider {
 		commands.put(CommandName.GO_TO_REGISTRATION_INFO_PAGE, new GoToRegistrationInfoPage());
 		commands.put(CommandName.GO_TO_ADD_NEWS_PAGE, new GoToAddNews());
 		commands.put(CommandName.GO_TO_MANAGE_NEWS, new GoToManageNews());
+		commands.put(CommandName.GO_TO_VIEW_NEWS_PAGE, new GoToViewNewsPage());  
 		commands.put(CommandName.CHANGE_LOCAL, new ChangeLocal());
 		commands.put(CommandName.REGISTRATION, new Registration());
 		commands.put(CommandName.AUTHORIZATION, new Authorization());
