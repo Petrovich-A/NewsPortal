@@ -19,7 +19,7 @@ public class MyConnectionToDB implements AutoCloseable {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		System.out.println("Connection OK");
+		System.out.println("MyConnectionToDB: \n Connection OK");
 		return newsConnection;
 	}
 

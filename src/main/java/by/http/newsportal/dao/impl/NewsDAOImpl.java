@@ -52,11 +52,6 @@ public class NewsDAOImpl implements INewsDAO {
 			while (resultSet.next()) {
 				listNews.add(new News(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3),
 						resultSet.getString(4), resultSet.getString(5), resultSet.getString(6))); // context (4 row)
-				System.out.println("NewsDAOImpl from getListNews() \n resultSet.getString(1): " + resultSet.getString(1)
-						+ "resultSet.getString(2): " + resultSet.getString(2) + "resultSet.getString(3): "
-						+ resultSet.getString(3) + "resultSet.getString(4): " + resultSet.getString(4)
-						+ "resultSet.getString(5): " + resultSet.getString(5) + "resultSet.getString(6): "
-						+ resultSet.getString(6));
 			}
 
 		} catch (ClassNotFoundException e) {

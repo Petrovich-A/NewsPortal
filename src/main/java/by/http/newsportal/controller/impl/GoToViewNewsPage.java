@@ -23,16 +23,28 @@ public class GoToViewNewsPage implements ICommand {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<News> listNews = new ArrayList<News>();
-		int id = Integer.parseInt(request.getParameter("id"));
-		System.out.println("GoToViewNewsPage command \n id: " + id);
 		try {
 			listNews = I_NEWS_SERVICE.getListNews();
 		} catch (ServiceException e) {
 			e.printStackTrace();
 		}
+		int id = Integer.parseInt(request.getParameter("id"));
+		System.out.println("GoToViewNewsPage command \n id: " + id);
+		News newsChoisen = new News();
+		for (News news : listNews) {
+			if (news.getId() == id) {
+				newsChoisen.setTitle(news.getTitle()); 
+				newsChoisen.setBrief(news.getBrief());
+				newsChoisen.setContent(news.getContent());
+				newsChoisen.setAuthor(news.getAuthor());
+				newsChoisen.setDateDB(news.getDateDB());
+			}
+		}
+		System.out.println("newsChoisen: " + newsChoisen.toString());
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher(PATH);
 		requestDispatcher.forward(request, response);
 		HttpSession session = request.getSession(true);
+		session.setAttribute("newsChoisen", newsChoisen);
 		request.getSession(true).setAttribute("url", PATH);
 	}
 

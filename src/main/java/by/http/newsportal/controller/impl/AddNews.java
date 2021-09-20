@@ -28,12 +28,9 @@ public class AddNews implements ICommand {
 		String brief = request.getParameter("brief");
 		String content = request.getParameter("content");
 		String author = request.getParameter("author");
-//		Date date = Date.valueOf(LocalDate.now());
 		Timestamp date = Timestamp.valueOf(LocalDateTime.now());
-		
+
 		News news = new News(title, brief, content, author, date);
-		System.out.println("News from UI: \n [title=" + title + ", brief=" + brief + ", content=" + content
-				+ ", author=" + author + ", date=" + date + "]");
 		try {
 			I_NEWS_SERVICE.add(news);
 

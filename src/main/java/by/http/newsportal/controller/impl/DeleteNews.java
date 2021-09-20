@@ -19,13 +19,11 @@ public class DeleteNews implements ICommand {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		String id = request.getParameter("id");
 		int id = Integer.parseInt(request.getParameter("id"));
 		System.out.println("DeleteNews command \n id: " + id);
 
 		try {
 			System.out.println("id");
-//			I_NEWS_SERVICE.delete(Integer.parseInt(id));
 			I_NEWS_SERVICE.delete(id);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -33,7 +31,6 @@ public class DeleteNews implements ICommand {
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher(PATH);
 		HttpSession session = request.getSession(true);
 		request.getSession(true).setAttribute("url", PATH);
-//		requestDispatcher.forward(request, response);
 		response.sendRedirect("Controller?command=go_to_manage_news");
 	}
 }
