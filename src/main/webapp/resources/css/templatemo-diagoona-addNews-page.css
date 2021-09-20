@@ -10,7 +10,7 @@ body {
     overflow-x: hidden;
     color: white;
     background-color: #2C353C;
-    background-image: url(diagoona-bg-3.jpg);
+    background-image: url('../img/diagoona-bg-3.jpg');
 	background-size: 100%;
 }
 

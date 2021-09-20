@@ -15,6 +15,8 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>View News Page</title>
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet" />
+<link href="resources/css/bootstrap.min.css" rel="stylesheet" />
+<link href="resources/fontawesome/css/all.min.css" rel="stylesheet" />
 <link href="resources/css/templatemo-diagoona-viewNews-Page.css" rel="stylesheet" />
 
 <fmt:setLocale value="${sessionScope.local}" />
@@ -47,15 +49,15 @@
 				</div>
 				<div class="tm-row">
 					<div class="tm-col-left"></div>
-					<main >
-						<section class="tm-content">
-							<h1 class="mb-5 tm-content-title">${newsChoisen.getTitle()}</h1>
+					<main>
+						<div class="tm-content">
+							<p class="mb-5 tm-content-title">${newsChoisen.getTitle()}</p>
 							<hr>
-							<h2 class="mb-5 tm-content-title">${newsChoisen.getBrief()}</h2>
-							<h3 class="mb-5 tm-content-title">${newsChoisen.getContent()}</h3>
-							<h4 class="mb-5 tm-content-title">${newsChoisen.getDateDB()}</h4>
-							<h4 class="mb-5 tm-content-title">${newsChoisen.getAuthor()}</h4>
-						</section>
+							<p class="mb-5 tm-content-title">${newsChoisen.getBrief()}</p>
+							<hr>
+							<p class="mb-5 tm-content-title">${newsChoisen.getContent()}</p>
+							<p class="mb-5 tm-content-title">${newsChoisen.getDateDB()} | ${newsChoisen.getAuthor()} </p>
+						</div>
 					</main>
 				</div>
 			</div>

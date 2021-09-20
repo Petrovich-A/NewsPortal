@@ -6,13 +6,13 @@ https://templatemo.com/tm-550-diagoona
 
 */
 body {
-	font-family: 'Open Sans', Arial, sans-serif;
-	font-size: 17px;
-	font-weight: 300;
-	overflow-x: hidden;
-	color: white;
-	background-color: #2C353C;
-	background-image: url(diagoona-bg-1.jpg);
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 17px;
+    font-weight: 300;
+    overflow-x: hidden;
+    color: white;
+    background-color: #2C353C;
+    background-image: url('../img/diagoona-bg-1.jpg');
 	background-size: 100%;
 }
 
@@ -34,7 +34,7 @@ button:focus {
 }
 
 p {
-	line-height: 1.9;
+	line-height: 1.2;
 }
 
 .tm-logo {
@@ -253,7 +253,7 @@ hr {
 	font-family: 'Open Sans', Arial, sans-serif;
 	font-size: 1rem;
 	font-weight: 400;
-	line-height: 1.5;
+	line-height: 1.2;
 }
 
 .form-control:focus {
@@ -265,7 +265,7 @@ hr {
 }
 
 .mb-85 {
-	margin-bottom: 85px;
+	margin-bottom: 60px;
 }
 
 .tm-contact-main {
@@ -417,3 +417,10 @@ hr {
 	padding-bottom: 10px;
 	padding-left: 25px;
 }
+
+#first{
+	float: left;
+}
+#second{
+	float: left;
+} 

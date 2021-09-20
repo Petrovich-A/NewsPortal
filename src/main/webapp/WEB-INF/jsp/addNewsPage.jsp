@@ -7,8 +7,14 @@
 
 <head>
 <meta charset="UTF-8">
-<link href="resources/css/templatemo-diagoona-addNews-page.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>Add news page</title>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet" />
+<link href="resources/css/bootstrap.min.css" rel="stylesheet" />
+<link href="resources/fontawesome/css/all.min.css" rel="stylesheet" />
+<link href="resources/css/templatemo-diagoona-addNews-page.css" rel="stylesheet">
+
 <fmt:setLocale value="${sessionScope.local}" />
 <fmt:setBundle basename="properties.local" var="loc" />
 <fmt:message bundle="${loc}" key="local.message" var="message" />
@@ -45,57 +51,64 @@
 				</div>
 			</div>
 
+			<div>
+				<div class="tm-row">
+					<div class="tm-col-left"></div>
+					<main class="tm-col-right tm-contact-main">
+						<!-- Content -->
+						<section class="tm-content tm-contact">
+							<h2 class="mb-4 tm-content-title">${registrationPageH1_text}</h2>
+							<p class="mb-85">${registrationPageH2_text}</p>
+							<form id="contact-form" action="Controller" method="POST">
+								<div class="form-group mb-4">
+									<input type="text" name="title" class="form-control" placeholder="${news_title}" required="required" />
+								</div>
+								<div class="form-group mb-5">
+									<textarea rows="4" name="brief" class="form-control" placeholder="${news_brief}..." required="required" style="width: 632px;"></textarea>
+								</div>
+								<div class="form-group mb-5">
+									<textarea rows="4" name="content" class="form-control" placeholder="${news_content}..." required="required"
+										style="width: 636px; height: 123px"></textarea>
+								</div>
+
+								<div class="form-group mb-4">
+									<input type="text" name="author" class="form-control" placeholder="${news_author}" required="required" />
+								</div>
+								<div class="text-right">
+									<input type="hidden" name="command" value="add_news" />
+									<button type="submit" class="btn btn-big btn-primary">${submit_button}</button>
+								</div>
+
+							</form>
+						</section>
+					</main>
+				</div>
+			</div>
+
 			<div class="tm-row">
-				<div class="tm-col-left"></div>
-				<main class="tm-col-right tm-contact-main">
-					<!-- Content -->
-					<section class="tm-content tm-contact">
-						<h2 class="mb-4 tm-content-title">${registrationPageH1_text}</h2>
-						<p class="mb-85">${registrationPageH2_text}</p>
-						<form id="contact-form" action="Controller" method="POST">
-							<div class="form-group mb-4">
-								<input type="text" name="title" class="form-control" placeholder="${news_title}" required="required" />
-							</div>
-							<div class="form-group mb-5">
-								<textarea rows="4" name="brief" class="form-control" placeholder="${news_brief}..." required="required" style="width: 632px; "></textarea>
-							</div>
-							<div class="form-group mb-5">
-								<textarea rows="4" name="content" class="form-control" placeholder="${news_content}..." required="required" style="width: 636px; height: 123px"></textarea>
-							</div>
-
-							<div class="form-group mb-4">
-								<input type="text" name="author" class="form-control" placeholder="${news_author}" required="required" />
-							</div>
-							<div class="text-right">
-								<input type="hidden" name="command" value="add_news" />
-								<button type="submit" class="btn btn-big btn-primary">${submit_button}</button>
-							</div>
-
-						</form>
-					</section>
-				</main>
-			</div>
-		</div>
-
-		<div class="tm-row">
-			<div class="tm-col-left text-center">
-				<ul class="tm-bg-controls-wrapper">
-					<li class="tm-bg-control active" data-id="0"></li>
-					<li class="tm-bg-control" data-id="1"></li>
-					<li class="tm-bg-control" data-id="2"></li>
-				</ul>
-			</div>
-			<div class="tm-col-right tm-col-footer">
-				<footer class="tm-site-footer text-right">
-					<p class="mb-0">
-						Copyright 2020 Diagoona |
-						<a rel="nofollow" target="_parent" href="https://it-academy.by" class="tm-text-link">IT-Academy</a>
-						| Md-JD2
-					</p>
-				</footer>
+				<div class="tm-col-left text-center">
+					<ul class="tm-bg-controls-wrapper">
+						<li class="tm-bg-control active" data-id="0"></li>
+						<li class="tm-bg-control" data-id="1"></li>
+						<li class="tm-bg-control" data-id="2"></li>
+					</ul>
+				</div>
+				<div class="tm-col-right tm-col-footer">
+					<footer class="tm-site-footer text-right">
+						<p class="mb-0">
+							Copyright 2020 Diagoona |
+							<a rel="nofollow" target="_parent" href="https://it-academy.by" class="tm-text-link">IT-Academy</a>
+							| Md-JD2
+						</p>
+					</footer>
+				</div>
 			</div>
 		</div>
 	</div>
+	
+	<script src="resources/js/jquery-3.4.1.min.js"></script>
+	<script src="resources/js/bootstrap.min.js"></script>
+	<script src="resources/js/jquery.backstretch.min.js"></script>
+	<script src="resources/js/templatemo-script.js"></script>
 </body>
-
 </html>

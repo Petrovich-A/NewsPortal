@@ -7,6 +7,9 @@
 
 <head>
 <meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet" />
+<link href="resources/css/bootstrap.min.css" rel="stylesheet" />
+<link href="resources/fontawesome/css/all.min.css" rel="stylesheet" />
 <link href="resources/css/templatemo-diagoona-addNews-page.css" rel="stylesheet">
 <title>Manage news page</title>
 <fmt:setLocale value="${sessionScope.local}" />

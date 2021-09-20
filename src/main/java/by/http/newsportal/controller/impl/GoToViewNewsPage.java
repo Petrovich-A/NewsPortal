@@ -42,10 +42,10 @@ public class GoToViewNewsPage implements ICommand {
 		}
 		System.out.println("newsChoisen: " + newsChoisen.toString());
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher(PATH);
-		requestDispatcher.forward(request, response);
 		HttpSession session = request.getSession(true);
 		session.setAttribute("newsChoisen", newsChoisen);
 		request.getSession(true).setAttribute("url", PATH);
+		requestDispatcher.forward(request, response);
 	}
 
 }
