@@ -6,13 +6,22 @@ import by.http.newsportal.bean.News;
 import by.http.newsportal.service.ServiceException;
 
 public interface INewsDAO {
+
 	/**
 	 * create
 	 * 
 	 * @param news
 	 * @throws ServiceException
 	 */
-	public void add(News news) throws DAOException;
+	public void create(News news) throws DAOException;
+
+	/**
+	 * getListNews
+	 * 
+	 * @return List<News>
+	 * @throws DAOException
+	 */
+	public List<News> getListNews() throws DAOException;
 
 	/**
 	 * read
@@ -20,7 +29,7 @@ public interface INewsDAO {
 	 * @return
 	 * @throws DAOException
 	 */
-	public List<News> getListNews() throws DAOException;
+	public News read(int chosenId) throws DAOException;
 
 	/**
 	 * update
@@ -28,14 +37,15 @@ public interface INewsDAO {
 	 * @param news
 	 * @throws ServiceException
 	 */
-	public void update(News news) throws DAOException;
+	public void update(News news, int id) throws DAOException;
 
 	/**
 	 * delete
 	 * 
 	 * @param news
-	 * @return 
+	 * @return
 	 * @throws ServiceException
 	 */
 	public void delete(int id) throws DAOException;
+
 }

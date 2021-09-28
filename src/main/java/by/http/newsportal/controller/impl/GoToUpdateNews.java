@@ -1,15 +1,14 @@
 package by.http.newsportal.controller.impl;
 
 import java.io.IOException;
-import java.sql.Date;
 import java.sql.Timestamp;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import by.http.newsportal.bean.News;
 import by.http.newsportal.controller.ICommand;
 import by.http.newsportal.service.INewsService;
-import by.http.newsportal.service.ServiceException;
 import by.http.newsportal.service.ServiceProvider;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -17,29 +16,26 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-public class AddNews implements ICommand {
+public class GoToUpdateNews implements ICommand {
 	private static final ServiceProvider SERVICE_PROVIDER = ServiceProvider.getInstance();
 	private static final INewsService I_NEWS_SERVICE = SERVICE_PROVIDER.getNewsService();
-	final static String PATH = "/WEB-INF/jsp/main.jsp";
+	final static String PATH = "/WEB-INF/jsp/updateNewsPage.jsp";
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String title = request.getParameter("title");
-		String brief = request.getParameter("brief");
-		String content = request.getParameter("content");
-		String author = request.getParameter("author");
-		Timestamp date = Timestamp.valueOf(LocalDateTime.now());
-		News news = new News(title, brief, content, author, date);
+		int id = Integer.parseInt(request.getParameter("id"));
+		News news = null;
 		try {
-			I_NEWS_SERVICE.create(news);
-
-		} catch (ServiceException e) {
-			e.printStackTrace();
-			// TODO: handle exception новость не создана, на этой же странице, стэк трэйс
+			news = I_NEWS_SERVICE.read(id);
+		} catch (Exception e) {
+			System.out.println("GoToUpdateNews: no news from read");
 		}
+		
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher(PATH);
 		HttpSession session = request.getSession(true);
+		session.setAttribute("news", news);
+		System.out.println("GoToUpdateNews: " + news.toString());
 		request.getSession(true).setAttribute("url", PATH);
-		response.sendRedirect("Controller?command=go_to_main_page");
+		requestDispatcher.forward(request, response);
 	}
 }

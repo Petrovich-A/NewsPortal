@@ -10,8 +10,8 @@
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet" />
 <link href="resources/css/bootstrap.min.css" rel="stylesheet" />
 <link href="resources/fontawesome/css/all.min.css" rel="stylesheet" />
-<link href="resources/css/templatemo-diagoona-addNews-page.css" rel="stylesheet">
-<title>Manage news page</title>
+<link href="resources/css/templatemo-diagoona-updateNews-page.css" rel="stylesheet">
+<title>Update news page</title>
 <fmt:setLocale value="${sessionScope.local}" />
 <fmt:setBundle basename="properties.local" var="loc" />
 <fmt:message bundle="${loc}" key="local.message" var="message" />
@@ -22,7 +22,8 @@
 		<div class="tm-row pt-4">
 			<div class="tm-col-left">
 				<div class="tm-site-header media">
-					<i class="fas fa-umbrella-beach fa-3x mt-1 tm-logo"></i><div class="media-body">
+					<i class="fas fa-umbrella-beach fa-3x mt-1 tm-logo"></i>
+					<div class="media-body">
 						<h1 class="tm-sitename text-uppercase">NEWS PORTAL</h1>
 						<p class="tm-slogon">java web app</p>
 					</div>
@@ -45,7 +46,7 @@
 			<main class="tm-col-right tm-contact-main">
 				<!-- Content from BD-->
 				<section class="tm-content tm-contact">
-					<h2 class="mb-4 tm-content-title">Manage news page</h2>
+					<h2 class="mb-4 tm-content-title">Update news page</h2>
 					<form action="Controller" method="POST">
 						<hr class="mb-5">
 						<table class="table">
@@ -62,34 +63,27 @@
 							</thead>
 							<tbody>
 								<c:choose>
-									<c:when test="${newsList.size() == 0 || newsList.size() == null}">
+									<c:when test="${news.equals(null)}">
 										<p class="mb-5">
-											<c:out value="No news in BD" />
+											<c:out value="News isn't avaliable" />
 										</p>
 									</c:when>
 									<c:otherwise>
-										<c:forEach var="news" items="${newsList}">
 											<tr>
-												<td><input class="tm-content tm-contact" type="radio" name="id" required="required" value="${news.getId()}"></td>
-												<td>${news.getId()}</td>
-												<td>${news.getTitle()}</td>
-												<td>${news.getBrief()}</td>
-												<td>${news.getContent()}</td>
-												<td>${news.getAuthor()}</td>
-												<td>${news.getDate()}</td>
+												<td><textarea rows="4" name="title" class="form-control" placeholder="${news.getTitle()}"></textarea></td>
+												<td><textarea rows="4" name="brief" class="form-control" placeholder="${news.getBrief()}"></textarea></td>
+												<td><textarea rows="4" name="brief" class="form-control" placeholder="${news.getContent()}"></textarea></td>
+												<td><textarea rows="4" name="brief" class="form-control" placeholder="${news.getAuthor()}"></textarea></td>
+												<td><textarea rows="4" name="brief" class="form-control" placeholder="${news.getDate()}"></textarea></td>
 											</tr>
-										</c:forEach>
 									</c:otherwise>
 								</c:choose>
+								<c:out value="${news.toString()}" />
+
 							</tbody>
 						</table>
 						<div class="text-right">
-							<input type="hidden" name="command" value="go_to_update_news" />
-							<c:out value="${news.getId()}" />
-							<button type="submit" class="btn btn-big btn-primary">Delete</button>
-						</div>
-						<div class="text-right">
-							<input type="hidden" name="command" value="delete_news" />
+							<input type="hidden" name="command" value="update_news" />
 							<c:out value="${news.getId()}" />
 							<button type="submit" class="btn btn-big btn-primary">Update</button>
 						</div>

@@ -15,9 +15,9 @@ public class NewsServiceImpl implements INewsService {
 	private static final INewsDAO NEWS_DAO = PROVIDER.getNewsDAO();
 
 	@Override
-	public void add(News news) throws ServiceException {
+	public void create(News news) throws ServiceException {
 		try {
-			NEWS_DAO.add(news);
+			NEWS_DAO.create(news);
 		} catch (DAOException e) {
 			throw new ServiceException(e);
 		}
@@ -44,11 +44,23 @@ public class NewsServiceImpl implements INewsService {
 	}
 
 	@Override
-	public void update(News news) throws ServiceException {
+	public void update(News news, int id) throws ServiceException {
 		try {
-			NEWS_DAO.update(news);
+			NEWS_DAO.update(news, id);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
+
+	@Override
+	public News read(int id) throws ServiceException {
+		News news = null;
+		try {
+			news = NEWS_DAO.read(id);
+		} catch (DAOException e) {
+			e.printStackTrace();
+		}
+		return news;
+	}
+
 }

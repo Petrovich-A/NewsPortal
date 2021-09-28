@@ -74,13 +74,13 @@
 				<section class="tm-content tm-contact">
 					<form id="contact-form" action="Controller" method="POST">
 						<div class="form-group mb-4">
-							<input type="text" name="name" class="form-control" placeholder="${user_name}" required="required" />
+							<input type="text" name="name" class="form-control" placeholder="${user_name}" required required pattern="^[a-zA-Z0-9]\\w{5,30}+$" />
 						</div>
 						<div class="form-group mb-4">
-							<input type="password" name="password" class="form-control" placeholder="${user_password}" required="required" />
+							<input type="password" name="password" class="form-control" placeholder="${user_password}" required pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&-+=()])(?=\\S+$).{8,40}+$" />
 						</div>
 						<div class="form-group mb-4">
-							<input type="email" name="eMail" class="form-control" placeholder="${user_email}" required="required" />
+							<input type="email" name="eMail" class="form-control" placeholder="${user_email}" required pattern="^\S+@\S+\.\S+$" />
 						</div>
 
 						<div class="form-group mb-4">

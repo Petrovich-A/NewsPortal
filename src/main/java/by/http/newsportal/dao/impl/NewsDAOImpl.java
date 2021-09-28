@@ -13,23 +13,24 @@ import by.http.newsportal.dao.DAOException;
 import by.http.newsportal.dao.INewsDAO;
 
 public class NewsDAOImpl implements INewsDAO {
-	private final String SQL_ADD = "INSERT INTO news(title, brief, content, author, date) VALUES(?,?,?,?,?)";
 	private final String SQL_GET_LIST = "SELECT * FROM news";
+	private final String SQL_CREATE = "INSERT INTO news(title, brief, content, author, date) VALUES(?,?,?,?,?)";
+//	private final String SQL_READ = "SELECT * FROM news WHERE idnews = ?";
 	private final String SQL_UPDATE = "UPDATE news SET title = ?, brief = ?, content = ?, author = ?, date = ? WHERE idnews = ?";
 	private final String SQL_DELETE = "DELETE FROM news WHERE idnews = ?";
 
 	@Override
-	public void add(News news) throws DAOException {
+	public void create(News news) throws DAOException {
 		try (MyConnectionToDB myConnectionToDB = new MyConnectionToDB();
 				Connection connection = myConnectionToDB.getNewsConnection();
-				PreparedStatement preparedStatement = connection.prepareStatement(SQL_ADD);) {
+				PreparedStatement preparedStatement = connection.prepareStatement(SQL_CREATE);) {
 			preparedStatement.setString(1, news.getTitle());
 			preparedStatement.setString(2, news.getBrief());
 			preparedStatement.setString(3, news.getContent());
 			preparedStatement.setString(4, news.getAuthor());
 			preparedStatement.setTimestamp(5, news.getDate());
+			System.out.println("NewsDAOImpl news is created \n");
 			preparedStatement.executeUpdate();
-			System.out.println("NewsDAOImpl news is added \n");
 
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
@@ -43,7 +44,6 @@ public class NewsDAOImpl implements INewsDAO {
 	@Override
 	public List<News> getListNews() throws DAOException {
 		List<News> listNews = new ArrayList<News>();
-		News news = new News();
 		try (MyConnectionToDB myConnectionToDB = new MyConnectionToDB();
 				Connection connection = myConnectionToDB.getNewsConnection();
 				Statement statement = connection.createStatement();
@@ -77,6 +77,7 @@ public class NewsDAOImpl implements INewsDAO {
 				Connection connection = myConnectionToDB.getNewsConnection();
 				PreparedStatement preparedStatement = connection.prepareStatement(SQL_DELETE);) {
 			preparedStatement.setInt(1, id);
+			System.out.println("NewsDAOImpl Id is avaliable \n id: " + id);
 			preparedStatement.executeUpdate();
 
 		} catch (ClassNotFoundException e) {
@@ -86,14 +87,60 @@ public class NewsDAOImpl implements INewsDAO {
 		} catch (Exception e2) {
 			e2.printStackTrace();
 		}
-
-		System.out.println("NewsDAOImpl Id is avaliable \n id: " + id);
 	}
 
 	@Override
-	public void update(News news) throws DAOException {
-		// TODO Auto-generated method stub
+	public void update(News news, int id) throws DAOException {
+		try (MyConnectionToDB myConnectionToDB = new MyConnectionToDB();
+				Connection connection = myConnectionToDB.getNewsConnection();
+				PreparedStatement preparedStatement = connection.prepareStatement(SQL_UPDATE);) {
 
+			preparedStatement.setInt(1, id);
+			preparedStatement.setString(2, news.getBrief());
+			preparedStatement.setString(3, news.getContent());
+			preparedStatement.setString(4, news.getAuthor());
+			preparedStatement.setTimestamp(5, news.getDate());
+			System.out.println("NewsDAOImpl news is update \n");
+			preparedStatement.executeUpdate();
+
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		} catch (Exception e2) {
+			e2.printStackTrace();
+		}
 	}
 
+	@Override
+	public News read(int id) throws DAOException {
+		final String SQL_READ = "SELECT * FROM news WHERE idnews = ?";
+
+		News news = new News();
+		try (MyConnectionToDB myConnectionToDB = new MyConnectionToDB();
+				Connection connection = myConnectionToDB.getNewsConnection();
+				PreparedStatement preparedStatement = connection.prepareStatement(SQL_READ);) {
+			preparedStatement.setInt(1, id);
+			System.out.println("NewsDAOImpl, read id: " + id);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			while (resultSet.next()) {
+				news.setId(resultSet.getInt(1));
+				news.setTitle(resultSet.getString(2));
+				news.setBrief(resultSet.getString(3));
+				news.setContent(resultSet.getString(4));
+				news.setAuthor(resultSet.getString(5));
+				news.setDateDB(resultSet.getString(6));
+			}
+			System.out.println("NewsDAOImpl News from DB is avaliable \n read method: \n" + news.toString());
+			
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		} catch (Exception e2) {
+			e2.printStackTrace();
+		}
+		return news;
+	}
+	
 }
