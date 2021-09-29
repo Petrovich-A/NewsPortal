@@ -13,7 +13,7 @@ body {
     overflow-x: hidden;
     color: white;
     background-color: #2C353C;
-    background-image: url('../diagoona-bg-3.jpg');
+    background-image: url(../img/diagoona-bg-3.jpg);
 	background-size: 100%;
 }
 
@@ -153,16 +153,16 @@ p { line-height: 1.9; }
     box-shadow: 0 0 1px rgba(255,255,255,.8);
 }
 
-.tm-content-title { font-size: 1.5rem; }
+.tm-content-title { font-size: 1.2rem; }
 hr { border-top: 1px solid white; }
 
 .btn {
-    padding: 10px 25px;
+    padding: 3px 12px;
     border-radius: 0;
 }
 
 .btn-big {
-    padding: 9px 40px;
+    padding: 3px 12px;
     font-size: 1.2rem;;
 }
 

@@ -48,7 +48,6 @@
 				<section class="tm-content tm-contact">
 					<h2 class="mb-4 tm-content-title">Update news page</h2>
 					<form action="Controller" method="POST">
-						<hr class="mb-5">
 						<table class="table">
 							<thead>
 								<tr>
@@ -69,22 +68,19 @@
 										</p>
 									</c:when>
 									<c:otherwise>
-											<tr>
-												<td><textarea rows="4" name="title" class="form-control" placeholder="${news.getTitle()}"></textarea></td>
-												<td><textarea rows="4" name="brief" class="form-control" placeholder="${news.getBrief()}"></textarea></td>
-												<td><textarea rows="4" name="brief" class="form-control" placeholder="${news.getContent()}"></textarea></td>
-												<td><textarea rows="4" name="brief" class="form-control" placeholder="${news.getAuthor()}"></textarea></td>
-												<td><textarea rows="4" name="brief" class="form-control" placeholder="${news.getDate()}"></textarea></td>
-											</tr>
+										<tr>
+											<td><textarea rows="4" name="title" class="form-control"> ${news.getTitle()} </textarea></td>
+											<td><textarea rows="4" name="brief" class="form-control"> ${news.getBrief()} </textarea></td>
+											<td><textarea rows="4" name="brief" class="form-control" placeholder="${news.getContent()}"></textarea></td>
+											<td><textarea rows="4" name="brief" class="form-control" placeholder="${news.getAuthor()}"></textarea></td>
+											<td><textarea rows="4" name="brief" class="form-control" placeholder="${news.getDate()}"></textarea></td>
+										</tr>
 									</c:otherwise>
 								</c:choose>
-								<c:out value="${news.toString()}" />
-
 							</tbody>
 						</table>
 						<div class="text-right">
 							<input type="hidden" name="command" value="update_news" />
-							<c:out value="${news.getId()}" />
 							<button type="submit" class="btn btn-big btn-primary">Update</button>
 						</div>
 					</form>
@@ -92,7 +88,7 @@
 			</main>
 		</div>
 	</div>
-	<%--   --%>
+	<!--   -->
 	<div class="tm-row">
 		<div class="tm-col-right tm-col-footer">
 			<footer class="tm-site-footer text-right">
