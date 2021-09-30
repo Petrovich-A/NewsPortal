@@ -25,11 +25,12 @@ public class GoToManageNews implements ICommand {
 		try {
 			listNews = I_NEWS_SERVICE.getListNews();
 		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher(PATH);
-		requestDispatcher.forward(request, response);
 		HttpSession session = request.getSession(true);
 		session.setAttribute("newsList", listNews);
 		request.getSession(true).setAttribute("url", PATH);
+		requestDispatcher.forward(request, response);
 	}
 }

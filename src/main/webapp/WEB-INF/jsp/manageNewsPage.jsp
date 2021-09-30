@@ -22,7 +22,8 @@
 		<div class="tm-row pt-4">
 			<div class="tm-col-left">
 				<div class="tm-site-header media">
-					<i class="fas fa-umbrella-beach fa-3x mt-1 tm-logo"></i><div class="media-body">
+					<i class="fas fa-umbrella-beach fa-3x mt-1 tm-logo"></i>
+					<div class="media-body">
 						<h1 class="tm-sitename text-uppercase">NEWS PORTAL</h1>
 						<p class="tm-slogon">java web app</p>
 					</div>
@@ -30,10 +31,9 @@
 			</div>
 			<div class="tm-col-right">
 				<nav class="navbar navbar-expand-lg" id="tm-main-nav">
-
 					<div class="collapse navbar-collapse tm-nav" id="navbar-nav">
 						<ul class="navbar-nav text-uppercase">
-							<li class="nav-item" style="width: 818px;"><a class="nav-link tm-nav-link" href="Controller?command=go_to_main_page">Home </a></li>
+							<li class="nav-item"><a class="nav-link tm-nav-link" href="Controller?command=go_to_main_page">Home </a></li>
 						</ul>
 					</div>
 				</nav>
@@ -41,13 +41,11 @@
 		</div>
 
 		<div class="tm-row">
-
 			<main class="tm-col-right tm-contact-main">
 				<!-- Content from BD-->
 				<section class="tm-content tm-contact">
 					<h2 class="mb-4 tm-content-title">Manage news page</h2>
 					<form action="Controller" method="POST">
-						<hr class="mb-5">
 						<table class="table">
 							<thead>
 								<tr>
@@ -64,7 +62,7 @@
 								<c:choose>
 									<c:when test="${newsList.size() == 0 || newsList.size() == null}">
 										<p class="mb-5">
-											<c:out value="No news in BD" />
+											<c:out value="No news are avaliable" />
 										</p>
 									</c:when>
 									<c:otherwise>
@@ -84,14 +82,8 @@
 							</tbody>
 						</table>
 						<div class="text-right">
-							<input type="hidden" name="command" value="go_to_update_news" />
-							<c:out value="${news.getId()}" />
-							<button type="submit" class="btn btn-big btn-primary">Delete</button>
-						</div>
-						<div class="text-right">
-							<input type="hidden" name="command" value="delete_news" />
-							<c:out value="${news.getId()}" />
-							<button type="submit" class="btn btn-big btn-primary">Update</button>
+							<button type="submit" name="command" value="go_to_update_news" class="btn btn-big btn-primary">Update</button>
+							<button type="submit" name="command" value="delete_news" onClick="Refresh()" class="btn btn-big btn-primary">Delete</button>
 						</div>
 					</form>
 				</section>

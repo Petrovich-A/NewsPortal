@@ -1,10 +1,6 @@
 package by.http.newsportal.controller.impl;
 
 import java.io.IOException;
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 import by.http.newsportal.bean.News;
 import by.http.newsportal.controller.ICommand;
@@ -30,7 +26,6 @@ public class GoToUpdateNews implements ICommand {
 		} catch (Exception e) {
 			System.out.println("GoToUpdateNews: no news from read");
 		}
-		
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher(PATH);
 		HttpSession session = request.getSession(true);
 		session.setAttribute("news", news);

@@ -100,7 +100,7 @@ public class NewsDAOImpl implements INewsDAO {
 			preparedStatement.setString(3, news.getContent());
 			preparedStatement.setString(4, news.getAuthor());
 			preparedStatement.setTimestamp(5, news.getDate());
-			System.out.println("NewsDAOImpl news is update \n");
+			System.out.println("NewsDAOImpl news is updated \n");
 			preparedStatement.executeUpdate();
 
 		} catch (ClassNotFoundException e) {

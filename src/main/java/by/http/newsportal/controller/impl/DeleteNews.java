@@ -1,6 +1,8 @@
 package by.http.newsportal.controller.impl;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import by.http.newsportal.bean.News;
 import by.http.newsportal.controller.ICommand;
@@ -19,12 +21,11 @@ public class DeleteNews implements ICommand {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		List<News> listNews = new ArrayList<News>();
 		int id = Integer.parseInt(request.getParameter("id"));
-		System.out.println("DeleteNews command \n id: " + id);
-
 		try {
-			System.out.println("id");
 			I_NEWS_SERVICE.delete(id);
+			listNews = I_NEWS_SERVICE.getListNews();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
