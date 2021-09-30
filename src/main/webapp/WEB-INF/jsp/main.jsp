@@ -27,6 +27,7 @@
 <fmt:message bundle="${loc}" key="local.main.button.registration" var="registration_button" />
 <fmt:message bundle="${loc}" key="local.main.button.login" var="login_button" />
 <fmt:message bundle="${loc}" key="local.main.button.addNews" var="addNews_button" />
+<fmt:message bundle="${loc}" key="local.main.button.continue" var="continue_button" />
 </head>
 
 <body>
@@ -115,7 +116,7 @@
 									</c:otherwise>
 								</c:choose>
 							</p>
-							<a href="about.html" class="btn btn-primary">Continue...</a>
+							<a href="Controller?command=go_to_view_all_news_page" class="btn btn-primary">${continue_button}</a>
 						</section>
 					</main>
 				</div>

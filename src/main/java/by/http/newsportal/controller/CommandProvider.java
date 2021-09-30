@@ -14,6 +14,7 @@ import by.http.newsportal.controller.impl.GoToAuthorizationPage;
 import by.http.newsportal.controller.impl.GoToRegistrationInfoPage;
 import by.http.newsportal.controller.impl.GoToRegistrationPage;
 import by.http.newsportal.controller.impl.GoToUpdateNews;
+import by.http.newsportal.controller.impl.GoToViewAllNewsPage;
 import by.http.newsportal.controller.impl.GoToViewNewsPage;
 import by.http.newsportal.controller.impl.Authorization;
 import by.http.newsportal.controller.impl.Registration;
@@ -33,6 +34,7 @@ public class CommandProvider {
 		commands.put(CommandName.GO_TO_MANAGE_NEWS, new GoToManageNews());
 		commands.put(CommandName.GO_TO_UPDATE_NEWS, new GoToUpdateNews());
 		commands.put(CommandName.GO_TO_VIEW_NEWS_PAGE, new GoToViewNewsPage());  
+		commands.put(CommandName.GO_TO_VIEW_ALL_NEWS_PAGE, new GoToViewAllNewsPage());  
 		commands.put(CommandName.CHANGE_LOCAL, new ChangeLocal());
 		commands.put(CommandName.REGISTRATION, new Registration());
 		commands.put(CommandName.AUTHORIZATION, new Authorization());

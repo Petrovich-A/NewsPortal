@@ -3,7 +3,7 @@
 # **Реализовано**:
 ```
 * main страница с отображением новостей
-* Layered Architecturem, Selvlets
+* JSP/Servlet Application, Layered Architecturem
 * Локализация
 * Администратор системы может добавлять новости, удалять.
 * Регистрация пользователя
