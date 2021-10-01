@@ -234,7 +234,7 @@ textarea {
 .form-control:-ms-input-placeholder { color: white; } /* Internet Explorer 10-11 */  
 .form-control::placeholder { color: white; }
 
-@media (max-width: 1200px) {
+@media (max-width: 120px) {
     .nav-item { margin-right: 30px; }
 
     .tm-page-right {

@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet" />
 <link href="resources/css/bootstrap.min.css" rel="stylesheet" />
 <link href="resources/fontawesome/css/all.min.css" rel="stylesheet" />
-<link href="resources/css/templatemo-diagoona-addNews-page.css" rel="stylesheet">
+<link href="resources/css/templatemo-diagoona-manageNews.css" rel="stylesheet">
 <title>Manage news page</title>
 <fmt:setLocale value="${sessionScope.local}" />
 <fmt:setBundle basename="properties.local" var="loc" />
@@ -44,7 +44,7 @@
 			<main class="tm-col-right tm-contact-main">
 				<!-- Content from BD-->
 				<section class="tm-content tm-contact">
-					<h2 class="mb-4 tm-content-title">Manage news page</h2>
+					<h2 class="mb-2 tm-content-title">Manage news page</h2>
 					<form action="Controller" method="POST">
 						<table class="table">
 							<thead>
@@ -61,7 +61,7 @@
 							<tbody>
 								<c:choose>
 									<c:when test="${newsList.size() == 0 || newsList.size() == null}">
-										<p class="mb-5">
+										<p class="mb-2">
 											<c:out value="No news are avaliable" />
 										</p>
 									</c:when>
@@ -92,6 +92,13 @@
 	</div>
 	<%--   --%>
 	<div class="tm-row">
+		<div class="tm-col-left text-center">
+			<ul class="tm-bg-controls-wrapper">
+				<li class="tm-bg-control active" data-id="0"></li>
+				<li class="tm-bg-control" data-id="1"></li>
+				<li class="tm-bg-control" data-id="2"></li>
+			</ul>
+		</div>
 		<div class="tm-col-right tm-col-footer">
 			<footer class="tm-site-footer text-right">
 				<p class="mb-0">

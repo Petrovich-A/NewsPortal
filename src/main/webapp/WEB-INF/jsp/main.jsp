@@ -48,7 +48,7 @@
 
 	<div class="tm-container">
 		<div>
-			<div class="tm-row pt-4">
+			<div class="tm-row pt-0.5">
 				<div class="tm-col-left">
 					<div class="tm-site-header media">
 						<i class="fas fa-umbrella-beach fa-3x mt-1 tm-logo"></i>
@@ -147,7 +147,7 @@
 				<div class="tm-bg-right"></div>
 			</div> -->
 		</div>
-	</div>
+	</div> 
 
 	<script src="resources/js/jquery-3.4.1.min.js"></script>
 	<script src="resources/js/bootstrap.min.js"></script>

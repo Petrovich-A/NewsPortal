@@ -57,28 +57,25 @@
 					<main class="tm-col-right tm-contact-main">
 						<!-- Content -->
 						<section class="tm-content tm-contact">
-							<h2 class="mb-4 tm-content-title">${registrationPageH1_text}</h2>
-							<p class="mb-85">${registrationPageH2_text}</p>
+							<h2 class="mb-2 tm-content-title">${registrationPageH1_text}</h2>
+							<p class="mb-2">${registrationPageH2_text}</p>
 							<form id="contact-form" action="Controller" method="POST">
-								<div class="form-group mb-4">
+								<div class="form-group mb-2">
 									<input type="text" name="title" class="form-control" placeholder="${news_title}" required="required" />
 								</div>
-								<div class="form-group mb-5">
-									<textarea rows="4" name="brief" class="form-control" placeholder="${news_brief}..." required="required" style="width: 632px;"></textarea>
+								<div class="form-group mb-3">
+									<textarea rows="4" name="brief" class="form-control" placeholder="${news_brief}..." required="required"></textarea>
 								</div>
-								<div class="form-group mb-5">
-									<textarea rows="4" name="content" class="form-control" placeholder="${news_content}..." required="required"
-										style="width: 636px; height: 123px"></textarea>
+								<div class="form-group mb-3">
+									<textarea rows="4" name="content" class="form-control" placeholder="${news_content}..." required="required"></textarea>
 								</div>
-
-								<div class="form-group mb-4">
+								<div class="form-group mb-1">
 									<input type="text" name="author" class="form-control" placeholder="${news_author}" required="required" />
 								</div>
 								<div class="text-right">
 									<input type="hidden" name="command" value="add_news" />
 									<button type="submit" class="btn btn-big btn-primary">${submit_button}</button>
 								</div>
-
 							</form>
 						</section>
 					</main>
@@ -105,7 +102,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<script src="resources/js/jquery-3.4.1.min.js"></script>
 	<script src="resources/js/bootstrap.min.js"></script>
 	<script src="resources/js/jquery.backstretch.min.js"></script>

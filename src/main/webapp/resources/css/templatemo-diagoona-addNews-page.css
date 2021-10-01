@@ -118,8 +118,8 @@ p { line-height: 1.9; }
 .tm-row { display: flex; }
 
 .tm-col-left {
-    width: 50%;
-    height: 100%;
+    width: 41%;
+    height: 50%;
     padding-left: 40px;  
     padding-right: 40px;
 }
@@ -127,14 +127,14 @@ p { line-height: 1.9; }
 .tm-col-right {
     width: 50%;
     height: 100%;
-    padding-left: 70px;
-    padding-right: 70px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .tm-content {
-    max-width: 660px;
+    max-width: 900px;
     margin-top: 10px;
-    padding-right: 20px;
+    padding-right: 0px;
 }
 
 .tm-about { max-width: 525px; }
@@ -164,7 +164,7 @@ hr { border-top: 1px solid white; }
 }
 
 .btn-primary {
-    background-color: white;
+    background-color: #9CC;
     color: black;
     border: 1;
 }
@@ -207,7 +207,7 @@ textarea {
     font-family: 'Open Sans', Arial, sans-serif;
     font-size: 1rem;
     font-weight: 400;
-    line-height: 1.5;
+    line-height: 1.2;
 }
 
 .form-control:focus {
@@ -219,10 +219,10 @@ textarea {
 }
 
 .mb-85 { margin-bottom: 85px; }
-.tm-contact-main { max-width: 690px; }
+.tm-contact-main { max-width: 1100px; }
 
 .tm-contact {
-    max-width: 420px;
+    max-width: 700px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -267,9 +267,9 @@ textarea {
     .tm-col-left { width: 40%; }
 
     .tm-col-right {
-        width: 60%;
-        padding-left: 100px;
-        padding-right: 30px;
+        width: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
     }
     
     .tm-col-footer { padding-left: 0; }
@@ -314,8 +314,8 @@ textarea {
     }
 
     .tm-col-right {
-        padding-top: 40px;
-        padding-left: 30px;
+        padding-top: 10px;
+        padding-left: 10px;
     }
 
     .tm-col-footer {

@@ -13,8 +13,7 @@ body {
     overflow-x: hidden;
     color: white;
     background-color: #2C353C;
-   	background-image: url('../img/diagoona-bg-2.jpg');
-	background-size: 100%;
+    background-image: url(../img/diagoona-bg-2.jpg);
 }
 
 a { 
@@ -46,7 +45,7 @@ p { line-height: 1.9; }
     padding-right: 0;
 }
 
-.navbar-expand-lg .navbar-nav .nav-link { padding: 0; }
+.navbar-expand-lg .navbar-nav .nav-link { padding: 50; }
 
 .navbar-expand-lg .navbar-nav .tm-nav-link {
     font-size: 1.3rem;
@@ -128,15 +127,15 @@ p { line-height: 1.9; }
 }
 
 .tm-col-right {
-    width: 50%;
+    width: 70%;
     height: 100%;
-    padding-left: 70px;
-    padding-right: 70px;
+    padding-left: 40px;
+    padding-right: 10px;
 }
 
 .tm-content {
     max-width: 660px;
-    margin-top: 50px;
+    margin-top: 10px;
     padding-right: 20px;
 }
 
@@ -167,13 +166,13 @@ hr { border-top: 1px solid white; }
 }
 
 .btn-primary {
-    background-color: #9CC;
+    background-color: white;
     color: black;
-    border: 1;
+    border: 0;
 }
 
 .btn-primary:hover {
-    background-color: #c2e0e0;
+    background-color: #9CC;
     color: black;
 }
 

@@ -1670,7 +1670,7 @@ pre code {
 .table {
 	width: 100%;
 	margin-bottom: 1rem;
-	color: #212529
+	color: #fff;
 }
 
 .table td, .table th {
@@ -1714,7 +1714,7 @@ pre code {
 }
 
 .table-hover tbody tr:hover {
-	color: #212529;
+	color: white;
 	background-color: rgba(0, 0, 0, .075)
 }
 
