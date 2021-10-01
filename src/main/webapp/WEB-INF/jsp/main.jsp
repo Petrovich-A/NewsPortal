@@ -27,6 +27,7 @@
 <fmt:message bundle="${loc}" key="local.main.button.registration" var="registration_button" />
 <fmt:message bundle="${loc}" key="local.main.button.login" var="login_button" />
 <fmt:message bundle="${loc}" key="local.main.button.addNews" var="addNews_button" />
+<fmt:message bundle="${loc}" key="local.main.button.manageNews" var="manageNews_button" />
 <fmt:message bundle="${loc}" key="local.main.button.continue" var="continue_button" />
 </head>
 
@@ -66,9 +67,8 @@
 									<li class="nav-item active"><input type="hidden" name="local" value="Add news" /> <a class="nav-link tm-nav-link"
 											href="Controller?command=go_to_add_news_page">${addNews_button} </a></li>
 									<li class="nav-item active"><input type="hidden" name="local" value="Manage news" /> <a class="nav-link tm-nav-link"
-											href="Controller?command=go_to_manage_news">Manage news</a></li>
+											href="Controller?command=go_to_manage_news">${manageNews_button} </a></li>
 								</c:if>
-
 								<li class="nav-item active"><input type="hidden" name="local" value="Registration" /> <a class="nav-link tm-nav-link"
 										href="Controller?command=go_to_registration_page">${registration_button} </a></li>
 								<li class="nav-item active"><input type="hidden" name="local" value="Log in" /> <a class="nav-link tm-nav-link"
@@ -86,32 +86,30 @@
 						<!-- Content -->
 						<section class="tm-content">
 							<h2 class="mb-1 tm-content-title">List of news</h2>
-								<c:choose>
-									<c:when test="${newsList.size() == 0 || newsList.size() == null}">
-										<p class="mb-2">
-											<c:out value="No news are avaliable" />
+							<c:choose>
+								<c:when test="${newsList.size() == 0 || newsList.size() == null}">
+									<p class="mb-1">
+										<c:out value="No news are avaliable" />
+									</p>
+									<hr class="mb-1">
+								</c:when>
+								<c:otherwise>
+									<c:forEach var="news" items="${newsList}" begin="0" end="1">
+										<a class="mb-1" href="Controller?command=go_to_view_news_page&id=${news.getId()}">
+											<c:out value="${news.getTitle()}" />
+										</a>
+										<p class="mb-1">
+											<c:out value="${news.getBrief()}" />
 										</p>
-										<hr class="mb-2">
-									</c:when>
-									<c:otherwise>
-										<c:forEach var="news" items="${newsList}" begin="0" end="2">
-											<p class="mb-1">
-												<a href="Controller?command=go_to_view_news_page&id=${news.getId()}">
-													<c:out value="${news.getTitle()}" />
-												</a>
-											</p>
-											<p class="mb-1">
-												<c:out value="${news.getBrief()}" />
-											</p>
-											<hr class="mb-1">
-											<p class="mb-3">
-												<c:out value="${news.getAuthor()}" />
-												<c:out value="|" />
-												<c:out value="${news.getDateDB()}" />
-											</p>
-										</c:forEach>
-									</c:otherwise>
-								</c:choose>
+										<hr class="mb-1">
+										<p class="mb-3">
+											<c:out value="${news.getAuthor()}" />
+											<c:out value="|" />
+											<c:out value="${news.getDateDB()}" />
+										</p>
+									</c:forEach>
+								</c:otherwise>
+							</c:choose>
 							<a href="Controller?command=go_to_view_all_news_page" class="btn btn-primary">${continue_button}</a>
 						</section>
 					</main>
@@ -143,7 +141,7 @@
 				<div class="tm-bg-right"></div>
 			</div> -->
 		</div>
-	</div> 
+	</div>
 
 	<script src="resources/js/jquery-3.4.1.min.js"></script>
 	<script src="resources/js/bootstrap.min.js"></script>
