@@ -15,8 +15,6 @@ import by.http.newsportal.dao.INewsDAO;
 public class NewsDAOImpl implements INewsDAO {
 	private final String SQL_GET_LIST = "SELECT * FROM news";
 	private final String SQL_CREATE = "INSERT INTO news(title, brief, content, author, date) VALUES(?,?,?,?,?)";
-//	private final String SQL_READ = "SELECT * FROM news WHERE idnews = ?";
-	private final String SQL_UPDATE = "UPDATE news SET title = ?, brief = ?, content = ?, author = ?, date = ? WHERE idnews = ?";
 	private final String SQL_DELETE = "DELETE FROM news WHERE idnews = ?";
 
 	@Override
@@ -91,10 +89,10 @@ public class NewsDAOImpl implements INewsDAO {
 
 	@Override
 	public void update(News news, int id) throws DAOException {
+		final String SQL_UPDATE = "UPDATE news SET title = ?, brief = ?, content = ?, author = ?, date = ? WHERE idnews = ?";
 		try (MyConnectionToDB myConnectionToDB = new MyConnectionToDB();
 				Connection connection = myConnectionToDB.getNewsConnection();
 				PreparedStatement preparedStatement = connection.prepareStatement(SQL_UPDATE);) {
-
 			preparedStatement.setInt(1, id);
 			preparedStatement.setString(2, news.getBrief());
 			preparedStatement.setString(3, news.getContent());
@@ -115,7 +113,6 @@ public class NewsDAOImpl implements INewsDAO {
 	@Override
 	public News read(int id) throws DAOException {
 		final String SQL_READ = "SELECT * FROM news WHERE idnews = ?";
-
 		News news = new News();
 		try (MyConnectionToDB myConnectionToDB = new MyConnectionToDB();
 				Connection connection = myConnectionToDB.getNewsConnection();
@@ -132,7 +129,7 @@ public class NewsDAOImpl implements INewsDAO {
 				news.setDateDB(resultSet.getString(6));
 			}
 			System.out.println("NewsDAOImpl News from DB is avaliable \n read method: \n" + news.toString());
-			
+
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e1) {
@@ -142,5 +139,5 @@ public class NewsDAOImpl implements INewsDAO {
 		}
 		return news;
 	}
-	
+
 }

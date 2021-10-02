@@ -14,6 +14,7 @@ body {
     color: white;
     background-color: #2C353C;
     background-image: url(../img/diagoona-bg-2.jpg);
+    background-attachment: fixed
 }
 
 a { 

@@ -43,9 +43,9 @@
 		<div class="tm-row">
 			<main class="tm-col-right tm-contact-main">
 				<!-- Content from BD-->
-				<section class="tm-content tm-contact">
-					<h2 class="mb-4 tm-content-title">Update news page</h2>
-					<form action="Controller" method="POST">
+				<form action="Controller" method="POST">
+					<section class="tm-content tm-contact">
+						<h2 class="mb-4 tm-content-title">Update news page</h2>
 						<table class="table">
 							<thead>
 								<tr>
@@ -81,8 +81,8 @@
 							<input type="hidden" name="command" value="update_news" />
 							<button type="submit" class="btn btn-big btn-primary">Update</button>
 						</div>
-					</form>
-				</section>
+					</section>
+				</form>
 			</main>
 		</div>
 	</div>
