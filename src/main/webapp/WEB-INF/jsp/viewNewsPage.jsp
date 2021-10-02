@@ -47,30 +47,55 @@
 						</div>
 					</nav>
 				</div>
-				<div class="tm-row">
-					<div class="tm-col-left"></div>
-					<main>
-						<div class="tm-content">
-							<p class="mb-5 tm-content-title">${newsChoisen.getTitle()}</p>
-							<hr>
-							<p class="mb-5 tm-content-title">${newsChoisen.getBrief()}</p>
-							<hr>
-							<p class="mb-5 tm-content-title">${newsChoisen.getContent()}</p>
-							<p class="mb-5 tm-content-title">${newsChoisen.getDateDB()} | ${newsChoisen.getAuthor()} </p>
-						</div>
-					</main>
-				</div>
+			</div>
+
+			<div class="tm-row">
+				<div class="tm-col-left"></div>
+				<main class="tm-col-right tm-contact-main">
+					<!-- Content -->
+					<section class="tm-content">
+						<h2 class="mb-3">${newsChoisen.getTitle()}</h2>
+						<hr>
+						<h4 class="mb-2">${newsChoisen.getAuthor()}</h4>
+						<h3 class="mb-2">${newsChoisen.getBrief()}</h3>
+						<h5 class="mb-2">${newsChoisen.getContent()}</h5>
+						<p class="mb-2">${newsChoisen.getDateDB()}</p>
+					</section>
+				</main>
 			</div>
 		</div>
 	</div>
-	<div class="tm-col-right tm-col-footer">
-		<footer class="tm-site-footer text-right">
-			<p class="mb-0">
-				Copyright 2020 Diagoona |
-				<a rel="nofollow" target="_parent" href="https://it-academy.by" class="tm-text-link">IT-Academy</a>
-				| Md-JD2
-			</p>
-		</footer>
+
+	<div class="tm-row">
+		<div class="tm-col-left text-center">
+			<ul class="tm-bg-controls-wrapper">
+				<li class="tm-bg-control active" data-id="0"></li>
+				<li class="tm-bg-control" data-id="1"></li>
+				<li class="tm-bg-control" data-id="2"></li>
+			</ul>
+		</div>
+		<div class="tm-col-right tm-col-footer">
+			<footer class="tm-site-footer text-right">
+				<p class="mb-0">
+					Copyright 2020 Diagoona |
+					<a rel="nofollow" target="_parent" href="https://it-academy.by" class="tm-text-link">IT-Academy</a>
+					| Md-JD2
+				</p>
+			</footer>
+		</div>
 	</div>
+
+	<!-- Diagonal background design -->
+	<!-- <div class="tm-bg">
+				<div class="tm-bg-left"></div>
+				<div class="tm-bg-right"></div>
+			</div> -->
+	</div>
+	</div>
+
+	<script src="resources/js/jquery-3.4.1.min.js"></script>
+	<script src="resources/js/bootstrap.min.js"></script>
+	<script src="resources/js/jquery.backstretch.min.js"></script>
+	<script src="resources/js/templatemo-script.js"></script>
 </body>
 </html>

@@ -1674,13 +1674,15 @@ pre code {
 }
 
 .table td, .table th {
-	padding: .75rem;
+	padding: 1.5rem;
 	vertical-align: top;
+	text-align: center;
 	border-top: 1px solid #dee2e6
 }
 
 .table thead th {
 	vertical-align: bottom;
+	text-align: center;
 	border-bottom: 2px solid #dee2e6
 }
 
@@ -1701,7 +1703,7 @@ pre code {
 }
 
 .table-bordered thead td, .table-bordered thead th {
-	border-bottom-width: 2px
+	border-bottom-width: 1px
 }
 
 .table-borderless tbody+tbody, .table-borderless td, .table-borderless th,

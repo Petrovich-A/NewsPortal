@@ -31,10 +31,9 @@
 			</div>
 			<div class="tm-col-right">
 				<nav class="navbar navbar-expand-lg" id="tm-main-nav">
-
 					<div class="collapse navbar-collapse tm-nav" id="navbar-nav">
 						<ul class="navbar-nav text-uppercase">
-							<li class="nav-item" style="width: 818px;"><a class="nav-link tm-nav-link" href="Controller?command=go_to_main_page">Home </a></li>
+							<li class="nav-item"><a class="nav-link tm-nav-link" href="Controller?command=go_to_main_page">Home </a></li>
 						</ul>
 					</div>
 				</nav>
@@ -42,7 +41,6 @@
 		</div>
 
 		<div class="tm-row">
-
 			<main class="tm-col-right tm-contact-main">
 				<!-- Content from BD-->
 				<section class="tm-content tm-contact">
@@ -51,7 +49,6 @@
 						<table class="table">
 							<thead>
 								<tr>
-									<th></th>
 									<th>News ID</th>
 									<th>Title</th>
 									<th>Brief</th>
@@ -69,11 +66,12 @@
 									</c:when>
 									<c:otherwise>
 										<tr>
-											<td><textarea rows="4" name="title" class="form-control"> ${news.getTitle()} </textarea></td>
-											<td><textarea rows="4" name="brief" class="form-control"> ${news.getBrief()} </textarea></td>
-											<td><textarea rows="4" name="brief" class="form-control" placeholder="${news.getContent()}"></textarea></td>
-											<td><textarea rows="4" name="brief" class="form-control" placeholder="${news.getAuthor()}"></textarea></td>
-											<td><textarea rows="4" name="brief" class="form-control" placeholder="${news.getDate()}"></textarea></td>
+											<td>${news.getId()}</td>
+											<td><textarea rows="4" cols="10" placeholder="${news.getTitle()}"></textarea></td>
+											<td><textarea rows="8" cols="20" name="brief" placeholder="${news.getBrief()}"></textarea></td>
+											<td><textarea rows="10" cols="40" placeholder="${news.getContent()}"></textarea></td>
+											<td><textarea rows="2" cols="6" placeholder="${news.getAuthor()}"></textarea></td>
+											<td><textarea rows="2" cols="6" placeholder="${news.getDate()}"></textarea></td>
 										</tr>
 									</c:otherwise>
 								</c:choose>
@@ -90,6 +88,13 @@
 	</div>
 	<!--   -->
 	<div class="tm-row">
+		<div class="tm-col-left text-center">
+			<ul class="tm-bg-controls-wrapper">
+				<li class="tm-bg-control active" data-id="0"></li>
+				<li class="tm-bg-control" data-id="1"></li>
+				<li class="tm-bg-control" data-id="2"></li>
+			</ul>
+		</div>
 		<div class="tm-col-right tm-col-footer">
 			<footer class="tm-site-footer text-right">
 				<p class="mb-0">

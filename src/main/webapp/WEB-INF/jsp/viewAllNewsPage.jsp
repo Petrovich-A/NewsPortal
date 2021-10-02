@@ -56,37 +56,31 @@
 					<main class="tm-col-right tm-contact-main">
 						<!-- Content -->
 						<section class="tm-content">
-							<h2 class="mb-5 tm-content-title">List of news</h2>
-							<p class="mb-5">
-								<c:choose>
-									<c:when test="${newsList.size() == 0 || newsList.size() == null}">
-										<p class="mb-5">
-											<c:out value="No news are avaliable" />
+							<h2 class="mb-1 tm-content-title">Full list of news</h2>
+							<c:choose>
+								<c:when test="${newsList.size() == 0 || newsList.size() == null}">
+									<p class="mb-1">
+										<c:out value="No news are avaliable" />
+									</p>
+									<hr class="mb-1">
+								</c:when>
+								<c:otherwise>
+									<c:forEach var="news" items="${newsList}">
+										<a class="mb-1" href="Controller?command=go_to_view_news_page&id=${news.getId()}">
+											<c:out value="${news.getTitle()}" />
+										</a>
+										<p class="mb-1">
+											<c:out value="${news.getBrief()}" />
 										</p>
-										<hr class="mb-5">
-									</c:when>
-									<c:otherwise>
-										<c:forEach var="news" items="${newsList}">
-											<p class="mb-5">
-												<a class="mb-5" href="Controller?command=go_to_view_news_page&id=${news.getId()}">
-													<c:out value="${news.getTitle()}" />
-												</a>
-											</p>
-											<hr class="mb-5">
-											<p class="mb-5">
-												<c:out value="${news.getBrief()}" />
-											</p>
-											<hr class="mb-5">
-											<p class="mb-5">
-												<c:out value="${news.getAuthor()}" />
-												<c:out value="|" />
-												<c:out value="${news.getDateDB()}" />
-											</p>
-											<hr class="mb-5">
-										</c:forEach>
-									</c:otherwise>
-								</c:choose>
-							</p>
+										<hr class="mb-1">
+										<p class="mb-3">
+											<c:out value="${news.getAuthor()}" />
+											<c:out value="|" />
+											<c:out value="${news.getDateDB()}" />
+										</p>
+									</c:forEach>
+								</c:otherwise>
+							</c:choose>
 						</section>
 					</main>
 				</div>

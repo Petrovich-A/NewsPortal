@@ -47,15 +47,22 @@
 					<h2 class="mb-2 tm-content-title">Manage news page</h2>
 					<form action="Controller" method="POST">
 						<table class="table">
+						 <col width="20">
+						 <col width="30">
+						 <col width="150">
+						 <col width="220">
+						 <col width="450">
+						 <col width="80">
+						 <col width="140">
 							<thead>
 								<tr>
 									<th></th>
-									<th>News ID</th>
-									<th>Title</th>
-									<th>Brief</th>
-									<th>Content</th>
-									<th>Author</th>
-									<th>Date</th>
+									<th >News ID</th>
+									<th >Title</th>
+									<th >Brief</th>
+									<th >Content</th>
+									<th >Author</th>
+									<th >Date</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -69,12 +76,12 @@
 										<c:forEach var="news" items="${newsList}">
 											<tr>
 												<td><input class="tm-content tm-contact" type="radio" name="id" required="required" value="${news.getId()}"></td>
-												<td>${news.getId()}</td>
+												<td> ${news.getId()}</td>
 												<td>${news.getTitle()}</td>
 												<td>${news.getBrief()}</td>
 												<td>${news.getContent()}</td>
 												<td>${news.getAuthor()}</td>
-												<td>${news.getDate()}</td>
+												<td>${news.getDateDB()}</td>
 											</tr>
 										</c:forEach>
 									</c:otherwise>
