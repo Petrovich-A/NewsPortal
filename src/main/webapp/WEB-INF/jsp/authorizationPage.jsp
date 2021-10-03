@@ -52,58 +52,64 @@
 					</nav>
 				</div>
 			</div>
+
+			<div class="tm-row">
+				<div class="tm-col-left"></div>
+				<main class="tm-col-right tm-contact-main">
+					<!-- Content -->
+					<section class="tm-content tm-contact">
+						<h2 class="mb-4 tm-content-title">${LoginPageH1_text}</h2>
+						<p class="mb-5">${LoginPageH2_text}</p>
+						<form id="contact-form" action="Controller" method="post">
+							<div class="form-group mb-3">
+								<input type="text" name="name" class="form-control" placeholder="${user_name}" required="required" />
+							</div>
+							<div class="form-group mb-4">
+								<input type="password" name="password" class="form-control" placeholder="${user_password}" required="required" />
+							</div>
+							<div class="form-group mb-4">
+								${remember_checkbox}
+								<input type="checkbox" name="remember" value="rememberMe">
+							</div>
+							<div class="text-right">
+								<input type="hidden" name="command" value="authorization" />
+								<button type="submit" class="btn btn-big btn-primary">${submit_button}</button>
+							</div>
+						</form>
+					</section>
+				</main>
+			</div>
 		</div>
 
 		<div class="tm-row">
-			<div class="tm-col-left"></div>
-			<main class="tm-col-right tm-contact-main">
-				<!-- Content -->
-				<section class="tm-content tm-contact">
-					<h2 class="mb-4 tm-content-title">${LoginPageH1_text}</h2>
-					<p class="mb-5">${LoginPageH2_text}</p>
-					<form id="contact-form" action="Controller" method="post">
-						<div class="form-group mb-3">
-							<input type="text" name="name" class="form-control" placeholder="${user_name}" required="required" />
-						</div>
-						<div class="form-group mb-4">
-							<input type="password" name="password" class="form-control" placeholder="${user_password}" required="required" />
-						</div>
-						<div class="form-group mb-4">
-							${remember_checkbox}
-							<input type="checkbox" name="remember" value="rememberMe">
-						</div>
-						<div class="text-right">
-							<input type="hidden" name="command" value="authorization" />
-							<button type="submit" class="btn btn-big btn-primary">${submit_button}</button>
-						</div>
-					</form>
-				</section>
-			</main>
+			<div class="tm-col-left text-center">
+				<ul class="tm-bg-controls-wrapper">
+					<li class="tm-bg-control active" data-id="0"></li>
+					<li class="tm-bg-control" data-id="1"></li>
+					<li class="tm-bg-control" data-id="2"></li>
+				</ul>
+			</div>
+			<div class="tm-col-right tm-col-footer">
+				<footer class="tm-site-footer text-right">
+					<p class="mb-0">
+						Copyright 2020 Diagoona |
+						<a rel="nofollow" target="_parent" href="https://it-academy.by" class="tm-text-link">IT-Academy</a>
+						| Md-JD2
+					</p>
+				</footer>
+			</div>
+		</div>
+
+		<!-- Diagonal background design -->
+		<div class="tm-bg">
+			<div class="tm-bg-left"></div>
+			<div class="tm-bg-right"></div>
 		</div>
 	</div>
 
-	<div class="tm-row">
-		<div class="tm-col-left text-center">
-			<ul class="tm-bg-controls-wrapper">
-				<li class="tm-bg-control active" data-id="0"></li>
-				<li class="tm-bg-control" data-id="1"></li>
-				<li class="tm-bg-control" data-id="2"></li>
-			</ul>
-		</div>
-		<div class="tm-col-right tm-col-footer">
-			<footer class="tm-site-footer text-right">
-				<p class="mb-0">
-					Copyright 2020 Diagoona |
-					<a rel="nofollow" target="_parent" href="https://it-academy.by" class="tm-text-link">IT-Academy</a>
-					| Md-JD2
-				</p>
-			</footer>
-		</div>
-	</div>
-
-	<script src="js/jquery-3.4.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery.backstretch.min.js"></script>
-	<script src="js/templatemo-script.js"></script>
+	<script src="resources/js/jquery-3.4.1.min.js?1"></script>
+	<script src="resources/js/bootstrap.min.js?1"></script>
+	<script src="resources/js/jquery.backstretch.min.js?1"></script>
+	<script src="resources/js/templatemo-script.js?1"></script>
 </body>
 </html>

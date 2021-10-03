@@ -1,9 +1,7 @@
 package by.http.newsportal.controller.impl;
 
 import java.io.IOException;
-import java.sql.Date;
 import java.sql.Timestamp;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import by.http.newsportal.bean.News;

@@ -66,19 +66,20 @@
 									</c:when>
 									<c:otherwise>
 										<tr>
-											<td>${news.getId()}</td>
-											<td><textarea name="title" rows="4" cols="10">${news.getTitle()}</textarea></td>
-											<td><textarea name="brief" rows="8" cols="20">${news.getBrief()}"></textarea></td>
-											<td><textarea name="content" rows="10" cols="40">${news.getContent()}"></textarea></td>
-											<td><textarea name="author" rows="2" cols="6">${news.getAuthor()}"></textarea></td>
-											<td><textarea name="date" rows="2" cols="6">${news.getDate()}"></textarea></td>
+											<!-- <td>${news.getId()}</td> -->
+											<!-- <td><textarea name="title" rows="4" cols="10">${news.getTitle()}</textarea></td> -->
+											<td><input name="id" class="form-control" value="${news.getId()}"></td>
+											<td><input name="title" class="form-control" value="${news.getTitle()}"></td>
+											<td><textarea name="brief" rows="8" cols="20">${news.getBrief()}</textarea></td>
+											<td width="" height=""><textarea name="content" rows="10" cols="40">${news.getContent()}</textarea></td>
+											<td><textarea name="author" rows="2" cols="6">${news.getAuthor()}</textarea></td>
+											<td><textarea name="date" rows="2" cols="6">${news.getDate()}</textarea></td>
 										</tr>
 									</c:otherwise>
 								</c:choose>
 							</tbody>
 						</table>
 						<div class="text-right">
-							<input type="hidden" name="id" value="${news.getId()}">
 							<input type="hidden" name="command" value="update_news" />
 							<button type="submit" class="btn btn-big btn-primary">Update</button>
 						</div>

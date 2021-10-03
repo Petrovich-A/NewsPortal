@@ -138,17 +138,16 @@
 			</div>
 		</div>
 
-			<!-- Diagonal background design -->
-			<!-- <div class="tm-bg">
-				<div class="tm-bg-left"></div>
-				<div class="tm-bg-right"></div>
-			</div> -->
+		<!-- Diagonal background design -->
+		<div class="tm-bg">
+			<div class="tm-bg-left"></div>
+			<div class="tm-bg-right"></div>
 		</div>
-	</div> 
-	
-	<script src="js/jquery-3.4.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery.backstretch.min.js"></script>
-	<script src="js/templatemo-script.js"></script>
+	</div>
+
+	<script src="resources/js/jquery-3.4.1.min.js?1"></script>
+	<script src="resources/js/bootstrap.min.js?1"></script>
+	<script src="resources/js/jquery.backstretch.min.js?1"></script>
+	<script src="resources/js/templatemo-script.js?1"></script>
 </body>
 </html>

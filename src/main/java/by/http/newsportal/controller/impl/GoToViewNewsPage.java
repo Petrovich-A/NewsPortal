@@ -44,7 +44,7 @@ public class GoToViewNewsPage implements ICommand {
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher(PATH);
 		HttpSession session = request.getSession(true);
 		session.setAttribute("newsChoisen", newsChoisen);
-		request.getSession(true).setAttribute("url", PATH);
+		request.setAttribute("url", PATH);
 		requestDispatcher.forward(request, response);
 	}
 

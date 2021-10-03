@@ -32,33 +32,35 @@
 </head>
 
 <body>
-	<div id="first" class="local-button">
-		<form class="nav-item active" action="Controller" method="post">
-			<input type="hidden" name="command" value="change_local" />
-			<input type="hidden" name="local" value="en" />
-			<input type="submit" value="${en_button}" class="btn btn-primary" />
-		</form>
-	</div>
-	<div id="second" class="local-button">
-		<form>
-			<input type="hidden" name="command" value="change_local">
-			<input type="hidden" name="local" value="ru">
-			<input type="submit" value="${ru_button}" class="btn btn-primary">
-		</form>
-	</div>
 
 	<div class="tm-container">
 		<div>
-			<div class="tm-row pt-0.5">
+			<div class="tm-row pt-4">
 				<div class="tm-col-left">
 					<div class="tm-site-header media">
 						<i class="fas fa-umbrella-beach fa-3x mt-1 tm-logo"></i>
 						<div class="media-body">
 							<h1 class="tm-sitename text-uppercase">NEWS PORTAL</h1>
 							<p class="tm-slogon">java web app</p>
+
+							<div id="first" class="local-button">
+								<form class="nav-item active" action="Controller" method="post">
+									<input type="hidden" name="command" value="change_local" />
+									<input type="hidden" name="local" value="en" />
+									<input type="submit" value="${en_button}" class="btn btn-primary" />
+								</form>
+							</div>
+							<div id="second" class="local-button">
+								<form>
+									<input type="hidden" name="command" value="change_local">
+									<input type="hidden" name="local" value="ru">
+									<input type="submit" value="${ru_button}" class="btn btn-primary">
+								</form>
+							</div>
 						</div>
 					</div>
 				</div>
+
 				<div class="tm-col-right">
 					<nav class="navbar navbar-expand-lg" id="tm-main-nav">
 						<div class="collapse navbar-collapse tm-nav" id="navbar-nav">
@@ -79,75 +81,73 @@
 				</div>
 			</div>
 
-			<div>
-				<div class="tm-row">
-					<div class="tm-col-left"></div>
-					<main class="tm-col-right tm-contact-main">
-						<!-- Content -->
-						<section class="tm-content">
-							<h2 class="mb-1 tm-content-title">List of news</h2>
-							<c:choose>
-								<c:when test="${newsList.size() == 0 || newsList.size() == null}">
+			<div class="tm-row">
+				<div class="tm-col-left"></div>
+				<main class="tm-col-right tm-contact-main">
+					<!-- Content -->
+					<section class="tm-content">
+						<h2 class="mb-1 tm-content-title">List of news</h2>
+						<c:choose>
+							<c:when test="${newsList.size() == 0 || newsList.size() == null}">
+								<p class="mb-1">
+									<c:out value="No news are avaliable" />
+								</p>
+								<hr class="mb-1">
+							</c:when>
+							<c:otherwise>
+								<c:forEach var="news" items="${newsList}" begin="0" end="1">
+									<a class="mb-1" href="Controller?command=go_to_view_news_page&id=${news.getId()}">
+										<c:out value="${news.getTitle()}" />
+									</a>
 									<p class="mb-1">
-										<c:out value="No news are avaliable" />
+										<c:out value="${news.getBrief()}" />
 									</p>
 									<hr class="mb-1">
-								</c:when>
-								<c:otherwise>
-									<c:forEach var="news" items="${newsList}" begin="0" end="1">
-										<a class="mb-1" href="Controller?command=go_to_view_news_page&id=${news.getId()}">
-											<c:out value="${news.getTitle()}" />
-										</a>
-										<p class="mb-1">
-											<c:out value="${news.getBrief()}" />
-										</p>
-										<hr class="mb-1">
-										<p class="mb-3">
-											<c:out value="${news.getAuthor()}" />
-											<c:out value="|" />
-											<c:out value="${news.getDateDB()}" />
-										</p>
-									</c:forEach>
-								</c:otherwise>
-							</c:choose>
-							<a href="Controller?command=go_to_view_all_news_page" class="btn btn-primary">${continue_button}</a>
-						</section>
-					</main>
-				</div>
+									<p class="mb-3">
+										<c:out value="${news.getAuthor()}" />
+										<c:out value="|" />
+										<c:out value="${news.getDateDB()}" />
+									</p>
+								</c:forEach>
+							</c:otherwise>
+						</c:choose>
+						<a href="Controller?command=go_to_view_all_news_page" class="btn btn-primary">${continue_button}</a>
+					</section>
+				</main>
 			</div>
+		</div>
 
-			<div class="tm-row">
-				<div class="tm-col-left text-center">
-					<ul class="tm-bg-controls-wrapper">
-						<li class="tm-bg-control active" data-id="0"></li>
-						<li class="tm-bg-control" data-id="1"></li>
-						<li class="tm-bg-control" data-id="2"></li>
-						<li class="tm-bg-control" data-id="3"></li>
-						<li class="tm-bg-control" data-id="4"></li>
-					</ul>
-				</div>
-				<div class="tm-col-right tm-col-footer">
-					<footer class="tm-site-footer text-right">
-						<p class="mb-0">
-							Copyright 2020 Diagoona |
-							<a rel="nofollow" target="_parent" href="https://it-academy.by" class="tm-text-link">IT-Academy</a>
-							| Md-JD2
-						</p>
-					</footer>
-				</div>
+		<div class="tm-row">
+			<div class="tm-col-left text-center">
+				<ul class="tm-bg-controls-wrapper">
+					<li class="tm-bg-control active" data-id="0"></li>
+					<li class="tm-bg-control" data-id="1"></li>
+					<li class="tm-bg-control" data-id="2"></li>
+					<li class="tm-bg-control" data-id="3"></li>
+					<li class="tm-bg-control" data-id="4"></li>
+				</ul>
 			</div>
+			<div class="tm-col-right tm-col-footer">
+				<footer class="tm-site-footer text-right">
+					<p class="mb-0">
+						Copyright 2020 Diagoona |
+						<a rel="nofollow" target="_parent" href="https://it-academy.by" class="tm-text-link">IT-Academy</a>
+						| Md-JD2
+					</p>
+				</footer>
+			</div>
+		</div>
 
-			<!-- Diagonal background design -->
-			<div class="tm-bg">
-				<div class="tm-bg-left"></div>
-				<div class="tm-bg-right"></div>
-			</div>
+		<!-- Diagonal background design -->
+		<div class="tm-bg">
+			<div class="tm-bg-left"></div>
+			<div class="tm-bg-right"></div>
 		</div>
 	</div>
 
-	<script src="resources/js/jquery-3.4.1.min.js?1223435"></script>
-	<script src="resources/js/bootstrap.min.js?1223435"></script>
-	<script src="resources/js/jquery.backstretch.min.js?1223435"></script>
-	<script src="resources/js/templatemo-script.js?1223435"></script>
+	<script src="resources/js/jquery-3.4.1.min.js?1"></script>
+	<script src="resources/js/bootstrap.min.js?1"></script>
+	<script src="resources/js/jquery.backstretch.min.js?1"></script>
+	<script src="resources/js/templatemo-script.js?1"></script>
 </body>
 </html>

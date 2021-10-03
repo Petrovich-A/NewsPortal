@@ -40,20 +40,19 @@
 					</nav>
 				</div>
 			</div>
-		</div>
 
-		<div class="tm-row">
-			<div class="tm-col-left"></div>
-			<main class="tm-col-right">
-				<section class="tm-content tm-about">
-					<h2 class="mb-5 tm-content-title">Congratulations, registration has done successful</h2>
-					<hr class="mb-4">
-					<p>Your registration Info:</p>
-					<hr class="mb-4">
-					<div class="media my-3">
-						<i class="fas fa-draw-polygon fa-3x p-3 mr-4"></i>
-						<div class="media-body">
-							<%--<p>
+			<div class="tm-row">
+				<div class="tm-col-left"></div>
+				<main class="tm-col-right">
+					<section class="tm-content tm-about">
+						<h2 class="mb-5 tm-content-title">Congratulations, registration has done successful</h2>
+						<hr class="mb-4">
+						<p>Your registration Info:</p>
+						<hr class="mb-4">
+						<div class="media my-3">
+							<i class="fas fa-draw-polygon fa-3x p-3 mr-4"></i>
+							<div class="media-body">
+								<%--<p>
 								Name:<%=request.getParameter("name")%></p>
 							<p>
 								Password:
@@ -81,36 +80,42 @@
 								%>
 							<p>
 							--%>
+							</div>
 						</div>
-					</div>
-				</section>
-			</main>
+					</section>
+				</main>
+			</div>
+		</div>
+
+		<div class="tm-row">
+			<div class="tm-col-left text-center">
+				<ul class="tm-bg-controls-wrapper">
+					<li class="tm-bg-control active" data-id="0"></li>
+					<li class="tm-bg-control" data-id="1"></li>
+					<li class="tm-bg-control" data-id="2"></li>
+				</ul>
+			</div>
+			<div class="tm-col-right tm-col-footer">
+				<footer class="tm-site-footer text-right">
+					<p class="mb-0">
+						Copyright 2020 Diagoona |
+						<a rel="nofollow" target="_parent" href="https://it-academy.by" class="tm-text-link">IT-Academy</a>
+						| Md-JD2
+					</p>
+				</footer>
+			</div>
+		</div>
+
+		<!-- Diagonal background design -->
+		<div class="tm-bg">
+			<div class="tm-bg-left"></div>
+			<div class="tm-bg-right"></div>
 		</div>
 	</div>
 
-	<div class="tm-row">
-		<div class="tm-col-left text-center">
-			<ul class="tm-bg-controls-wrapper">
-				<li class="tm-bg-control active" data-id="0"></li>
-				<li class="tm-bg-control" data-id="1"></li>
-				<li class="tm-bg-control" data-id="2"></li>
-			</ul>
-		</div>
-		<div class="tm-col-right tm-col-footer">
-			<footer class="tm-site-footer text-right">
-				<p class="mb-0">
-					Copyright 2020 Diagoona |
-					<a rel="nofollow" target="_parent" href="https://it-academy.by" class="tm-text-link">IT-Academy</a>
-					| Md-JD2
-				</p>
-			</footer>
-		</div>
-	</div>
-
-	<!-- Diagonal background design -->
-	<div class="tm-bg">
-		<div class="tm-bg-left"></div>
-		<div class="tm-bg-right"></div>
-	</div>
+	<script src="resources/js/jquery-3.4.1.min.js?1"></script>
+	<script src="resources/js/bootstrap.min.js?1"></script>
+	<script src="resources/js/jquery.backstretch.min.js?1"></script>
+	<script src="resources/js/templatemo-script.js?1"></script>
 </body>
 </html>

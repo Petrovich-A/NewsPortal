@@ -17,17 +17,19 @@ import jakarta.servlet.http.HttpSession;
 public class UpdateNews implements ICommand {
 	private static final ServiceProvider SERVICE_PROVIDER = ServiceProvider.getInstance();
 	private static final INewsService I_NEWS_SERVICE = SERVICE_PROVIDER.getNewsService();
-	final static String PATH = "/WEB-INF/jsp/updateNewsPage.jsp";
+	final static String PATH = "/WEB-INF/jsp/viewNewsPage.jsp";
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("id: " + request.getParameter("id"));
+		System.out.println("/n title: " + request.getParameter("title"));
 		int id = Integer.parseInt(request.getParameter("id"));
 		String title = request.getParameter("title");
 		String brief = request.getParameter("brief");
 		String content = request.getParameter("content");
 		String author = request.getParameter("author");
 		Timestamp date = Timestamp.valueOf(LocalDateTime.now());
-		News news = new News(title, brief, content, author, date);
+		News news = new News(id, title, brief, content, author, date);
 		System.out.println("UpdateNews method command \n news: " + news);
 
 		try {
@@ -38,7 +40,8 @@ public class UpdateNews implements ICommand {
 		}
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher(PATH);
 		HttpSession session = request.getSession(true);
-		request.getSession(true).setAttribute("url", PATH);
-		response.sendRedirect("Controller?command=go_to_view_news_page");
+		request.setAttribute("url", PATH);
+		request.setAttribute("newsChoisen", news);
+		requestDispatcher.forward(request, response);
 	}
 }
