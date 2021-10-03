@@ -27,7 +27,7 @@ public class UpdateNews implements ICommand {
 		String content = request.getParameter("content");
 		String author = request.getParameter("author");
 		Timestamp date = Timestamp.valueOf(LocalDateTime.now());
-		News news = new News(id, title, brief, content, author, date);
+		News news = new News(title, brief, content, author, date);
 		System.out.println("UpdateNews method command \n news: " + news);
 
 		try {
@@ -39,6 +39,6 @@ public class UpdateNews implements ICommand {
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher(PATH);
 		HttpSession session = request.getSession(true);
 		request.getSession(true).setAttribute("url", PATH);
-		response.sendRedirect("Controller?command=go_to_update_news");
+		response.sendRedirect("Controller?command=go_to_view_news_page");
 	}
 }

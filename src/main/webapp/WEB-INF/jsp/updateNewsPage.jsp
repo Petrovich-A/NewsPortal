@@ -67,17 +67,18 @@
 									<c:otherwise>
 										<tr>
 											<td>${news.getId()}</td>
-											<td><textarea rows="4" cols="10" placeholder="${news.getTitle()}"></textarea></td>
-											<td><textarea rows="8" cols="20" name="brief" placeholder="${news.getBrief()}"></textarea></td>
-											<td><textarea rows="10" cols="40" placeholder="${news.getContent()}"></textarea></td>
-											<td><textarea rows="2" cols="6" placeholder="${news.getAuthor()}"></textarea></td>
-											<td><textarea rows="2" cols="6" placeholder="${news.getDate()}"></textarea></td>
+											<td><textarea name="title" rows="4" cols="10">${news.getTitle()}</textarea></td>
+											<td><textarea name="brief" rows="8" cols="20">${news.getBrief()}"></textarea></td>
+											<td><textarea name="content" rows="10" cols="40">${news.getContent()}"></textarea></td>
+											<td><textarea name="author" rows="2" cols="6">${news.getAuthor()}"></textarea></td>
+											<td><textarea name="date" rows="2" cols="6">${news.getDate()}"></textarea></td>
 										</tr>
 									</c:otherwise>
 								</c:choose>
 							</tbody>
 						</table>
 						<div class="text-right">
+							<input type="hidden" name="id" value="${news.getId()}">
 							<input type="hidden" name="command" value="update_news" />
 							<button type="submit" class="btn btn-big btn-primary">Update</button>
 						</div>
@@ -86,25 +87,15 @@
 			</main>
 		</div>
 	</div>
-	<!--   -->
-	<div class="tm-row">
-		<div class="tm-col-left text-center">
-			<ul class="tm-bg-controls-wrapper">
-				<li class="tm-bg-control active" data-id="0"></li>
-				<li class="tm-bg-control" data-id="1"></li>
-				<li class="tm-bg-control" data-id="2"></li>
-			</ul>
-		</div>
-		<div class="tm-col-right tm-col-footer">
-			<footer class="tm-site-footer text-right">
-				<p class="mb-0">
-					Copyright 2020 Diagoona |
-					<a rel="nofollow" target="_parent" href="https://it-academy.by" class="tm-text-link">IT-Academy</a>
-					| Md-JD2
-				</p>
-			</footer>
-		</div>
+
+	<div class="tm-col-right tm-col-footer">
+		<footer class="tm-site-footer text-right">
+			<p class="mb-0">
+				Copyright 2020 Diagoona |
+				<a rel="nofollow" target="_parent" href="https://it-academy.by" class="tm-text-link">IT-Academy</a>
+				| Md-JD2
+			</p>
+		</footer>
 	</div>
 </body>
-
 </html>

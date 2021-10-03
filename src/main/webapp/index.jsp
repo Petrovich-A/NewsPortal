@@ -7,7 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="resources/css/style.css" rel="stylesheet">
-<title>My News main</title>
+<title>Index --> main</title>
 
 </head>
 <body>

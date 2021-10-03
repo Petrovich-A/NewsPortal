@@ -122,6 +122,8 @@
 						<li class="tm-bg-control active" data-id="0"></li>
 						<li class="tm-bg-control" data-id="1"></li>
 						<li class="tm-bg-control" data-id="2"></li>
+						<li class="tm-bg-control" data-id="3"></li>
+						<li class="tm-bg-control" data-id="4"></li>
 					</ul>
 				</div>
 				<div class="tm-col-right tm-col-footer">
@@ -143,9 +145,9 @@
 		</div>
 	</div>
 
-	<script type="text/javascript" src="resources/js/jquery-3.4.1.min.js"></script>
-	<script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="resources/js/jquery.backstretch.min.js"></script>
-	<script type="text/javascript" src="resources/js/templatemo-script.js"></script>
+	<script src="resources/js/jquery-3.4.1.min.js?1223435"></script>
+	<script src="resources/js/bootstrap.min.js?1223435"></script>
+	<script src="resources/js/jquery.backstretch.min.js?1223435"></script>
+	<script src="resources/js/templatemo-script.js?1223435"></script>
 </body>
 </html>

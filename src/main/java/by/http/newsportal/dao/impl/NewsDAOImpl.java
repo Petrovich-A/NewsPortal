@@ -93,11 +93,12 @@ public class NewsDAOImpl implements INewsDAO {
 		try (MyConnectionToDB myConnectionToDB = new MyConnectionToDB();
 				Connection connection = myConnectionToDB.getNewsConnection();
 				PreparedStatement preparedStatement = connection.prepareStatement(SQL_UPDATE);) {
-			preparedStatement.setInt(1, id);
+			preparedStatement.setString(1, news.getTitle());
 			preparedStatement.setString(2, news.getBrief());
 			preparedStatement.setString(3, news.getContent());
 			preparedStatement.setString(4, news.getAuthor());
 			preparedStatement.setTimestamp(5, news.getDate());
+			preparedStatement.setInt(6, news.getId());
 			System.out.println("NewsDAOImpl news is updated \n");
 			preparedStatement.executeUpdate();
 

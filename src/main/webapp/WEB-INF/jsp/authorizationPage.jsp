@@ -66,7 +66,6 @@
 							<input type="text" name="name" class="form-control" placeholder="${user_name}" required="required" />
 						</div>
 						<div class="form-group mb-4">
-
 							<input type="password" name="password" class="form-control" placeholder="${user_password}" required="required" />
 						</div>
 						<div class="form-group mb-4">

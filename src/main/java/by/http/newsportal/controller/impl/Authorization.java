@@ -23,7 +23,7 @@ public class Authorization implements ICommand {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String role = request.getParameter("name");
+		String role = request.getParameter("role");
 		String name = request.getParameter("name");
 		String password = request.getParameter("password");
 		String eMail = request.getParameter("eMail");
