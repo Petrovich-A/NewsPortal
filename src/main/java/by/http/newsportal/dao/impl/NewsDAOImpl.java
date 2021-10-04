@@ -16,6 +16,8 @@ public class NewsDAOImpl implements INewsDAO {
 	private final String SQL_GET_LIST = "SELECT * FROM news";
 	private final String SQL_CREATE = "INSERT INTO news(title, brief, content, author, date) VALUES(?,?,?,?,?)";
 	private final String SQL_DELETE = "DELETE FROM news WHERE idnews = ?";
+	private final String SQL_UPDATE = "UPDATE news SET title = ?, brief = ?, content = ?, author = ?, date = ? WHERE idnews = ?";
+	private final String SQL_READ = "SELECT * FROM news WHERE idnews = ?";
 
 	@Override
 	public void create(News news) throws DAOException {
@@ -89,7 +91,6 @@ public class NewsDAOImpl implements INewsDAO {
 
 	@Override
 	public void update(News news, int id) throws DAOException {
-		final String SQL_UPDATE = "UPDATE news SET title = ?, brief = ?, content = ?, author = ?, date = ? WHERE idnews = ?";
 		try (MyConnectionToDB myConnectionToDB = new MyConnectionToDB();
 				Connection connection = myConnectionToDB.getNewsConnection();
 				PreparedStatement preparedStatement = connection.prepareStatement(SQL_UPDATE);) {
@@ -113,7 +114,6 @@ public class NewsDAOImpl implements INewsDAO {
 
 	@Override
 	public News read(int id) throws DAOException {
-		final String SQL_READ = "SELECT * FROM news WHERE idnews = ?";
 		News news = new News();
 		try (MyConnectionToDB myConnectionToDB = new MyConnectionToDB();
 				Connection connection = myConnectionToDB.getNewsConnection();

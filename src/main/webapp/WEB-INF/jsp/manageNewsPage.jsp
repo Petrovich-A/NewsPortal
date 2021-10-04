@@ -53,8 +53,8 @@
 								<col width="30">
 								<col width="150">
 								<col width="220">
-								<col width="450">
-								<col width="80">
+								<col width="520">
+								<col width="30">
 								<thead>
 									<tr>
 										<th></th>
@@ -63,7 +63,6 @@
 										<th>Brief</th>
 										<th>Content</th>
 										<th>Author / Date</th>
-										<th></th>
 									</tr>
 								</thead>
 								<tbody>
@@ -108,12 +107,6 @@
 					</p>
 				</footer>
 			</div>
-		</div>
-
-		<!-- Diagonal background design -->
-		<div class="tm-bg">
-			<div class="tm-bg-left"></div>
-			<div class="tm-bg-right"></div>
 		</div>
 	</div>
 </body>

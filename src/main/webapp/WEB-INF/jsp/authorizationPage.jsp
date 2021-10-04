@@ -62,14 +62,14 @@
 						<p class="mb-5">${LoginPageH2_text}</p>
 						<form id="contact-form" action="Controller" method="post">
 							<div class="form-group mb-3">
-								<input type="text" name="name" class="form-control" placeholder="${user_name}" required="required" />
+								<input type="text" name="login" class="form-control" placeholder="${user_name}" required="required" />
 							</div>
 							<div class="form-group mb-4">
 								<input type="password" name="password" class="form-control" placeholder="${user_password}" required="required" />
 							</div>
 							<div class="form-group mb-4">
 								${remember_checkbox}
-								<input type="checkbox" name="remember" value="rememberMe">
+								<input type="checkbox" name="remember" value="">
 							</div>
 							<div class="text-right">
 								<input type="hidden" name="command" value="authorization" />

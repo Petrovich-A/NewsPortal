@@ -26,6 +26,7 @@
 						</div>
 					</div>
 				</div>
+
 				<div class="tm-col-right">
 					<nav class="navbar navbar-expand-lg" id="tm-main-nav">
 						<button class="navbar-toggler toggler-example mr-0 ml-auto" type="button" data-toggle="collapse" data-target="#navbar-nav"
@@ -34,7 +35,7 @@
 						</button>
 						<div class="collapse navbar-collapse tm-nav" id="navbar-nav">
 							<ul class="navbar-nav text-uppercase">
-								<li class="nav-item"><a class="nav-link tm-nav-link" href="Controller?command=go_to_main_page">Home </a></li>
+								<li class="nav-item"><a class="nav-link tm-nav-link" href="Controller?command=go_to_main_page">Home</a></li>
 							</ul>
 						</div>
 					</nav>
@@ -43,51 +44,29 @@
 
 			<div class="tm-row">
 				<div class="tm-col-left"></div>
-				<main class="tm-col-right">
-					<section class="tm-content tm-about">
-						<h2 class="mb-5 tm-content-title">Congratulations, registration has done successful</h2>
-						<hr class="mb-4">
-						<p>Your registration Info:</p>
-						<hr class="mb-4">
-						<div class="media my-3">
-							<i class="fas fa-draw-polygon fa-3x p-3 mr-4"></i>
-							<div class="media-body">
-								<%--<p>
-								Name:<%=request.getParameter("name")%></p>
-							<p>
-								Password:
-								<%=request.getParameter("password")%></p>
-							<p>
-								email:
-								<%=request.getParameter("email")%></p>
-							<p>
-								Gender:
-								<%=request.getParameter("gender")%></p>
-							<p>
-								Country:
-								<%=request.getParameter("country")%></p>
-							<p>
-								Hobby:
-								<%=request.getParameter("hobby")%></p>
-
-							<%--
-							<p>
-								<%
-								String[] languages = request.getParameterValues("language");
-								for (String language : languages) {
-									out.print("<li>" + language + "</li>");
-								}
-								%>
-							<p>
-							--%>
-							</div>
-						</div>
+				<main class="tm-col-right tm-contact-main">
+					<!-- Content -->
+					<section class="tm-content tm-contact">
+						<h2 class="tm-sitename text-uppercase">Registration is successful</h2>
+						<p class="tm-slogon">Welcome to News Portal</p>
+						<a class="tm-slogon" href="Controller?command=go_to_authorization_page"> Please log in </a>
+						<br />
+						<p class="mb-5">
+							<c:out value="${user.getName()}" />
+						</p>
 					</section>
 				</main>
 			</div>
 		</div>
 
 		<div class="tm-row">
+			<div class="tm-col-left text-center">
+				<ul class="tm-bg-controls-wrapper">
+					<li class="tm-bg-control active" data-id="0"></li>
+					<li class="tm-bg-control" data-id="1"></li>
+					<li class="tm-bg-control" data-id="2"></li>
+				</ul>
+			</div>
 			<div class="tm-col-right tm-col-footer">
 				<footer class="tm-site-footer text-right">
 					<p class="mb-0">
@@ -106,5 +85,9 @@
 		</div>
 	</div>
 
+	<script src="resources/js/jquery-3.4.1.min.js?1"></script>
+	<script src="resources/js/bootstrap.min.js?1"></script>
+	<script src="resources/js/jquery.backstretch.min.js?1"></script>
+	<script src="resources/js/templatemo-script.js?1"></script>
 </body>
 </html>

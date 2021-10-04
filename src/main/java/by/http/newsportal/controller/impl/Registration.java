@@ -19,8 +19,8 @@ public class Registration implements ICommand {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String path;
-		String role = "ADMINISTRATOR";
+		String path = null;
+		String role = null;
 		String name = request.getParameter("name");
 		String password = request.getParameter("password");
 		String eMail = request.getParameter("eMail");
@@ -29,34 +29,25 @@ public class Registration implements ICommand {
 		String language = request.getParameter("language");
 		String hobby = request.getParameter("hobby");
 		Date date = Date.valueOf(LocalDate.now());
+		RegistrationInfo registrationInfo = null;
 
-		System.out.println("RegistrationInfo to BD:\n [role=" + role + ", name=" + name + ", password=" + password + ", eMail=" + eMail
-				+ ", gender=" + gender + ", country=" + country + ", language=" + language + ", hobby=" + hobby
-				+ ", date=" + date + "]");
-
-		if (name == null || name.equals("") || password == null || password.equals("")
-				|| eMail == null || eMail.equals("") || gender == null || gender.equals("")) {
-			response.sendRedirect("Controller?command=go_to_registration_page&message=Please regist");
-			return;
-		}
-
-		RegistrationInfo registrationInfo = new RegistrationInfo(role, name, password, eMail, gender, country, language,
-				hobby, date);
+		role = name.equals("admin") ? "ADMINISTRATOR" : "AUTHORIZED_USER";
+		registrationInfo = new RegistrationInfo(role, name, password, eMail, gender, country, language, hobby, date);
+		System.out.println("Registration registrationInfo: " + registrationInfo);
 
 		try {
 			I_USER_SERVICE.registration(registrationInfo);
 			path = "/WEB-INF/jsp/registrationInfoPage.jsp";
 			request.setAttribute("message", "Please log in");
 			request.getSession(true).setAttribute("url", path);
-			System.out.println("Registration in try before sendRedirect");
 			response.sendRedirect("Controller?command=go_to_authorization_info_page");
 
 		} catch (ServiceException e) {
 			e.printStackTrace();
 			path = "/WEB-INF/jsp/registrationInfoPage.jsp";
 			request.getSession(true).setAttribute("url", path);
-			System.out.println("Registration in catch before sendRedirect");
 			response.sendRedirect("Controller?command=go_to_registration_page");
 		}
 	}
+
 }

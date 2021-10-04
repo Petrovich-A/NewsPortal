@@ -16,38 +16,48 @@
 
 <body>
 	<div class="tm-container">
-		<div class="tm-row pt-4">
-			<div class="tm-col-left">
-				<div class="tm-site-header media">
-					<i class="fas fa-umbrella-beach fa-3x mt-1 tm-logo"></i>
-					<div class="media-body">
-						<h1 class="tm-sitename text-uppercase">Your registration is successful</h1>
-						<p class="tm-slogon">Welcome to News Portal</p>
-						<br>
-						<hr />
-						<a class="tm-slogon" href="Controller?command=go_to_authorization_page"> Please log in </a>
+		<div>
+			<div class="tm-row pt-4">
+				<div class="tm-col-left">
+					<div class="tm-site-header media">
+						<i class="fas fa-umbrella-beach fa-3x mt-1 tm-logo"></i>
+						<div class="media-body">
+							<h1 class="tm-sitename text-uppercase">NEWS PORTAL</h1>
+							<p class="tm-slogon">java web app</p>
+						</div>
 					</div>
-					<div class="media-body">
+				</div>
+
+				<div class="tm-col-right">
+					<nav class="navbar navbar-expand-lg" id="tm-main-nav">
+						<button class="navbar-toggler toggler-example mr-0 ml-auto" type="button" data-toggle="collapse" data-target="#navbar-nav"
+							aria-controls="navbar-nav" aria-expanded="false" aria-label="Toggle navigation">
+							<span><i class="fas fa-bars"></i></span>
+						</button>
+						<div class="collapse navbar-collapse tm-nav" id="navbar-nav">
+							<ul class="navbar-nav text-uppercase">
+								<li class="nav-item"><a class="nav-link tm-nav-link" href="Controller?command=go_to_main_page">Home </a></li>
+								<li class="nav-item"><a class="nav-link tm-nav-link" href="Controller?command=go_to_authorization_page">Log in</a></li>
+							</ul>
+						</div>
+					</nav>
+				</div>
+			</div>
+
+			<div class="tm-row">
+				<div class="tm-col-left"></div>
+				<main class="tm-col-right tm-contact-main">
+					<!-- Content -->
+					<section class="tm-content tm-contact">
+						<h2 class="tm-sitename text-uppercase">Registration is successful</h2>
+						<p class="tm-slogon">Welcome to News Portal</p>
+						<a class="tm-slogon" href="Controller?command=go_to_authorization_page"> Please log in </a>
 						<br />
 						<p class="mb-5">
 							<c:out value="${user.getName()}" />
 						</p>
-					</div>
-				</div>
-			</div>
-			<div class="tm-col-right">
-				<nav class="navbar navbar-expand-lg" id="tm-main-nav">
-					<button class="navbar-toggler toggler-example mr-0 ml-auto" type="button" data-toggle="collapse" data-target="#navbar-nav"
-						aria-controls="navbar-nav" aria-expanded="false" aria-label="Toggle navigation">
-						<span><i class="fas fa-bars"></i></span>
-					</button>
-					<div class="collapse navbar-collapse tm-nav" id="navbar-nav">
-						<ul class="navbar-nav text-uppercase">
-							<li class="nav-item"><a class="nav-link tm-nav-link" href="Controller?command=go_to_main_page">Home </a></li>
-							<li class="nav-item"><a class="nav-link tm-nav-link" href="Controller?command=go_to_authorization_page">Log in </a></li>
-						</ul>
-					</div>
-				</nav>
+					</section>
+				</main>
 			</div>
 		</div>
 
@@ -76,5 +86,10 @@
 			<div class="tm-bg-right"></div>
 		</div>
 	</div>
+
+	<script src="resources/js/jquery-3.4.1.min.js?1"></script>
+	<script src="resources/js/bootstrap.min.js?1"></script>
+	<script src="resources/js/jquery.backstretch.min.js?1"></script>
+	<script src="resources/js/templatemo-script.js?1"></script>
 </body>
 </html>

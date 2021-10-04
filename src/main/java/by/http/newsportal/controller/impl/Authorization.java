@@ -1,10 +1,7 @@
 package by.http.newsportal.controller.impl;
 
 import java.io.IOException;
-import java.sql.Date;
-import java.time.LocalDate;
 
-import by.http.newsportal.bean.RegistrationInfo;
 import by.http.newsportal.bean.User;
 import by.http.newsportal.controller.ICommand;
 import by.http.newsportal.service.IUserService;
@@ -24,29 +21,15 @@ public class Authorization implements ICommand {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String role = request.getParameter("role");
-		String name = request.getParameter("name");
-		String password = request.getParameter("password");
-		String eMail = request.getParameter("eMail");
-		String gender = request.getParameter("gender");
-		String country = request.getParameter("country");
-		String language = request.getParameter("language");
-		String hobby = request.getParameter("hobby");
-		Date date = Date.valueOf(LocalDate.now());
+		String login = request.getParameter("login");
+		String remember = request.getParameter("remember");
+		HttpSession session = request.getSession(true);
+		User user = null;
 
-		System.out.println("RegistrationInfo from UI [role=" + role + ", name=" + name + ", password=" + password
-				+ ", eMail=" + eMail + ", gender=" + gender + ", country=" + country + ", language=" + language
-				+ ", hobby=" + hobby + ", date=" + date + "]");
-
-		if (name == null || name.equals("") || password == null || password.equals("")) {
-			return;
-		}
-		RegistrationInfo registrationInfo = new RegistrationInfo(role, name, password, eMail, gender, country, language,
-				hobby, date);
 		try {
-			User user = I_USER_SERVICE.authorization(registrationInfo);
-			HttpSession session = request.getSession(true);
-			session.setAttribute("user", user);
+			user = I_USER_SERVICE.authorization(role, login);
 			session.setAttribute("role", user.getRole().toString());
+			System.out.println("Authorization user: " + user);
 			response.sendRedirect("Controller?command=go_to_LogIn_Info_Page.jsp");
 
 		} catch (ServiceException e) {

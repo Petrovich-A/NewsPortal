@@ -5,10 +5,10 @@ import by.http.newsportal.bean.User;
 
 public interface IUserService {
 
-	void registration(RegistrationInfo registrationInfo) throws ServiceException;
+	public void registration(RegistrationInfo registrationInfo) throws ServiceException;
 
-	User authorization(RegistrationInfo registrationInfo) throws ServiceException;
-	
-	boolean validation(RegistrationInfo registrationInfo)throws ServiceException;
+	public User authorization(String login, String role) throws ServiceException;
+
+	public boolean validation(RegistrationInfo registrationInfo) throws ServiceException;
 
 }

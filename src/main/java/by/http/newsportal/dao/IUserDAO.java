@@ -18,7 +18,7 @@ public interface IUserDAO {
 	 * @param registrationInfo
 	 * @throws DAOException
 	 */
-	public User authorization(RegistrationInfo registrationInfo) throws DAOException;
+	public User authorization(User user) throws DAOException;
 
 	/**
 	 * update method

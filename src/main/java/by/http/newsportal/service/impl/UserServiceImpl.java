@@ -22,10 +22,10 @@ public class UserServiceImpl implements IUserService {
 	}
 
 	@Override
-	public User authorization(RegistrationInfo registrationInfo) throws ServiceException {
+	public User authorization(String login, String role) throws ServiceException {
 		User user = null;
 		try {
-			user = USER_DAO_IMPL.authorization(registrationInfo);
+			user = USER_DAO_IMPL.authorization(user);
 		} catch (DAOException e) {
 			throw new ServiceException(e.getMessage(), e);
 		}

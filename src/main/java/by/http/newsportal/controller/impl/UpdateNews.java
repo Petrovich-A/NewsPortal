@@ -28,7 +28,7 @@ public class UpdateNews implements ICommand {
 		String brief = request.getParameter("brief");
 		String content = request.getParameter("content");
 		String author = request.getParameter("author");
-		Timestamp date = Timestamp.valueOf(LocalDateTime.now());
+		String date = request.getParameter("date");
 		News news = new News(id, title, brief, content, author, date);
 		System.out.println("UpdateNews method command \n news: " + news);
 
