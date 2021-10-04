@@ -2,16 +2,16 @@
 TemplateMo 550 Diagoona
 https://templatemo.com/tm-550-diagoona
 */
-
 body {
-    font-family: 'Open Sans', Arial, sans-serif;
-    font-size: 17px;
-    font-weight: 300;
-    overflow-x: hidden;
-    color: white;
-    background-color: #2C353C;
-    background-image: url(../img/diagoona-bg-3.jpg);
+	font-family: 'Open Sans', Arial, sans-serif;
+	font-size: 17px;
+	font-weight: 300;
+	overflow-x: hidden;
+	color: white;
+	background-color: #2C353C;
+	background-image: url(../img/diagoona-bg-3.jpg);
 	background-size: 100%;
+	background-repeat: no-repeat;
 	background-attachment: fixed
 }
 
@@ -417,13 +417,14 @@ hr {
 	padding-left: 25px;
 }
 
-#first{
+#first {
 	float: left;
 }
-#second{
+
+#second {
 	float: left;
-} 
+}
 
 table {
-    table-layout: fixed;
-   }
+	table-layout: fixed;
+}

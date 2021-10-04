@@ -40,6 +40,7 @@
 						</div>
 					</div>
 				</div>
+
 				<div class="tm-col-right">
 					<nav class="navbar navbar-expand-lg" id="tm-main-nav">
 						<div class="collapse navbar-collapse tm-nav" id="navbar-nav">
@@ -51,61 +52,65 @@
 				</div>
 			</div>
 
-			<div>
-				<div class="tm-row">
-					<div class="tm-col-left"></div>
-					<main class="tm-col-right tm-contact-main">
-						<!-- Content -->
-						<section class="tm-content tm-contact">
-							<h2 class="mb-2 tm-content-title">${registrationPageH1_text}</h2>
-							<p class="mb-2">${registrationPageH2_text}</p>
-							<form id="contact-form" action="Controller" method="POST">
-								<div class="form-group mb-2">
-									<input type="text" name="title" class="form-control" placeholder="${news_title}" required="required" />
-								</div>
-								<div class="form-group mb-3">
-									<textarea rows="4" name="brief" class="form-control" placeholder="${news_brief}..." required="required"></textarea>
-								</div>
-								<div class="form-group mb-3">
-									<textarea rows="4" name="content" class="form-control" placeholder="${news_content}..." required="required"></textarea>
-								</div>
-								<div class="form-group mb-1">
-									<input type="text" name="author" class="form-control" placeholder="${news_author}" required="required" />
-								</div>
-								<div class="text-right">
-									<input type="hidden" name="command" value="add_news" />
-									<button type="submit" class="btn btn-big btn-primary">${submit_button}</button>
-								</div>
-							</form>
-						</section>
-					</main>
-				</div>
-			</div>
-
 			<div class="tm-row">
-				<div class="tm-col-left text-center">
-					<ul class="tm-bg-controls-wrapper">
-						<li class="tm-bg-control active" data-id="0"></li>
-						<li class="tm-bg-control" data-id="1"></li>
-						<li class="tm-bg-control" data-id="2"></li>
-					</ul>
-				</div>
-				<div class="tm-col-right tm-col-footer">
-					<footer class="tm-site-footer text-right">
-						<p class="mb-0">
-							Copyright 2020 Diagoona |
-							<a rel="nofollow" target="_parent" href="https://it-academy.by" class="tm-text-link">IT-Academy</a>
-							| Md-JD2
-						</p>
-					</footer>
-				</div>
+				<div class="tm-col-left"></div>
+				<main class="tm-col-right tm-contact-main">
+					<!-- Content -->
+					<section class="tm-content tm-contact">
+						<h2 class="mb-2 tm-content-title">${registrationPageH1_text}</h2>
+						<p class="mb-2">${registrationPageH2_text}</p>
+						<form id="contact-form" action="Controller" method="POST">
+							<div class="form-group mb-2">
+								<input type="text" name="title" class="form-control" placeholder="${news_title}" required="required" />
+							</div>
+							<div class="form-group mb-3">
+								<textarea rows="4" name="brief" class="form-control" placeholder="${news_brief}..." required="required"></textarea>
+							</div>
+							<div class="form-group mb-3">
+								<textarea rows="4" name="content" class="form-control" placeholder="${news_content}..." required="required"></textarea>
+							</div>
+							<div class="form-group mb-1">
+								<input type="text" name="author" class="form-control" placeholder="${news_author}" required="required" />
+							</div>
+							<div class="text-right">
+								<input type="hidden" name="command" value="add_news" />
+								<button type="submit" class="btn btn-big btn-primary">${submit_button}</button>
+							</div>
+						</form>
+					</section>
+				</main>
 			</div>
+		</div>
+
+		<div class="tm-row">
+			<div class="tm-col-left text-center">
+				<ul class="tm-bg-controls-wrapper">
+					<li class="tm-bg-control active" data-id="0"></li>
+					<li class="tm-bg-control" data-id="1"></li>
+					<li class="tm-bg-control" data-id="2"></li>
+				</ul>
+			</div>
+			<div class="tm-col-right tm-col-footer">
+				<footer class="tm-site-footer text-right">
+					<p class="mb-0">
+						Copyright 2020 Diagoona |
+						<a rel="nofollow" target="_parent" href="https://it-academy.by" class="tm-text-link">IT-Academy</a>
+						| Md-JD2
+					</p>
+				</footer>
+			</div>
+		</div>
+
+		<!-- Diagonal background design -->
+		<div class="tm-bg">
+			<div class="tm-bg-left"></div>
+			<div class="tm-bg-right"></div>
 		</div>
 	</div>
 
-	<script src="resources/js/jquery-3.4.1.min.js"></script>
-	<script src="resources/js/bootstrap.min.js"></script>
-	<script src="resources/js/jquery.backstretch.min.js"></script>
-	<script src="resources/js/templatemo-script.js"></script>
+	<script src="resources/js/jquery-3.4.1.min.js?1"></script>
+	<script src="resources/js/bootstrap.min.js?1"></script>
+	<script src="resources/js/jquery.backstretch.min.js?1"></script>
+	<script src="resources/js/templatemo-script.js?1"></script>
 </body>
 </html>

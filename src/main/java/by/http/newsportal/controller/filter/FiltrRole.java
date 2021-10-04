@@ -15,7 +15,7 @@ import jakarta.servlet.http.HttpSession;
 
 @WebFilter(urlPatterns = "/*")
 
-public class FiltrTest implements Filter {
+public class FiltrRole implements Filter {
 
 	@Override
 	public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)
@@ -27,7 +27,7 @@ public class FiltrTest implements Filter {
 			if (roleName == roleName.ADMINISTRATOR) {
 				servletRequest.setAttribute("administrator", "administrator");
 			}
-			if (roleName == roleName.USER) {
+			if (roleName == roleName.AUTHORIZED_USER) {
 				servletRequest.setAttribute("user", "user");
 			}
 		}

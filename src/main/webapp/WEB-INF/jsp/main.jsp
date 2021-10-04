@@ -86,7 +86,7 @@
 				<main class="tm-col-right tm-contact-main">
 					<!-- Content -->
 					<section class="tm-content">
-						<h2 class="mb-1 tm-content-title">List of news</h2>
+						<h2 class="mb-5 tm-content-title">List of news</h2>
 						<c:choose>
 							<c:when test="${newsList.size() == 0 || newsList.size() == null}">
 								<p class="mb-1">

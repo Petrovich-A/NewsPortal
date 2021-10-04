@@ -88,13 +88,6 @@
 		</div>
 
 		<div class="tm-row">
-			<div class="tm-col-left text-center">
-				<ul class="tm-bg-controls-wrapper">
-					<li class="tm-bg-control active" data-id="0"></li>
-					<li class="tm-bg-control" data-id="1"></li>
-					<li class="tm-bg-control" data-id="2"></li>
-				</ul>
-			</div>
 			<div class="tm-col-right tm-col-footer">
 				<footer class="tm-site-footer text-right">
 					<p class="mb-0">
@@ -113,9 +106,5 @@
 		</div>
 	</div>
 
-	<script src="resources/js/jquery-3.4.1.min.js?1"></script>
-	<script src="resources/js/bootstrap.min.js?1"></script>
-	<script src="resources/js/jquery.backstretch.min.js?1"></script>
-	<script src="resources/js/templatemo-script.js?1"></script>
 </body>
 </html>
