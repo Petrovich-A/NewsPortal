@@ -85,9 +85,9 @@
 							</div>
 							<div class="form-group mb-1">
 								<p>${user_gender}</p>
-								<input type="radio" name="gender" value="male" required="required">${user_gender_male}
-								<input type="radio" name="gender" value="female">${user_gender_female}
-								<input type="radio" name="gender" value="other">${user_gender_other}
+								<input type="radio" name="gender" value="male" required="required"> ${user_gender_male}
+								<input type="radio" name="gender" value="female"> ${user_gender_female}
+								<input type="radio" name="gender" value="other"> ${user_gender_other}
 
 								<p>${user_country}</p>
 								<select name="country">
@@ -100,10 +100,10 @@
 							<div class="form-group mb-1">
 								<p>${user_language}</p>
 								<ul>
-									<li>${user_language_belarus}<input type="checkbox" name="language" value="Belarusian" /></li>
-									<li>${user_language_rusian}<input type="checkbox" name="language" value="Rusian" /></li>
-									<li>${user_language_english}<input type="checkbox" name="language" value="English" /></li>
-									<li>${user_language_german}<input type="checkbox" name="language" value="German" /></li>
+									<li>${user_language_belarus} <input type="checkbox" name="language" value="Belarusian" /></li>
+									<li>${user_language_rusian} <input type="checkbox" name="language" value="Rusian" /></li>
+									<li>${user_language_english} <input type="checkbox" name="language" value="English" /></li>
+									<li>${user_language_german} <input type="checkbox" name="language" value="German" /></li>
 								</ul>
 							</div>
 							<div class="form-group mb-1">

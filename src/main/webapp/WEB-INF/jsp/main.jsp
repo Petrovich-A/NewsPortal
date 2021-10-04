@@ -111,7 +111,9 @@
 								</c:forEach>
 							</c:otherwise>
 						</c:choose>
-						<a href="Controller?command=go_to_view_all_news_page" class="btn btn-primary">${continue_button}</a>
+						<c:if test="${not empty sessionScope.RoleName}">
+							<a href="Controller?command=go_to_view_all_news_page" class="btn btn-primary">${continue_button}</a>
+						</c:if>
 					</section>
 				</main>
 			</div>
