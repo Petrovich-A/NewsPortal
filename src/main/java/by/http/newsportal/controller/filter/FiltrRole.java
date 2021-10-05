@@ -21,7 +21,8 @@ public class FiltrRole implements Filter {
 	public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)
 			throws IOException, ServletException {
 		HttpSession session = ((HttpServletRequest) servletRequest).getSession(true);
-		session.setAttribute("roleName", RoleName.ADMINISTRATOR);
+
+
 		filterChain.doFilter(servletRequest, servletResponse);
 	}
 

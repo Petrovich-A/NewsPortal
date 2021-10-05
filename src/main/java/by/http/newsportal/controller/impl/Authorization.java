@@ -24,11 +24,11 @@ public class Authorization implements ICommand {
 		String login = request.getParameter("login");
 		String remember = request.getParameter("remember");
 		HttpSession session = request.getSession(true);
-		User user = null;
+		User user = new User(role, login);
 
 		try {
 			user = I_USER_SERVICE.authorization(role, login);
-			session.setAttribute("role", user.getRole().toString());
+			session.setAttribute("user", user);
 			System.out.println("Authorization user: " + user);
 			response.sendRedirect("Controller?command=go_to_LogIn_Info_Page.jsp");
 

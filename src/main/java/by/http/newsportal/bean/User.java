@@ -3,15 +3,19 @@ package by.http.newsportal.bean;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class User implements Serializable{
+public class User implements Serializable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	public RoleName role;
+	public String role;
 	public String login;
 
-	public User(RoleName role, String login) {
+	public User() {
+		super();
+	}
+
+	public User(String role, String login) {
 		super();
 		this.role = role;
 		this.login = login;
@@ -39,11 +43,11 @@ public class User implements Serializable{
 		return "User [role=" + role + ", login=" + login + "]";
 	}
 
-	public RoleName getRole() {
+	public String getRole() {
 		return role;
 	}
 
-	public void setRole(RoleName role) {
+	public void setRole(String role) {
 		this.role = role;
 	}
 

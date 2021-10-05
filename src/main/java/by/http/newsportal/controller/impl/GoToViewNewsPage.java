@@ -29,7 +29,6 @@ public class GoToViewNewsPage implements ICommand {
 			e.printStackTrace();
 		}
 		int id = Integer.parseInt(request.getParameter("id"));
-		System.out.println("GoToViewNewsPage command \n id: " + id);
 		News newsChoisen = new News();
 		for (News news : listNews) {
 			if (news.getId() == id) {

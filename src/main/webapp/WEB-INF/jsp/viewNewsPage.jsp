@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="by.http.newsportal.bean.News"%>
 <%@ page import="by.http.newsportal.bean.User"%>
+<%@ page import="by.http.newsportal.bean.RoleName"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="java.util.List"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -58,8 +59,10 @@
 						<hr>
 						<h4 class="mb-2">${newsChoisen.getAuthor()}</h4>
 						<h3 class="mb-2">${newsChoisen.getBrief()}</h3>
+						<c:if test="sessionScope.user.getRole().equals(RoleName.AUTHORIZED_USER.toString())">
 						<h5 class="mb-2">${newsChoisen.getContent()}</h5>
 						<p class="mb-2">${newsChoisen.getDateDB()}</p>
+						</c:if>
 					</section>
 				</main>
 			</div>

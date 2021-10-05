@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="by.http.newsportal.bean.News"%>
 <%@ page import="by.http.newsportal.bean.User"%>
+<%@ page import="by.http.newsportal.bean.RoleName"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="java.util.List"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -65,7 +66,7 @@
 					<nav class="navbar navbar-expand-lg" id="tm-main-nav">
 						<div class="collapse navbar-collapse tm-nav" id="navbar-nav">
 							<ul class="navbar-nav text-uppercase">
-								<c:if test="${not empty sessionScope.RoleName}">
+								<c:if test="${sessionScope.user.getRole().equals(RoleName.ADMINISTRATOR.toString())}">
 									<li class="nav-item active"><input type="hidden" name="local" value="Add news" /> <a class="nav-link tm-nav-link"
 											href="Controller?command=go_to_add_news_page">${addNews_button}</a></li>
 									<li class="nav-item active"><input type="hidden" name="local" value="Manage news" /> <a class="nav-link tm-nav-link"
@@ -77,7 +78,7 @@
 										href="Controller?command=go_to_authorization_page">${login_button}</a></li>
 								<li class="nav-item active"><input type="hidden" name="local" value="Log in" /> <a class="nav-link tm-nav-link"
 										href="Controller?command=go_to_about_page">${about_button}</a></li>
-										
+
 							</ul>
 						</div>
 					</nav>
@@ -114,7 +115,7 @@
 								</c:forEach>
 							</c:otherwise>
 						</c:choose>
-						<c:if test="${not empty sessionScope.RoleName}">
+						<c:if test="${sessionScope.user.getRole().equals(RoleName.AUTHORIZED_USER.toString())}">
 							<a href="Controller?command=go_to_view_all_news_page" class="btn btn-primary">${continue_button}</a>
 						</c:if>
 					</section>
