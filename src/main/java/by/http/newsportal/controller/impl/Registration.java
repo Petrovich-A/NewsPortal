@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.time.LocalDate;
 
 import by.http.newsportal.bean.RegistrationInfo;
+import by.http.newsportal.bean.RoleName;
 import by.http.newsportal.controller.ICommand;
 import by.http.newsportal.service.IUserService;
 import by.http.newsportal.service.ServiceException;
@@ -31,7 +32,8 @@ public class Registration implements ICommand {
 		Date date = Date.valueOf(LocalDate.now());
 		RegistrationInfo registrationInfo = null;
 
-		role = name.equals("admin") ? "ADMINISTRATOR" : "AUTHORIZED_USER";
+		role = name.equals("admin") || password.equals("admin") ? "ADMINISTRATOR" : "AUTHORIZED_USER";
+//		role = name.equals("admin") ? RoleName.ADMINISTRATOR.toString() : RoleName.AUTHORIZED_USER.toString();
 		registrationInfo = new RegistrationInfo(role, name, password, eMail, gender, country, language, hobby, date);
 		System.out.println("Registration registrationInfo: " + registrationInfo);
 

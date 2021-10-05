@@ -28,6 +28,7 @@
 <fmt:message bundle="${loc}" key="local.main.button.login" var="login_button" />
 <fmt:message bundle="${loc}" key="local.main.button.addNews" var="addNews_button" />
 <fmt:message bundle="${loc}" key="local.main.button.manageNews" var="manageNews_button" />
+<fmt:message bundle="${loc}" key="local.main.button.about" var="about_button" />
 <fmt:message bundle="${loc}" key="local.main.button.continue" var="continue_button" />
 </head>
 
@@ -66,14 +67,17 @@
 							<ul class="navbar-nav text-uppercase">
 								<c:if test="${not empty sessionScope.RoleName}">
 									<li class="nav-item active"><input type="hidden" name="local" value="Add news" /> <a class="nav-link tm-nav-link"
-											href="Controller?command=go_to_add_news_page">${addNews_button} </a></li>
+											href="Controller?command=go_to_add_news_page">${addNews_button}</a></li>
 									<li class="nav-item active"><input type="hidden" name="local" value="Manage news" /> <a class="nav-link tm-nav-link"
-											href="Controller?command=go_to_manage_news">${manageNews_button} </a></li>
+											href="Controller?command=go_to_manage_news">${manageNews_button}</a></li>
 								</c:if>
 								<li class="nav-item active"><input type="hidden" name="local" value="Registration" /> <a class="nav-link tm-nav-link"
-										href="Controller?command=go_to_registration_page">${registration_button} </a></li>
+										href="Controller?command=go_to_registration_page">${registration_button}</a></li>
 								<li class="nav-item active"><input type="hidden" name="local" value="Log in" /> <a class="nav-link tm-nav-link"
-										href="Controller?command=go_to_authorization_page">${login_button} </a></li>
+										href="Controller?command=go_to_authorization_page">${login_button}</a></li>
+								<li class="nav-item active"><input type="hidden" name="local" value="Log in" /> <a class="nav-link tm-nav-link"
+										href="Controller?command=go_to_about_page">${about_button}</a></li>
+										
 							</ul>
 						</div>
 					</nav>

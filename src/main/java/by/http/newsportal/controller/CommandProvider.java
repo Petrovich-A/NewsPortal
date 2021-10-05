@@ -6,6 +6,7 @@ import java.util.Map;
 import by.http.newsportal.controller.impl.AddNews;
 import by.http.newsportal.controller.impl.ChangeLocal;
 import by.http.newsportal.controller.impl.DeleteNews;
+import by.http.newsportal.controller.impl.GoToAboutPage;
 import by.http.newsportal.controller.impl.GoToMainPage;
 import by.http.newsportal.controller.impl.GoToManageNews;
 import by.http.newsportal.controller.impl.GoToAddNews;
@@ -35,6 +36,7 @@ public class CommandProvider {
 		commands.put(CommandName.GO_TO_UPDATE_NEWS, new GoToUpdateNews());
 		commands.put(CommandName.GO_TO_VIEW_NEWS_PAGE, new GoToViewNewsPage());  
 		commands.put(CommandName.GO_TO_VIEW_ALL_NEWS_PAGE, new GoToViewAllNewsPage());  
+		commands.put(CommandName.GO_TO_ABOUT_PAGE, new GoToAboutPage());  
 		commands.put(CommandName.CHANGE_LOCAL, new ChangeLocal());
 		commands.put(CommandName.REGISTRATION, new Registration());
 		commands.put(CommandName.AUTHORIZATION, new Authorization());

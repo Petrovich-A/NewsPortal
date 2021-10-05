@@ -11,7 +11,7 @@
 <link href="resources/css/bootstrap.min.css" rel="stylesheet" />
 <link href="resources/fontawesome/css/all.min.css" rel="stylesheet" />
 <link href="resources/css/templatemo-diagoona-authoriz.css" rel="stylesheet">
-<title>Registration Info page</title>
+<title>Authorization Info Page</title>
 </head>
 
 <body>
@@ -37,7 +37,6 @@
 						<div class="collapse navbar-collapse tm-nav" id="navbar-nav">
 							<ul class="navbar-nav text-uppercase">
 								<li class="nav-item"><a class="nav-link tm-nav-link" href="Controller?command=go_to_main_page">Home </a></li>
-								<li class="nav-item"><a class="nav-link tm-nav-link" href="Controller?command=go_to_authorization_page">Log in</a></li>
 							</ul>
 						</div>
 					</nav>
@@ -49,12 +48,13 @@
 				<main class="tm-col-right tm-contact-main">
 					<!-- Content -->
 					<section class="tm-content tm-contact">
-						<h2 class="tm-sitename text-uppercase">Registration is successful</h2>
-						<p class="tm-slogon">Welcome to News Portal</p>
-						<a class="tm-slogon" href="Controller?command=go_to_authorization_page"> Please log in </a>
+						<h2 class="tm-sitename text-uppercase">Authorization is successful</h2>
+						<p class="tm-slogon">You are an authorized user</p>
+						<p class="tm-slogon">You have an oportynity to read full news</p>
+						<a class="tm-slogon" href="Controller?command=go_to_main_page"> To the main page </a>
 						<br />
 						<p class="mb-5">
-							<c:out value="${user.getName()}" />
+							<c:out value="${user.toString()}" />
 						</p>
 					</section>
 				</main>

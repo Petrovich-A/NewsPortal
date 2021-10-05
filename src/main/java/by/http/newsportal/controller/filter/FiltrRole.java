@@ -20,19 +20,9 @@ public class FiltrRole implements Filter {
 	@Override
 	public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)
 			throws IOException, ServletException {
-		HttpSession session = ((HttpServletRequest) servletRequest).getSession();
-		String role = (String) session.getAttribute("role");
-//		if (role != null) {
-//			RoleName roleName = role.getRole();
-//			if (roleName == roleName.ADMINISTRATOR) {
-//				servletRequest.setAttribute("administrator", "administrator");
-//			}
-//			if (roleName == roleName.AUTHORIZED_USER) {
-//				servletRequest.setAttribute("user", "user");
-//			}
-//		}
-//		session.setAttribute("RoleName", new User(RoleName.ADMINISTRATOR, "loginExample"));
-//		filterChain.doFilter(servletRequest, servletResponse);
+		HttpSession session = ((HttpServletRequest) servletRequest).getSession(true);
+		session.setAttribute("roleName", RoleName.ADMINISTRATOR);
+		filterChain.doFilter(servletRequest, servletResponse);
 	}
 
 }

@@ -10,9 +10,15 @@
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet" />
 <link href="resources/css/bootstrap.min.css" rel="stylesheet" />
 <link href="resources/fontawesome/css/all.min.css" rel="stylesheet" />
-<link href="resources/css/templatemo-diagoona-registr-page.css" rel="stylesheet">
-<title>Registration Page Info</title>
+<link href="resources/css/templatemo-diagoona-authoriz.css" rel="stylesheet">
+<title>About page</title>
+
+<fmt:setLocale value="${sessionScope.local}" />
+<fmt:setBundle basename="properties.local" var="loc" />
+<fmt:message bundle="${loc}" key="local.message" var="message" />
+<fmt:message bundle="${loc}" key="local.login.page.h1" var="LoginPageH1_text" />
 </head>
+
 <body>
 	<div class="tm-container">
 		<div>
@@ -35,7 +41,7 @@
 						</button>
 						<div class="collapse navbar-collapse tm-nav" id="navbar-nav">
 							<ul class="navbar-nav text-uppercase">
-								<li class="nav-item"><a class="nav-link tm-nav-link" href="Controller?command=go_to_main_page">Home</a></li>
+								<li class="nav-item"><a class="nav-link tm-nav-link" href="Controller?command=go_to_main_page">Home </a></li>
 							</ul>
 						</div>
 					</nav>
@@ -44,16 +50,37 @@
 
 			<div class="tm-row">
 				<div class="tm-col-left"></div>
-				<main class="tm-col-right tm-contact-main">
+				<main class="tm-col-right">
 					<!-- Content -->
-					<section class="tm-content tm-contact">
-						<h2 class="tm-sitename text-uppercase">Registration is successful</h2>
-						<p class="tm-slogon">Welcome to News Portal</p>
-						<a class="tm-slogon" href="Controller?command=go_to_authorization_page"> Please log in </a>
-						<br />
-						<p class="mb-5">
-							<c:out value="${registrationInfo.toString()}" />
-						</p>
+					<section class="tm-content tm-about">
+						<h2 class="mb-2 tm-content-title">About News Portal</h2>
+						<hr class="mb-4">
+						<p class="mb-5">Простой новостной портал написанный с использованием Layered Architecture, HTML, JSP, паттерна "Комманда", реляционной базой
+							данных SQL (MySQL), TomCat и не сложным оформлением с использованием CSS.</p>
+						<div class="media my-3">
+							<i class="fas fa-shapes fa-3x p-3 mr-4"></i>
+							<div class="media-body">
+								<p class="mb-5">Отображение всех новостей на одной странице</p>
+							</div>
+						</div>
+						<div class="media my-3">
+							<i class="fas fa-draw-polygon fa-3x p-3 mr-4"></i>
+							<div class="media-body">
+								<p>Локализация</p>
+							</div>
+						</div>
+						<div class="media my-3">
+							<i class="fab fa-creative-commons-share fa-3x p-3 mr-4"></i>
+							<div class="media-body">
+								<p>Администратор системы может редактировать новости: добавлять, удалять, обновлятьs</p>
+							</div>
+						</div>
+						<div class="media my-3">
+							<i class="fas fa-bookmark fa-3x p-3 mr-4"></i>
+							<div class="media-body">
+								<p>Регистрация пользователя</p>
+							</div>
+						</div>
 					</section>
 				</main>
 			</div>
