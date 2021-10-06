@@ -19,6 +19,10 @@ public class RegistrationInfo implements Serializable {
 	public String hobby;
 	public Date date;
 
+	public RegistrationInfo() {
+		super();
+	}
+
 	public RegistrationInfo(String role, String name, String password, String eMail, String gender, String country,
 			String language, String hobby, Date date) {
 		super();
@@ -31,6 +35,13 @@ public class RegistrationInfo implements Serializable {
 		this.language = language;
 		this.hobby = hobby;
 		this.date = date;
+	}
+
+	public RegistrationInfo(String role, String name, String password) {
+		super();
+		this.role = role;
+		this.name = name;
+		this.password = password;
 	}
 
 	public String getRole() {

@@ -20,14 +20,16 @@ public class Authorization implements ICommand {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String role = request.getParameter("role");
+		String role = "ADMINISTRATOR";
 		String login = request.getParameter("login");
-		String remember = request.getParameter("remember");
+		String password = request.getParameter("password");
+//		String remember = request.getParameter("remember");
 		HttpSession session = request.getSession(true);
-		User user = new User(role, login);
+		User user = new User(role, login, password);
+		session.setAttribute("user", user);
 
 		try {
-			user = I_USER_SERVICE.authorization(role, login);
+			user = I_USER_SERVICE.authorization(user);
 			session.setAttribute("user", user);
 			System.out.println("Authorization user: " + user);
 			response.sendRedirect("Controller?command=go_to_LogIn_Info_Page.jsp");

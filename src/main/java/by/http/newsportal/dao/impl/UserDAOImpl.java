@@ -11,13 +11,14 @@ import by.http.newsportal.dao.DAOException;
 import by.http.newsportal.dao.IUserDAO;
 
 public class UserDAOImpl implements IUserDAO {
-	private final String SQL = "INSERT INTO user(role, name, password, eMail, gender, country, language, hobby, date) VALUES(?,?,?,?,?,?,?,?,?)";
+	private final String SQL_REGISTRATION = "INSERT INTO user(role, name, password, eMail, gender, country, language, hobby, date) VALUES(?,?,?,?,?,?,?,?,?)";
+	private final String SQL_AUTHORIZATION = "SELECT * FROM user WHERE login= ? AND password = ?";
 
 	@Override
 	public void registration(RegistrationInfo registrationInfo) throws DAOException {
 		try (MyConnectionToDB myConnectionToDB = new MyConnectionToDB();
 				Connection connection = myConnectionToDB.getNewsConnection();
-				PreparedStatement preparedStatement = connection.prepareStatement(SQL);) {
+				PreparedStatement preparedStatement = connection.prepareStatement(SQL_REGISTRATION);) {
 			preparedStatement.setString(1, registrationInfo.getRole());
 			preparedStatement.setString(2, registrationInfo.getName());
 			preparedStatement.setString(3, registrationInfo.getPassword());
@@ -46,9 +47,25 @@ public class UserDAOImpl implements IUserDAO {
 	}
 
 	@Override
-	public User authorization(User user) throws DAOException {
-		// TODO Auto-generated method stub
-		return null;
+	public User authorization(User userFromDB) throws DAOException {
+//		User userFromDB = new User();
+		try (MyConnectionToDB myConnectionToDB = new MyConnectionToDB();
+				Connection connection = myConnectionToDB.getNewsConnection();
+				PreparedStatement preparedStatement = connection.prepareStatement(SQL_AUTHORIZATION);) {
+			preparedStatement.setString(1, userFromDB.getRole());
+			preparedStatement.setString(2, userFromDB.getLogin());
+			preparedStatement.setString(3, userFromDB.getPassword());
+			preparedStatement.executeUpdate();
+			System.out.println("user is added to DB");
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		}
+		return userFromDB;
 	}
 
 	@Override

@@ -10,7 +10,7 @@ import by.http.newsportal.service.ServiceException;
 
 public class UserServiceImpl implements IUserService {
 	private final DAOProvider DAO_PROVIDER = DAOProvider.getInstance();
-	private final UserDAOImpl USER_DAO_IMPL  = DAO_PROVIDER.getRegistrationInfoDaoImpl();
+	private final UserDAOImpl USER_DAO_IMPL = DAO_PROVIDER.getRegistrationInfoDaoImpl();
 
 	@Override
 	public void registration(RegistrationInfo registrationInfo) throws ServiceException {
@@ -22,8 +22,8 @@ public class UserServiceImpl implements IUserService {
 	}
 
 	@Override
-	public User authorization(String login, String role) throws ServiceException {
-		User user = null;
+	public User authorization(User user) throws ServiceException {
+//		сравнить объект из базы с логином из юай
 		try {
 			user = USER_DAO_IMPL.authorization(user);
 		} catch (DAOException e) {

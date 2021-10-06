@@ -108,9 +108,9 @@
 		</div>
 	</div>
 
-	<script src="resources/js/jquery-3.4.1.min.js?1"></script>
-	<script src="resources/js/bootstrap.min.js?1"></script>
-	<script src="resources/js/jquery.backstretch.min.js?1"></script>
-	<script src="resources/js/templatemo-script.js?1"></script>
+	<script src="resources/js/jquery-3.4.1.min.js?12"></script>
+	<script src="resources/js/bootstrap.min.js?12"></script>
+	<script src="resources/js/jquery.backstretch.min.js?12"></script>
+	<script src="resources/js/templatemo-script.js?12"></script>
 </body>
 </html>
