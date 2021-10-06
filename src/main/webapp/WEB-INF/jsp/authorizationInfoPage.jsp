@@ -54,7 +54,7 @@
 						<a class="tm-slogon" href="Controller?command=go_to_main_page"> To the main page </a>
 						<br />
 						<p class="mb-5">
-							<c:out value="${user.toString()}" />
+							<!-- <c:out value="${user.toString()}" /> -->
 						</p>
 					</section>
 				</main>

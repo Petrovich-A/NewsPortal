@@ -20,19 +20,20 @@ public class Authorization implements ICommand {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String role = "ADMINISTRATOR";
+//		String role = "ADMINISTRATOR";
 		String login = request.getParameter("login");
 		String password = request.getParameter("password");
 //		String remember = request.getParameter("remember");
 		HttpSession session = request.getSession(true);
-		User user = new User(role, login, password);
-		session.setAttribute("user", user);
+		User userFromUI = new User(login, password);
+		System.out.println("Authorization userFromUI: " + userFromUI);
+		session.setAttribute("user", userFromUI);
 
 		try {
-			user = I_USER_SERVICE.authorization(user);
-			session.setAttribute("user", user);
-			System.out.println("Authorization user: " + user);
-			response.sendRedirect("Controller?command=go_to_LogIn_Info_Page.jsp");
+			userFromUI = I_USER_SERVICE.authorization(userFromUI);
+			request.getSession(true).setAttribute("user", userFromUI);
+			System.out.println("userFromUI Authorization " + userFromUI);
+			response.sendRedirect("Controller?command=go_to_authorization_info_page");
 
 		} catch (ServiceException e) {
 			RequestDispatcher requestDispatcher = request.getRequestDispatcher(PATH);

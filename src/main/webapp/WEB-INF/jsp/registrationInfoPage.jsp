@@ -52,7 +52,7 @@
 						<a class="tm-slogon" href="Controller?command=go_to_authorization_page"> Please log in </a>
 						<br />
 						<p class="mb-5">
-							<c:out value="${registrationInfo.toString()}" />
+							<!-- <c:out value="${registrationInfo.toString()}" /> -->
 						</p>
 					</section>
 				</main>

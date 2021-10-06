@@ -59,9 +59,9 @@
 						<hr>
 						<h4 class="mb-2">${newsChoisen.getAuthor()}</h4>
 						<h3 class="mb-2">${newsChoisen.getBrief()}</h3>
-						<c:if test="sessionScope.user.getRole().equals(RoleName.AUTHORIZED_USER.toString())">
-						<h5 class="mb-2">${newsChoisen.getContent()}</h5>
-						<p class="mb-2">${newsChoisen.getDateDB()}</p>
+						<c:if test="${sessionScope.user.getRole().equals(RoleName.AUTHORIZED_USER.toString())}">
+							<h5 class="mb-2">${newsChoisen.getContent()}</h5>
+							<p class="mb-2">${newsChoisen.getDateDB()}</p>
 						</c:if>
 					</section>
 				</main>

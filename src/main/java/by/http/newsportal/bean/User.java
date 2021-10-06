@@ -22,6 +22,12 @@ public class User implements Serializable {
 		this.login = login;
 		this.password = password;
 	}
+	
+	public User(String login, String password) {
+		super();
+		this.login = login;
+		this.password = password;
+	}
 
 	public String getRole() {
 		return role;

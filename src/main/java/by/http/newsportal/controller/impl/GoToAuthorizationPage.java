@@ -15,9 +15,9 @@ public class GoToAuthorizationPage implements ICommand {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher(PATH);
-		requestDispatcher.forward(request, response);
 		HttpSession session = request.getSession(true);
 		request.getSession(true).setAttribute("url", PATH);
+		requestDispatcher.forward(request, response);
 	}
 
 }

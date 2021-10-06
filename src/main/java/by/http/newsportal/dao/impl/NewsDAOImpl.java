@@ -119,7 +119,6 @@ public class NewsDAOImpl implements INewsDAO {
 				Connection connection = myConnectionToDB.getNewsConnection();
 				PreparedStatement preparedStatement = connection.prepareStatement(SQL_READ);) {
 			preparedStatement.setInt(1, id);
-			System.out.println("NewsDAOImpl, read id: " + id);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
 				news.setId(resultSet.getInt(1));
@@ -129,7 +128,7 @@ public class NewsDAOImpl implements INewsDAO {
 				news.setAuthor(resultSet.getString(5));
 				news.setDateDB(resultSet.getString(6));
 			}
-			System.out.println("NewsDAOImpl News from DB is avaliable \n read method: \n" + news.toString());
+			System.out.println("NewsDAOImpl News from DB is avaliable \n read method: \n");
 
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();

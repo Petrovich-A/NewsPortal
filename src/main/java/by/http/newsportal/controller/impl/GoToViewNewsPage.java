@@ -39,7 +39,6 @@ public class GoToViewNewsPage implements ICommand {
 				newsChoisen.setDateDB(news.getDateDB());
 			}
 		}
-		System.out.println("newsChoisen: " + newsChoisen.toString());
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher(PATH);
 		HttpSession session = request.getSession(true);
 		session.setAttribute("newsChoisen", newsChoisen);

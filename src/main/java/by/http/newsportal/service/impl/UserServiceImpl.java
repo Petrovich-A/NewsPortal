@@ -22,17 +22,22 @@ public class UserServiceImpl implements IUserService {
 	}
 
 	@Override
-	public User authorization(User user) throws ServiceException {
+	public User authorization(User userFromUI) throws ServiceException {
 //		сравнить объект из базы с логином из юай
+		User userFromDB = new User();
 		try {
-			user = USER_DAO_IMPL.authorization(user);
+			userFromDB = USER_DAO_IMPL.authorization(userFromUI);
 		} catch (DAOException e) {
 			throw new ServiceException(e.getMessage(), e);
 		}
-		if (user == null) {
-			throw new ServiceException("User isn't found");
+
+		if (userFromDB == null) {
+			throw new ServiceException("UserServiceImpl: userFromDB isn't found");
+		} else if (userFromUI.getLogin().equals(userFromDB.getLogin())) {
+			
+			System.out.println("equals ok");
 		}
-		return user;
+		return userFromDB;
 	}
 
 	@Override

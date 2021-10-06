@@ -3,6 +3,7 @@ package by.http.newsportal.dao.impl;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import by.http.newsportal.bean.RegistrationInfo;
@@ -12,7 +13,7 @@ import by.http.newsportal.dao.IUserDAO;
 
 public class UserDAOImpl implements IUserDAO {
 	private final String SQL_REGISTRATION = "INSERT INTO user(role, name, password, eMail, gender, country, language, hobby, date) VALUES(?,?,?,?,?,?,?,?,?)";
-	private final String SQL_AUTHORIZATION = "SELECT * FROM user WHERE login= ? AND password = ?";
+	private final String SQL_AUTHORIZATION = "SELECT * FROM user WHERE name= ? AND password = ?";
 
 	@Override
 	public void registration(RegistrationInfo registrationInfo) throws DAOException {
@@ -47,16 +48,20 @@ public class UserDAOImpl implements IUserDAO {
 	}
 
 	@Override
-	public User authorization(User userFromDB) throws DAOException {
-//		User userFromDB = new User();
+	public User authorization(User userFromUI) throws DAOException {
+		User userFromDB = new User();
 		try (MyConnectionToDB myConnectionToDB = new MyConnectionToDB();
 				Connection connection = myConnectionToDB.getNewsConnection();
 				PreparedStatement preparedStatement = connection.prepareStatement(SQL_AUTHORIZATION);) {
-			preparedStatement.setString(1, userFromDB.getRole());
-			preparedStatement.setString(2, userFromDB.getLogin());
-			preparedStatement.setString(3, userFromDB.getPassword());
-			preparedStatement.executeUpdate();
-			System.out.println("user is added to DB");
+			preparedStatement.setString(1, userFromUI.getLogin());
+			preparedStatement.setString(2, userFromUI.getPassword());
+			System.out.println("userFromUI in UserDAOImpl: " + userFromUI);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			while (resultSet.next()) {
+				userFromDB.setRole(resultSet.getString(2));
+				userFromDB.setLogin(resultSet.getString(3));
+				userFromDB.setPassword(resultSet.getString(4));
+			}
 
 		} catch (SQLException e) {
 			e.printStackTrace();

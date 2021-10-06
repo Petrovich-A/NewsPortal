@@ -55,7 +55,7 @@
 					<section class="tm-content tm-about">
 						<h2 class="mb-2 tm-content-title">About News Portal</h2>
 						<hr class="mb-4">
-						<p class="mb-5">Простой новостной портал написанный с использованием Layered Architecture, HTML, JSP, паттерна "Комманда", реляционной базой
+						<p class="mb-5">Новостной портал написанный с использованием Layered Architecture, HTML, JSP, паттерна "Комманда", реляционной базой
 							данных SQL (MySQL), TomCat и не сложным оформлением с использованием CSS.</p>
 						<div class="media my-3">
 							<i class="fas fa-shapes fa-3x p-3 mr-4"></i>

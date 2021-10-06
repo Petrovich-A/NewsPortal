@@ -7,7 +7,7 @@ public interface IUserService {
 
 	public void registration(RegistrationInfo registrationInfo) throws ServiceException;
 
-	public User authorization(User user) throws ServiceException;
+	public User authorization(User userFromUI) throws ServiceException;
 
 	public boolean validation(RegistrationInfo registrationInfo) throws ServiceException;
 
