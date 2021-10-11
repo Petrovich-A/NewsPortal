@@ -1,3 +1,5 @@
+![alt text](http://github.com/Petrovich-A/NewsPortal/blob/8e8c67258cbd3fc3b86c3615d123d1311fa3bead/News%20portal%20main.png)
+
 ## Новостной портал написанный с использованием Layered Architecture, **HTML**, **JSP**, паттерна "Комманда", реляционной базой данных **SQL (MySQL)**, **TomCat** и не сложным оформлением с использованием **CSS**.
 
 # **Реализовано**:
